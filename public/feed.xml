@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Tu Quet</title>
+    <link>https://tuquet.github.io</link>
+    <description>Tu Quet's Blog &amp; Engineering Portfolio</description>
+    <language>en</language>
+    <item>
+      <title>Đừng để CV chỉ là một tệp PDF: Vì sao mỗi lập trình viên nên tự dựng một blog cá nhân?</title>
+      <link>https://tuquet.github.io/posts/tai-sao-developer-nen-co-blog-ca-nhan</link>
+      <guid>https://tuquet.github.io/posts/tai-sao-developer-nen-co-blog-ca-nhan</guid>
+      <pubDate>Sat, 03 Oct 2026 13:45:00 GMT</pubDate>
+      <description>Trong kỷ nguyên AI bùng nổ, một tệp CV gạch đầu dòng không còn đủ sức nặng. Viết blog không phải để dạy đời ai, mà là để xây dựng bằng chứng năng lực sống động và lưu giữ kho tri thức của chính bạn.</description>
+    </item>
+    <item>
+      <title>Biến Telegram thành trung tâm điều khiển VPS và GitHub Actions: Đi cà phê vẫn quản lý được dự án</title>
+      <link>https://tuquet.github.io/posts/xay-dung-telegram-chatops-bot-giam-sat-vps</link>
+      <guid>https://tuquet.github.io/posts/xay-dung-telegram-chatops-bot-giam-sat-vps</guid>
+      <pubDate>Sat, 03 Oct 2026 12:30:00 GMT</pubDate>
+      <description>Cách mình tự làm một trợ lý bot Telegram bằng Node.js để theo dõi sức khỏe server VPS, nhận báo lỗi CI/CD GitHub tức thì trên điện thoại và tự động thông báo bài viết mới.</description>
+    </item>
+    <item>
+      <title>Kiến trúc xử lý Telemetry thời gian thực cho hơn 100.000 xe điện thông minh</title>
+      <link>https://tuquet.github.io/posts/kien-truc-telemetry-100k-xe-dien</link>
+      <guid>https://tuquet.github.io/posts/kien-truc-telemetry-100k-xe-dien</guid>
+      <pubDate>Sun, 15 Mar 2026 09:00:00 GMT</pubDate>
+      <description>Hành trình thiết kế hệ thống streaming dữ liệu xe điện tải cao với Kafka, WebSocket cluster và hạn chế áp lực backpressure tại CMC Global.</description>
+    </item>
+  </channel>
+</rss>
