@@ -2,7 +2,7 @@
 import type { Post } from '~/types'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { englishOnly, formatDate } from '~/logics'
+import { formatDate } from '~/logics'
 
 const props = defineProps<{
   type?: string
@@ -28,8 +28,7 @@ const routes: Post[] = router.getRoutes()
 
 const posts = computed(() =>
   [...(props.posts || routes), ...(props.extra || [])]
-    .sort((a, b) => +new Date(b.date) - +new Date(a.date))
-    .filter(i => !englishOnly.value || !i.lang || i.lang === 'en'),
+    .sort((a, b) => +new Date(b.date) - +new Date(a.date)),
 )
 
 const getYear = (a: Date | string | number) => new Date(a).getFullYear()
@@ -88,11 +87,6 @@ function getGroupName(p: Post) {
         >
           <li class="no-underline" flex="~ col md:row gap-2 md:items-center">
             <div class="title text-lg leading-1.2em" flex="~ gap-2">
-              <span
-                v-if="route.lang === 'vi'"
-                align-middle flex-none
-                class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--15 mr2 my-auto hidden md:block"
-              >Tiếng Việt</span>
               <span align-middle>{{ route.title }}</span>
               <span
                 v-if="route.redirect"
@@ -107,11 +101,6 @@ function getGroupName(p: Post) {
                 {{ formatDate(route.date, true) }}
               </span>
               <span v-if="route.duration" text-sm op40 ws-nowrap>· {{ route.duration }}</span>
-              <span
-                v-if="route.lang === 'vi'"
-                align-middle flex-none
-                class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 my-auto md:hidden"
-              >Tiếng Việt</span>
             </div>
           </li>
         </component>

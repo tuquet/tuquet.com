@@ -21,7 +21,7 @@ const demos = [
     hoverText: 'group-hover:text-emerald-500',
     desc: 'Mobile ChatOps bot built with Node.js and GrammY for GitHub Actions CI/CD dispatch and real-time server health monitoring.',
     tags: ['Node.js', 'GrammY', 'ChatOps'],
-    link: '/posts/xay-dung-telegram-chatops-bot-giam-sat-vps',
+    link: '/posts/telegram-chatops-vps-monitoring',
     external: false,
   },
   {
@@ -32,8 +32,8 @@ const demos = [
     hoverBg: 'hover:bg-amber-500/5',
     hoverText: 'group-hover:text-amber-500',
     desc: 'Architectural blueprint for real-time WebSocket vehicle telemetry streaming, Redis pub/sub backplanes, and 60fps canvas monitors.',
-    tags: ['WebSockets', 'Redis Pub/Sub', 'Bilingual Blog'],
-    link: '/posts/kien-truc-telemetry-100k-xe-dien',
+    tags: ['WebSockets', 'Redis Pub/Sub', 'Architecture'],
+    link: '/posts/telemetry-architecture-100k-evs',
     external: false,
   },
   {

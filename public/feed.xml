@@ -6,25 +6,39 @@
     <description>Tu Quet's Blog &amp; Engineering Portfolio</description>
     <language>en</language>
     <item>
-      <title>Đừng để CV chỉ là một tệp PDF: Vì sao mỗi lập trình viên nên tự dựng một blog cá nhân?</title>
-      <link>https://tuquet.github.io/posts/tai-sao-developer-nen-co-blog-ca-nhan</link>
-      <guid>https://tuquet.github.io/posts/tai-sao-developer-nen-co-blog-ca-nhan</guid>
+      <title>Building an Antidetect Browser from C++ Patched Chromium</title>
+      <link>https://tuquet.github.io/posts/building-antidetect-browser-native-chromium</link>
+      <guid>https://tuquet.github.io/posts/building-antidetect-browser-native-chromium</guid>
+      <pubDate>Tue, 06 Oct 2026 14:30:00 GMT</pubDate>
+      <description>Architectural guide to building a production-grade Antidetect Browser with native C++ Chromium patches: CLI flags, deterministic noise, profile isolation, and bypassing advanced bot detection.</description>
+    </item>
+    <item>
+      <title>Zero-Trust Architecture &amp; Risk Isolation: Survival Guide for Web Agencies and Freelancers</title>
+      <link>https://tuquet.github.io/posts/zero-trust-architecture-agency-risk-management</link>
+      <guid>https://tuquet.github.io/posts/zero-trust-architecture-agency-risk-management</guid>
+      <pubDate>Mon, 05 Oct 2026 15:30:00 GMT</pubDate>
+      <description>How to protect self-hosted servers without open ports, and how to manage Cloudflare accounts across hundreds of clients without cascading suspension risks using zero-cost Email Routing.</description>
+    </item>
+    <item>
+      <title>Don't Let Your Resume Be Just a PDF: Why Every Developer Needs a Personal Blog</title>
+      <link>https://tuquet.github.io/posts/why-developers-should-have-a-blog</link>
+      <guid>https://tuquet.github.io/posts/why-developers-should-have-a-blog</guid>
       <pubDate>Sat, 03 Oct 2026 13:45:00 GMT</pubDate>
-      <description>Trong kỷ nguyên AI bùng nổ, một tệp CV gạch đầu dòng không còn đủ sức nặng. Viết blog không phải để dạy đời ai, mà là để xây dựng bằng chứng năng lực sống động và lưu giữ kho tri thức của chính bạn.</description>
+      <description>In the era of AI, bullet-point resumes carry less weight than ever. Writing a blog isn't about lecturing others—it's about building living proof of work and preserving your own second brain.</description>
     </item>
     <item>
-      <title>Biến Telegram thành trung tâm điều khiển VPS và GitHub Actions: Đi cà phê vẫn quản lý được dự án</title>
-      <link>https://tuquet.github.io/posts/xay-dung-telegram-chatops-bot-giam-sat-vps</link>
-      <guid>https://tuquet.github.io/posts/xay-dung-telegram-chatops-bot-giam-sat-vps</guid>
+      <title>Turning Telegram into a VPS Command Center &amp; GitHub Actions Watchdog</title>
+      <link>https://tuquet.github.io/posts/telegram-chatops-vps-monitoring</link>
+      <guid>https://tuquet.github.io/posts/telegram-chatops-vps-monitoring</guid>
       <pubDate>Sat, 03 Oct 2026 12:30:00 GMT</pubDate>
-      <description>Cách mình tự làm một trợ lý bot Telegram bằng Node.js để theo dõi sức khỏe server VPS, nhận báo lỗi CI/CD GitHub tức thì trên điện thoại và tự động thông báo bài viết mới.</description>
+      <description>How to build a lightweight Node.js Telegram bot to monitor VPS server health, receive instant GitHub CI failure alerts, and trigger deployments from your phone.</description>
     </item>
     <item>
-      <title>Kiến trúc xử lý Telemetry thời gian thực cho hơn 100.000 xe điện thông minh</title>
-      <link>https://tuquet.github.io/posts/kien-truc-telemetry-100k-xe-dien</link>
-      <guid>https://tuquet.github.io/posts/kien-truc-telemetry-100k-xe-dien</guid>
+      <title>Real-Time Telemetry Architecture for 100,000+ Connected Electric Vehicles</title>
+      <link>https://tuquet.github.io/posts/telemetry-architecture-100k-evs</link>
+      <guid>https://tuquet.github.io/posts/telemetry-architecture-100k-evs</guid>
       <pubDate>Sun, 15 Mar 2026 09:00:00 GMT</pubDate>
-      <description>Hành trình thiết kế hệ thống streaming dữ liệu xe điện tải cao với Kafka, WebSocket cluster và hạn chế áp lực backpressure tại CMC Global.</description>
+      <description>Lessons from designing a high-throughput EV streaming pipeline with Kafka, WebSocket clusters, and backpressure mitigation at CMC Global.</description>
     </item>
   </channel>
 </rss>
