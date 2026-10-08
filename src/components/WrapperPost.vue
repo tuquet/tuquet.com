@@ -14,7 +14,7 @@ const content = ref<HTMLDivElement>()
 
 const base = 'https://tuquet.github.io'
 const facebookUrl = 'https://fb.com/quet.jr'
-const tweetUrl = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Reading @tuquet's ${base}${route.path}\n\nI think...`)}`)
+const tweetUrl = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Reading @quetjr's ${base}${route.path}\n\nI think...`)}`)
 
 let mermaidInstance: any = null
 

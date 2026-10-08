@@ -23,7 +23,7 @@ Find me on
 
 <p flex="~ gap-2 wrap" class="mt--2!">
   <a href="https://github.com/tuquet" target="_blank" rel="noopener"><span op75 i-simple-icons-github /> GitHub</a>
-  <a href="https://x.com/tuquet" target="_blank" rel="noopener"><span op75 i-ri-twitter-x-fill /> Twitter</a>
+  <a href="https://x.com/quetjr" target="_blank" rel="noopener"><span op75 i-ri-twitter-x-fill /> Twitter</a>
   <a href="https://www.linkedin.com/in/tuquet" target="_blank" rel="noopener"><span op75 i-simple-icons-linkedin /> LinkedIn</a>
   <a href="https://fb.com/quet.jr" target="_blank" rel="noopener"><span op75 i-simple-icons-facebook /> Facebook</a>
   <a href="https://www.npmjs.com/org/tuquet" target="_blank" rel="noopener"><span op75 i-simple-icons-npm /> npm</a>
