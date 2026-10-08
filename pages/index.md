@@ -5,21 +5,21 @@ image: https://tuquet.github.io/og.png
 art: plum
 ---
 
-Chào, mình là Tú Quét.
+Hey, I'm Tu Quet.
 
-Một kỹ sư hệ thống say mê xây dựng những nền tảng ổn định và tạo ra công cụ hỗ trợ cộng đồng phát triển phần mềm.
+A systems architect and software engineer who loves building resilient platforms and crafting tools for the developer community.
 
-Ban ngày, mình đồng hành cùng các đội ngũ kỹ thuật tại [CMC Global](https://cmcglobal.com.vn/). Đêm về, mình đắm chìm vào mã nguồn mở để hiện thực hóa những ý tưởng mới.
+By day, I work alongside engineering teams at [CMC Global](https://cmcglobal.com.vn/). By night, I immerse myself in open source to bring new ideas to life.
 
-Những gì đã ra lò, mình gói vào [dự án](/projects). Những bài học học được dọc đường được sẻ chia trong [bài viết](/posts). Những kinh nghiệm trao cho các trợ lý AI nằm tại [kỹ năng](https://tuquet.github.io/docs/skills/), và các thể nghiệm trực quan thì ở [demos](/demos). Bạn có thể tìm thấy toàn bộ dấu mốc sự nghiệp của mình tại [hồ sơ năng lực](/cv).
+What has shipped is gathered in [projects](/projects). Lessons learned along the way are shared in [posts](/posts). What I teach autonomous AI agents lives in [skills](https://tuquet.github.io/docs/skills/), and interactive experiments are in [demos](/demos). You can find my full career milestones on my [curriculum vitae](/cv).
 
-Khi gấp máy tính lại, mình bắt trọn từng khoảnh khắc đời thường qua [nhiếp ảnh](/photos).
+When the laptop is closed, I capture everyday moments through [photography](/photos).
 
 <div flex-auto />
 
 ---
 
-Kết nối với mình qua
+Find me on
 
 <p flex="~ gap-2 wrap" class="mt--2!">
   <a href="https://github.com/tuquet" target="_blank" rel="noopener"><span op75 i-simple-icons-github /> GitHub</a>
@@ -29,7 +29,7 @@ Kết nối với mình qua
   <a href="https://www.npmjs.com/org/tuquet" target="_blank" rel="noopener"><span op75 i-simple-icons-npm /> npm</a>
 </p>
 
-Hoặc gửi email tại <span font-mono>tunyk.93<span i-carbon-at/>gmail.com</span>
+Or mail me at <span font-mono>tunyk.93<span i-carbon-at/>gmail.com</span>
 
 ---
 
