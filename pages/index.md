@@ -7,13 +7,13 @@ art: plum
 
 Hey, I'm Tu Quet.
 
-A systems architect and software engineer obsessed with low-level runtimes, stealth browser internals, and bulletproof developer tooling.
+Technical Project Lead & Systems Architect with a product-first mindset.
 
-Currently engineering systems at [CMC Global](https://cmcglobal.com.vn/).
+By day, I lead engineering squads at [CMC Global](https://cmcglobal.com.vn/), architecting high-throughput telemetry platforms for 100k+ connected electric vehicles and high-scale enterprise web portals. By night, I build open-source developer tooling, stealth Chromium runtimes, and native Rust daemons.
 
-What I ship to production lives in [projects](/projects). What I'm exploring in low-level Rust and Chromium gets written down in [posts](/posts). What I teach autonomous AI agents goes into [skills](https://tuquet.github.io/docs/skills/), and the architecture experiments I test in public are in [demos](/demos). You can also explore my complete employment history on my [curriculum vitae](/cv).
+What I ship to production lives in [projects](/projects). What I explore in distributed systems, real-time data streaming, and engineering workflows gets written down in [posts](/posts). What I teach autonomous AI agents goes into [skills](https://tuquet.github.io/docs/skills/), and interactive architecture experiments live in [demos](/demos). You can also explore my complete employment history and case studies on my [curriculum vitae](/cv).
 
-Outside of terminals and compilers, I capture moments through [photography](/photos).
+Outside of terminals and telemetry streams, I capture the world through [photography](/photos).
 
 <div flex-auto />
 

@@ -38,9 +38,10 @@ export default defineConfig({
     presetWebFonts({
       fonts: {
         sans: 'Inter',
-        mono: 'DM Mono',
+        mono: ['JetBrains Mono', 'DM Mono'],
+        serif: 'Lora',
         condensed: 'Roboto Condensed',
-        wisper: 'Bad Script',
+        wisper: 'Caveat',
       },
       processors: createLocalFontProcessor(),
     }),

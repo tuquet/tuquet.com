@@ -43,7 +43,7 @@ html:not(.dark) .shiki span {
 }
 
 .prose .shiki {
-  font-family: 'DM Mono', 'Input Mono', 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', 'DM Mono', 'Input Mono', 'Fira Code', monospace;
   font-size: 0.9em;
   line-height: 1.4;
   margin: 0.5em 0;
