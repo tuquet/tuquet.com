@@ -24,7 +24,7 @@ projects:
       icon: 'i-carbon-flow-data'
     - name: 'Specter Cloud'
       link: 'https://github.com/tuquet/cloud'
-      desc: 'Central control plane to dispatch tasks, monitor health, and sync automation fleets across distributed machines'
+      desc: 'Multi-tenant control plane on Supabase to manage device enrollment, database schemas, and edge permissions'
       icon: 'i-carbon-cloud'
     - name: 'Storage Hub'
       link: 'https://github.com/tuquet/storage'
