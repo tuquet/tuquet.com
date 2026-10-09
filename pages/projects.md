@@ -7,7 +7,7 @@ art: dots
 projects:
   Core Platforms:
     - name: 'Automa'
-      link: 'https://specter.specter.tuquet.com/automa/'
+      link: 'https://specter.tuquet.com/automa/'
       desc: 'Next-generation workflow orchestration & headless automation platform'
       icon: 'i-carbon-flow-data'
     - name: 'Runner'
