@@ -25,7 +25,7 @@ function slug(name: string) {
           GitHub
         </a>
         <a
-          href="https://tuquet.netlify.app"
+          href="https://release.tuquet.com"
           target="_blank"
           class="group btn-amber inline-block"
         >
