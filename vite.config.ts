@@ -220,5 +220,161 @@ export default defineConfig({
 
   ssgOptions: {
     formatting: 'minify',
+    async onPageRendered(route, html) {
+      function escapeHtml(str: string): string {
+        return str
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;')
+      }
+
+      function getFrontmatterForRoute(r: string): Record<string, any> | null {
+        const cleanRoute = r.replace(/^\/|\/$/g, '')
+        const candidates = [
+          cleanRoute ? `pages/${cleanRoute}.md` : 'pages/index.md',
+          `pages/${cleanRoute}/index.md`,
+        ]
+        for (const candidate of candidates) {
+          const fullPath = resolve(import.meta.dirname, candidate)
+          if (fs.existsSync(fullPath)) {
+            try {
+              const { data } = matter(fs.readFileSync(fullPath, 'utf-8'))
+              return data
+            }
+            catch {
+              // ignore
+            }
+          }
+        }
+        return null
+      }
+
+      const fm = getFrontmatterForRoute(route)
+      const isRoot = route === '/' || route === ''
+      const isPost = route.startsWith('/posts/') && route !== '/posts'
+
+      let pageTitle = 'Nguyen Dinh Tu (Tu Quet) | Technical Lead & Systems Architect'
+      if (!isRoot && fm?.title) {
+        if (fm.title.includes('Tu Quet') || fm.title.includes('Nguyen Dinh Tu'))
+          pageTitle = fm.title
+        else
+          pageTitle = `${fm.title} · Tu Quet`
+      }
+
+      const defaultDesc = 'Nguyen Dinh Tu (Tu Quet) | Technical Lead & Systems Architect specializing in distributed systems, real-time data streaming, and developer tooling.'
+      const pageDescription = fm?.description || defaultDesc
+      const canonicalUrl = `https://tuquet.com${isRoot ? '/' : route}`
+      const ogType = isPost ? 'article' : 'website'
+      const ogImage = fm?.image || 'https://tuquet.com/og.png'
+
+      // Replace or insert <title>
+      if (/<title>[\s\S]*?<\/title>/i.test(html)) {
+        html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(pageTitle)}</title>`)
+      }
+      else {
+        html = html.replace('</head>', `<title>${escapeHtml(pageTitle)}</title></head>`)
+      }
+
+      // Replace or insert <meta name="description">
+      if (/<meta\s+name=["']description["'][\s\S]*?\/?>/i.test(html)) {
+        html = html.replace(/<meta\s+name=["']description["'][\s\S]*?\/?>/i, `<meta name="description" content="${escapeHtml(pageDescription)}">`)
+      }
+      else {
+        html = html.replace('</head>', `<meta name="description" content="${escapeHtml(pageDescription)}"></head>`)
+      }
+
+      // Replace or insert <link rel="canonical">
+      if (/<link\s+rel=["']canonical["'][\s\S]*?\/?>/i.test(html)) {
+        html = html.replace(/<link\s+rel=["']canonical["'][\s\S]*?\/?>/i, `<link rel="canonical" href="${canonicalUrl}">`)
+      }
+      else {
+        html = html.replace('</head>', `<link rel="canonical" href="${canonicalUrl}"></head>`)
+      }
+
+      // Replace or insert Open Graph tags
+      html = html.replace(/<meta\s+property=["']og:title["'][\s\S]*?\/?>/i, `<meta property="og:title" content="${escapeHtml(pageTitle)}">`)
+      html = html.replace(/<meta\s+property=["']og:description["'][\s\S]*?\/?>/i, `<meta property="og:description" content="${escapeHtml(pageDescription)}">`)
+      html = html.replace(/<meta\s+property=["']og:url["'][\s\S]*?\/?>/i, `<meta property="og:url" content="${canonicalUrl}">`)
+      html = html.replace(/<meta\s+property=["']og:type["'][\s\S]*?\/?>/i, `<meta property="og:type" content="${ogType}">`)
+      html = html.replace(/<meta\s+property=["']og:image["'][\s\S]*?\/?>/i, `<meta property="og:image" content="${escapeHtml(ogImage)}">`)
+
+      // Replace or insert Twitter tags
+      html = html.replace(/<meta\s+name=["']twitter:title["'][\s\S]*?\/?>/i, `<meta name="twitter:title" content="${escapeHtml(pageTitle)}">`)
+      html = html.replace(/<meta\s+name=["']twitter:description["'][\s\S]*?\/?>/i, `<meta name="twitter:description" content="${escapeHtml(pageDescription)}">`)
+      html = html.replace(/<meta\s+name=["']twitter:image["'][\s\S]*?\/?>/i, `<meta name="twitter:image" content="${escapeHtml(ogImage)}">`)
+
+      // Extra article tags and JSON-LD
+      if (isPost) {
+        let articleTags = '<meta property="article:author" content="Nguyen Dinh Tu">'
+        let pubDateIso = ''
+        if (fm?.date) {
+          try {
+            pubDateIso = new Date(fm.date).toISOString()
+            articleTags += `<meta property="article:published_time" content="${pubDateIso}">`
+          }
+          catch {
+            // ignore
+          }
+        }
+
+        const articleSchema = {
+          '@context': 'https://schema.org',
+          '@type': 'TechArticle',
+          'headline': fm?.title || pageTitle,
+          'description': pageDescription,
+          'url': canonicalUrl,
+          'mainEntityOfPage': {
+            '@type': 'WebPage',
+            '@id': canonicalUrl,
+          },
+          'datePublished': pubDateIso || new Date().toISOString(),
+          'dateModified': fm?.updated ? new Date(fm.updated).toISOString() : (pubDateIso || new Date().toISOString()),
+          'author': {
+            '@type': 'Person',
+            'name': 'Nguyen Dinh Tu',
+            'url': 'https://tuquet.com',
+          },
+          'publisher': {
+            '@type': 'Person',
+            'name': 'Nguyen Dinh Tu',
+            'url': 'https://tuquet.com',
+          },
+          'image': ogImage,
+        }
+
+        const breadcrumbSchema = {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            {
+              '@type': 'ListItem',
+              'position': 1,
+              'name': 'Home',
+              'item': 'https://tuquet.com/',
+            },
+            {
+              '@type': 'ListItem',
+              'position': 2,
+              'name': 'Blog',
+              'item': 'https://tuquet.com/posts',
+            },
+            {
+              '@type': 'ListItem',
+              'position': 3,
+              'name': fm?.title || pageTitle,
+              'item': canonicalUrl,
+            },
+          ],
+        }
+
+        const jsonLdScripts = `<script type="application/ld+json">${JSON.stringify(articleSchema)}</script><script type="application/ld+json">${JSON.stringify(breadcrumbSchema)}</script>`
+
+        html = html.replace('</head>', `${articleTags}${jsonLdScripts}</head>`)
+      }
+
+      return html
+    },
   },
 })

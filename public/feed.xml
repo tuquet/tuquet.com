@@ -20,11 +20,11 @@
       <description>How to protect self-hosted servers without open ports, and how to manage Cloudflare accounts across hundreds of clients without cascading suspension risks using zero-cost Email Routing.</description>
     </item>
     <item>
-      <title>Don't Let Your Resume Be Just a PDF: Why Every Developer Needs a Personal Blog</title>
+      <title>Don&apos;t Let Your Resume Be Just a PDF: Why Every Developer Needs a Personal Blog</title>
       <link>https://tuquet.com/posts/why-developers-should-have-a-blog</link>
       <guid>https://tuquet.com/posts/why-developers-should-have-a-blog</guid>
       <pubDate>Sat, 03 Oct 2026 13:45:00 GMT</pubDate>
-      <description>In the era of AI, bullet-point resumes carry less weight than ever. Writing a blog isn't about lecturing others—it's about building living proof of work and preserving your own second brain.</description>
+      <description>In the era of AI, bullet-point resumes carry less weight than ever. Writing a blog isn&apos;t about lecturing others—it&apos;s about building living proof of work and preserving your own second brain.</description>
     </item>
     <item>
       <title>Turning Telegram into a VPS Command Center &amp; GitHub Actions Watchdog</title>
@@ -32,6 +32,34 @@
       <guid>https://tuquet.com/posts/telegram-chatops-vps-monitoring</guid>
       <pubDate>Sat, 03 Oct 2026 12:30:00 GMT</pubDate>
       <description>How to build a lightweight Node.js Telegram bot to monitor VPS server health, receive instant GitHub CI failure alerts, and trigger deployments from your phone.</description>
+    </item>
+    <item>
+      <title>Reliable SSH SOCKS5 Forwarding through Cloudflare WebSocket Bridges</title>
+      <link>https://tuquet.com/posts/ssh-socks5-cloudflare-bridge</link>
+      <guid>https://tuquet.com/posts/ssh-socks5-cloudflare-bridge</guid>
+      <pubDate>Mon, 14 Sep 2026 10:00:00 GMT</pubDate>
+      <description></description>
+    </item>
+    <item>
+      <title>Preventing Memory Bloat with Bounded Channels in High-Rate Telemetry</title>
+      <link>https://tuquet.com/posts/bounded-channels-telemetry</link>
+      <guid>https://tuquet.com/posts/bounded-channels-telemetry</guid>
+      <pubDate>Thu, 20 Aug 2026 10:00:00 GMT</pubDate>
+      <description></description>
+    </item>
+    <item>
+      <title>High-Throughput Theme Park Ticketing: Handling Flash Sales &amp; Optimizing Mobile WebViews</title>
+      <link>https://tuquet.com/posts/theme-park-ticketing-flash-sale-architecture</link>
+      <guid>https://tuquet.com/posts/theme-park-ticketing-flash-sale-architecture</guid>
+      <pubDate>Wed, 22 Jul 2026 10:00:00 GMT</pubDate>
+      <description>Lessons from engineering real-time ticketing and reservation infrastructure: Preventing overselling with Redis Lua scripts, virtual waiting rooms, and offline-capable mobile WebViews.</description>
+    </item>
+    <item>
+      <title>Optimizing EV Fleet Dashboards: Sustaining 60 FPS Under Heavy Telemetry Streams</title>
+      <link>https://tuquet.com/posts/optimizing-60fps-ev-dashboard</link>
+      <guid>https://tuquet.com/posts/optimizing-60fps-ev-dashboard</guid>
+      <pubDate>Mon, 18 May 2026 10:00:00 GMT</pubDate>
+      <description>Solving main-thread bottlenecks and frame drops when rendering tens of thousands of real-time EV telemetry markers using Web Workers, OffscreenCanvas, and Zustand transient updates.</description>
     </item>
     <item>
       <title>Real-Time Telemetry Architecture for 100,000+ Connected Electric Vehicles</title>

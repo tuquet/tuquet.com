@@ -142,3 +142,9 @@ While webhooks provide a push-based mechanism, they require a public DNS record 
 Automating server workflows via Telegram provides peace of mind without tying you to your desk. With a handful of lines of Node.js, you turn an everyday messaging app into an unobtrusive command console.
 
 The complete open-source implementation—including systemd service definitions and GitHub Actions webhooks—is available in the [tuquet/bot](https://github.com/tuquet/bot) repository.
+
+---
+
+### Related Infrastructure & Monitoring Architecture
+* [Zero-Trust Architecture & Risk Isolation: Survival Guide for Web Agencies and Freelancers](/posts/zero-trust-architecture-agency-risk-management)
+* [Reliable SSH SOCKS5 Forwarding through Cloudflare WebSocket Bridges](/posts/ssh-socks5-cloudflare-bridge)

@@ -52,7 +52,13 @@ To guarantee sub-50ms latency for end-user mobile apps (e.g. locating a vehicle 
 
 When fleet operators monitor thousands of vehicles concurrently, maintaining WebSocket connections without memory bloat requires disciplined flow control:
 
-* We leverage **bounded circular broadcast channels** (e.g., Tokio bounded broadcast channels) with fixed capacity per consumer.
+* We leverage **bounded circular broadcast channels** (see deep dive: [Preventing Memory Bloat with Bounded Channels](/posts/bounded-channels-telemetry)) with fixed capacity per consumer.
 * When a slow consumer client (such as an operator on unstable cellular data) falls behind the queue threshold, the system proactively drops non-critical intermediate frames (such as micro GPS jitter) rather than buffering them indefinitely and ballooning server memory into an Out-Of-Memory (OOM) crash.
 
 This architecture has maintained 99.9% uptime across national holiday travel spikes, when active vehicles on the road reach historic records.
+
+---
+
+### Related Fleet Telemetry Architecture
+* [Optimizing EV Fleet Dashboards: Sustaining 60 FPS Under Heavy Telemetry Streams](/posts/optimizing-60fps-ev-dashboard)
+* [Preventing Memory Bloat with Bounded Channels in High-Rate Telemetry](/posts/bounded-channels-telemetry)

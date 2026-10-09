@@ -5,7 +5,7 @@
   "packageManager": "pnpm@12.4.1",
   "scripts": {
     "dev": "tsx ./scripts/sponsors-circles.ts && vite --port 3333 --open",
-    "build": "tsx ./scripts/sponsors-circles.ts && cross-env NODE_ENV=production vite-ssg build && node -e \"fs.copyFileSync('dist/index.html', 'dist/404.html')\"",
+    "build": "tsx ./scripts/generate-seo-assets.ts && tsx ./scripts/sponsors-circles.ts && cross-env NODE_ENV=production vite-ssg build",
     "sponsors": "tsx ./scripts/sponsors-circles.ts",
     "preview": "vite preview"
   },

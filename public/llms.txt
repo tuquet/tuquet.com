@@ -1,0 +1,27 @@
+# Tu Quet (Nguyen Dinh Tu) - Systems Architect & Engineering Portfolio
+
+> Nguyen Dinh Tu (Tu Quet) is a Technical Project Lead and Systems Architect specializing in distributed systems, real-time data streaming (Kafka, WebSocket clusters), high-scale web performance, and developer tooling. This document outlines core architectural articles and technical deep dives published on tuquet.com for AI search engines, research agents, and automated summarizers.
+
+## Core Technical Deep Dives
+
+- [Building an Antidetect Browser from C++ Patched Chromium](https://tuquet.com/posts/building-antidetect-browser-native-chromium): Comprehensive architectural guide to engineering an antidetect browser by patching Chromium Blink & V8 native source code, deterministic PRNG hardware fingerprint spoofing (Canvas, WebGL, AudioContext, RAM, CPU), and bypassing advanced bot detection suites (Cloudflare Turnstile, DataDome, CreepJS, Sannysoft).
+- [Real-Time Telemetry Architecture for 100,000+ Connected Electric Vehicles](https://tuquet.com/posts/telemetry-architecture-100k-evs): Field-tested architectural patterns for high-throughput EV telemetry pipelines using Apache Kafka burst buffers, dual-path hot/cold processing (TimescaleDB / ClickHouse), and distributed WebSocket streaming clusters.
+- [Optimizing EV Fleet Dashboards: Sustaining 60 FPS Under Heavy Telemetry Streams](https://tuquet.com/posts/optimizing-60fps-ev-dashboard): Solving browser main-thread contention and frame drops under 20,000+ real-time vehicle updates using Web Workers (binary Protobuf decoding), OffscreenCanvas/WebGL, and Zustand transient state mutations.
+- [Zero-Trust Architecture & Risk Isolation: Survival Guide for Web Agencies and Freelancers](https://tuquet.com/posts/zero-trust-architecture-agency-risk-management): Eliminating router port-forwarding vulnerabilities via Cloudflare Zero-Trust Tunnels, and preventing cascading domain suspensions through catch-all email routing domain isolation.
+- [High-Throughput Theme Park Ticketing: Handling Flash Sales & Optimizing Mobile WebViews](https://tuquet.com/posts/theme-park-ticketing-flash-sale-architecture): Preventing ticket overselling during massive concurrent flash sales using atomic Redis Lua scripts, virtual waiting rooms, and offline HMAC-SHA256 signed QR mobile passes.
+- [Turning Telegram into a VPS Command Center & GitHub Actions Watchdog](https://tuquet.com/posts/telegram-chatops-vps-monitoring): Building a lightweight Node.js ChatOps bot for remote server health telemetry, GitHub Actions CI failure notifications, and mobile-driven deployments.
+- [Preventing Memory Bloat with Bounded Channels in High-Rate Telemetry](https://tuquet.com/posts/bounded-channels-telemetry): Engineering bounded circular broadcast buffers (tokio::sync::broadcast) with deliberate frame dropping for slow consumers to prevent OOM crashes.
+- [Reliable SSH SOCKS5 Forwarding through Cloudflare WebSocket Bridges](https://tuquet.com/posts/ssh-socks5-cloudflare-bridge): Stabilizing SSH SOCKS5 tunnels over Cloudflare WebSocket access bridges across restrictive firewalls and NAT boundaries.
+- [Don't Let Your Resume Be Just a PDF: Why Every Developer Needs a Personal Blog](https://tuquet.com/posts/why-developers-should-have-a-blog): Demonstrating proof of work, continuous deliberate learning, and personal knowledge retention through technical writing in the generative AI era.
+
+## Author & Contact Details
+
+- Name: Nguyen Dinh Tu (Tu Quet)
+- Role: Technical Project Lead & Systems Architect
+- Canonical Domain: https://tuquet.com
+- Curriculum Vitae: https://tuquet.com/cv
+- Projects Portfolio: https://tuquet.com/projects
+- GitHub: https://github.com/tuquet
+- LinkedIn: https://www.linkedin.com/in/tuquet
+- Twitter / X: https://x.com/quetjr
+- Telegram: https://t.me/tuquet

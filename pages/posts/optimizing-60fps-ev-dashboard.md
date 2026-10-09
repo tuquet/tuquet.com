@@ -101,3 +101,9 @@ Following this architectural refactor:
 * **RAM Allocation:** Reduced client-side memory footprint by over 55% by transferring `ArrayBuffer` objects across thread boundaries rather than cloning nested JavaScript dictionaries.
 
 A responsive, high-performance UI ensures operations engineers can dispatch roadside assistance and coordinate charging infrastructure without interface hesitation when managing fleets on the road.
+
+---
+
+### Related Fleet Telemetry Architecture
+* [Real-Time Telemetry Architecture for 100,000+ Connected Electric Vehicles](/posts/telemetry-architecture-100k-evs)
+* [Preventing Memory Bloat with Bounded Channels in High-Rate Telemetry](/posts/bounded-channels-telemetry)

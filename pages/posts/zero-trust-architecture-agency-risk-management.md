@@ -122,3 +122,9 @@ agency.com     └──> clinic@agency.com   ──┘
 3. **Enforce Client Account Sandboxing:** Never aggregate multiple clients into a shared infrastructure account. Use Catch-all Email Routing to isolate risk domains at zero operational cost.
 
 In software and systems architecture, the best designs are not necessarily the most complex—they are the ones that successfully **isolate failure domains** so that when an anomaly occurs in one node, the rest of the ecosystem keeps humming.
+
+---
+
+### Related Infrastructure & Security Architecture
+* [Turning Telegram into a VPS Command Center & GitHub Actions Watchdog](/posts/telegram-chatops-vps-monitoring)
+* [Reliable SSH SOCKS5 Forwarding through Cloudflare WebSocket Bridges](/posts/ssh-socks5-cloudflare-bridge)
