@@ -63,7 +63,7 @@ projects:
       desc: 'High-performance desktop mock user profile & data generation suite in Tauri v2 & Vue 3'
       icon: 'i-carbon-user-avatar'
     - name: 'Yak Map'
-      link: 'https://yarkmap.tuquet.com/'
+      link: 'https://yakmap.tuquet.com/'
       desc: 'Interactive dependency, lineage, and derivation graph of open source tools built by Tu Quet'
       icon: 'i-carbon-network-4'
 

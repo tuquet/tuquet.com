@@ -36,7 +36,7 @@ function slug(name: string) {
           Recent Releases
         </a>
         <a
-          href="https://yarkmap.tuquet.com/"
+          href="https://yakmap.tuquet.com/"
           target="_blank"
           rel="noopener noreferrer"
           class="group btn-lime inline-block"
