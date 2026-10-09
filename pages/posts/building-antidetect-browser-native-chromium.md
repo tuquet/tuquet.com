@@ -100,7 +100,7 @@ Below is the standard flag reference for launching the C++ patched stealth Chrom
 
 ## 4. Directory Layout (Single Source of Truth)
 
-To organize multiple independent profiles cleanly, structure paths under a single canonical root:
+To organize multiple independent profiles cleanly, structure paths under a single canonical root (documented in the [Specter Dedicated Browser Runtime](https://specter.tuquet.com/browser/)):
 
 ```text
 ~/.specter/browser/
