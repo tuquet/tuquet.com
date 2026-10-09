@@ -125,7 +125,7 @@ export default defineConfig({
         md.use(MarkdownItMagicLink as unknown as MarkdownItPlugin, {
           linksMap: {
             'CMC Global': { link: 'https://cmcglobal.com.vn', imageUrl: 'https://www.google.com/s2/favicons?domain=cmcglobal.com.vn&sz=128' },
-            'Automa': { link: 'https://specter.tuquet.com/automa/', imageUrl: '/icons/automa.svg' },
+            'Automa': { link: 'https://docs.tuquet.com/en/specter/automa/', imageUrl: '/icons/automa.svg' },
             'Runner': { link: 'https://github.com/tuquet/runner', imageUrl: '/icons/runner.svg' },
             'Browser': { link: 'https://github.com/tuquet/browser', imageUrl: '/icons/browser.svg' },
             'Cloud': { link: 'https://github.com/tuquet/cloud', imageUrl: '/icons/cloud.svg' },

@@ -39,7 +39,7 @@ projects:
       desc: 'Production MCP toolkits that empower AI agents to directly control local developer tools and run automation'
       icon: 'i-carbon-tools'
     - name: 'Specter Docs'
-      link: 'https://specter.tuquet.com'
+      link: 'https://docs.tuquet.com'
       desc: 'Interactive documentation hub with instant search and copy-paste recipes for 68 CLI automation commands'
       icon: 'i-carbon-notebook'
 

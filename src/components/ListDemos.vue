@@ -9,7 +9,7 @@ const demos = [
     hoverText: 'group-hover:text-sky-500',
     desc: 'Interactive 2D canvas pipeline simulator illustrating real-time distributed DAG execution, state transitions, and step retries.',
     tags: ['Canvas 2D', 'State Machine', 'Live Demo'],
-    link: 'https://specter.tuquet.com/automa/',
+    link: 'https://docs.tuquet.com/en/specter/automa/',
     external: true,
   },
   {
