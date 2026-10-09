@@ -9,7 +9,7 @@ const demos = [
     hoverText: 'group-hover:text-sky-500',
     desc: 'Interactive 2D canvas pipeline simulator illustrating real-time distributed DAG execution, state transitions, and step retries.',
     tags: ['Canvas 2D', 'State Machine', 'Live Demo'],
-    link: 'https://tuquet.com/automa/pipeline.html',
+    link: 'https://specter.tuquet.com/automa/',
     external: true,
   },
   {
@@ -45,7 +45,7 @@ const demos = [
     hoverText: 'group-hover:text-rose-500',
     desc: 'Live interactive documentation for @tuquet/vue-table and @tuquet/vue-ui packages with virtualized high-density table views.',
     tags: ['Storybook', 'TanStack Table', 'Vue 3'],
-    link: 'https://tuquet.com/lib/',
+    link: 'https://storybook.tuquet.com/',
     external: true,
   },
 ]

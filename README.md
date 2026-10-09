@@ -18,8 +18,8 @@
 - **Portfolio**: [tuquet.com](https://tuquet.com/)
 - **Interactive CV & Resume**: [tuquet.com/cv/](https://tuquet.com/cv/)
 - **Projects Catalog**: [tuquet.com/projects/](https://tuquet.com/projects/)
-- **Automa Studio**: [tuquet.com/automa/](https://tuquet.com/automa/)
-- **Component Lab (Storybook)**: [tuquet.com/lib/](https://tuquet.com/lib/)
+- **Automa Studio**: [specter.tuquet.com/automa/](https://specter.specter.tuquet.com/automa/)
+- **Component Lab (Storybook)**: [storybook.tuquet.com/](https://storybook.tuquet.com/)
 
 ---
 
@@ -71,8 +71,8 @@ Distributed under the [MIT License](LICENSE).
   <samp>
     <a href="https://tuquet.com">Portfolio</a> •
     <a href="https://tuquet.com/cv">CV &amp; Resume</a> •
-    <a href="https://tuquet.com/automa">Automa Studio</a> •
-    <a href="https://tuquet.com/lib">Component Lab</a> •
+    <a href="https://specter.specter.tuquet.com/automa/">Automa Studio</a> •
+    <a href="https://storybook.tuquet.com/">Component Lab</a> •
     <a href="https://github.com/tuquet/scoop-bucket">Scoop Bucket</a>
   </samp>
 </div>

@@ -7,7 +7,7 @@ art: dots
 projects:
   Core Platforms:
     - name: 'Automa'
-      link: 'https://tuquet.com/automa/'
+      link: 'https://specter.specter.tuquet.com/automa/'
       desc: 'Next-generation workflow orchestration & headless automation platform'
       icon: 'i-carbon-flow-data'
     - name: 'Runner'
@@ -63,7 +63,7 @@ projects:
       desc: 'High-performance desktop mock user profile & data generation suite in Tauri v2 & Vue 3'
       icon: 'i-carbon-user-avatar'
     - name: 'Yak Map'
-      link: 'https://tuquet.com/yak-map/'
+      link: 'https://yarkmap.tuquet.com/'
       desc: 'Interactive dependency, lineage, and derivation graph of open source tools built by Tu Quet'
       icon: 'i-carbon-network-4'
 

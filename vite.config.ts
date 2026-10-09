@@ -125,7 +125,7 @@ export default defineConfig({
         md.use(MarkdownItMagicLink as unknown as MarkdownItPlugin, {
           linksMap: {
             'CMC Global': { link: 'https://cmcglobal.com.vn', imageUrl: 'https://www.google.com/s2/favicons?domain=cmcglobal.com.vn&sz=128' },
-            'Automa': { link: 'https://tuquet.com/automa/', imageUrl: '/icons/automa.svg' },
+            'Automa': { link: 'https://specter.tuquet.com/automa/', imageUrl: '/icons/automa.svg' },
             'Runner': { link: 'https://github.com/tuquet/runner', imageUrl: '/icons/runner.svg' },
             'Browser': { link: 'https://github.com/tuquet/browser', imageUrl: '/icons/browser.svg' },
             'Cloud': { link: 'https://github.com/tuquet/cloud', imageUrl: '/icons/cloud.svg' },
@@ -133,7 +133,8 @@ export default defineConfig({
             'Vue Table': { link: 'https://github.com/tuquet/lib/tree/main/packages/vue-table', imageUrl: '/icons/vue-table.svg' },
             'MD Export': { link: 'https://github.com/tuquet/lib/tree/main/packages/md-export', imageUrl: '/icons/pdf.svg' },
             'CLI': { link: 'https://github.com/tuquet/cli', imageUrl: '/icons/cli.svg' },
-            'Tuquet CLI': { link: 'https://github.com/tuquet/cli', imageUrl: '/icons/cli.svg' },
+            'Specter CLI': { link: 'https://github.com/tuquet/cli', imageUrl: '/icons/cli.svg' },
+            'Specter': { link: 'https://github.com/tuquet/cli', imageUrl: '/icons/cli.svg' },
             'Extension Runner': { link: 'https://github.com/tuquet/lib/tree/main/packages/extension-runner', imageUrl: '/icons/extension-runner.svg' },
             'Lunar': { link: 'https://github.com/tuquet/lib/tree/main/packages/lunar', imageUrl: '/icons/lunar.svg' },
             'Scoop Bucket': { link: 'https://github.com/tuquet/scoop-bucket', imageUrl: '/icons/scoop.svg' },
