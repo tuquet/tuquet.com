@@ -25,7 +25,7 @@ wrapperClass: 'max-w-5xl'
     <div><strong class="text-zinc-800 dark:text-zinc-200">Phone:</strong> <a href="tel:+84936683088" class="hover:underline">+84 936 683 088</a></div>
     <div><strong class="text-zinc-800 dark:text-zinc-200">Email:</strong> <a href="mailto:tunyk.93@gmail.com" class="hover:underline">tunyk.93@gmail.com</a></div>
     <div><strong class="text-zinc-800 dark:text-zinc-200">Location:</strong> Ha Noi, Vietnam</div>
-    <div><strong class="text-zinc-800 dark:text-zinc-200">Website:</strong> <a href="https://tuquet.github.io/" target="_blank" rel="noopener">tuquet.github.io</a></div>
+    <div><strong class="text-zinc-800 dark:text-zinc-200">Website:</strong> <a href="https://tuquet.com/" target="_blank" rel="noopener">tuquet.com</a></div>
     <div><strong class="text-zinc-800 dark:text-zinc-200">GitHub:</strong> <a href="https://github.com/tuquet" target="_blank" rel="noopener">github.com/tuquet</a></div>
     <div><strong class="text-zinc-800 dark:text-zinc-200">LinkedIn:</strong> <a href="https://www.linkedin.com/in/tuquet" target="_blank" rel="noopener">linkedin.com/in/tuquet</a></div>
   </div>

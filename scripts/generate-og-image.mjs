@@ -173,7 +173,7 @@ const htmlContent = `<!DOCTYPE html>
         <div class="tag">PostgreSQL & Supabase</div>
       </div>
       <div class="domain">
-        https://<span>tuquet.github.io</span>
+        https://<span>tuquet.com</span>
       </div>
     </div>
   </div>

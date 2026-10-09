@@ -1,10 +1,10 @@
 <div align="center">
-  <img src="https://tuquet.github.io/icons/tuquet.svg" width="76" height="76" alt="Tuquet Logo" />
+  <img src="https://tuquet.com/icons/tuquet.svg" width="76" height="76" alt="Tuquet Logo" />
   <h1>Tuquet Hub</h1>
   <p><strong>Personal Portfolio, Systems Architecture &amp; Open-Source Automation Portal</strong></p>
 
   <p>
-    <a href="https://tuquet.github.io/"><img src="https://img.shields.io/badge/Live-tuquet.github.io-brightgreen.svg" alt="Live Website" /></a>
+    <a href="https://tuquet.com/"><img src="https://img.shields.io/badge/Live-tuquet.com-brightgreen.svg" alt="Live Website" /></a>
     <img src="https://img.shields.io/badge/Vue-3.x-brightgreen.svg" alt="Vue 3" />
     <img src="https://img.shields.io/badge/Vite--SSG-Static-blue.svg" alt="Vite-SSG" />
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License" /></a>
@@ -15,11 +15,11 @@
 
 ## 🌐 Navigation
 
-- **Portfolio**: [tuquet.github.io](https://tuquet.github.io/)
-- **Interactive CV & Resume**: [tuquet.github.io/cv/](https://tuquet.github.io/cv/)
-- **Projects Catalog**: [tuquet.github.io/projects/](https://tuquet.github.io/projects/)
-- **Automa Studio**: [tuquet.github.io/automa/](https://tuquet.github.io/automa/)
-- **Component Lab (Storybook)**: [tuquet.github.io/lib/](https://tuquet.github.io/lib/)
+- **Portfolio**: [tuquet.com](https://tuquet.com/)
+- **Interactive CV & Resume**: [tuquet.com/cv/](https://tuquet.com/cv/)
+- **Projects Catalog**: [tuquet.com/projects/](https://tuquet.com/projects/)
+- **Automa Studio**: [tuquet.com/automa/](https://tuquet.com/automa/)
+- **Component Lab (Storybook)**: [tuquet.com/lib/](https://tuquet.com/lib/)
 
 ---
 
@@ -69,10 +69,10 @@ Distributed under the [MIT License](LICENSE).
 
 <div align="center">
   <samp>
-    <a href="https://tuquet.github.io">Portfolio</a> •
-    <a href="https://tuquet.github.io/cv">CV &amp; Resume</a> •
-    <a href="https://tuquet.github.io/automa">Automa Studio</a> •
-    <a href="https://tuquet.github.io/lib">Component Lab</a> •
+    <a href="https://tuquet.com">Portfolio</a> •
+    <a href="https://tuquet.com/cv">CV &amp; Resume</a> •
+    <a href="https://tuquet.com/automa">Automa Studio</a> •
+    <a href="https://tuquet.com/lib">Component Lab</a> •
     <a href="https://github.com/tuquet/scoop-bucket">Scoop Bucket</a>
   </samp>
 </div>

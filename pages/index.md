@@ -1,7 +1,7 @@
 ---
 title: Tu Quet
 description: Tu Quet's Portfolio
-image: https://tuquet.github.io/og.png
+image: https://tuquet.com/og.png
 art: plum
 ---
 
@@ -11,7 +11,7 @@ A systems architect and software engineer who loves building resilient platforms
 
 By day, I work alongside engineering teams at [CMC Global](https://cmcglobal.com.vn/). By night, I immerse myself in open source to bring new ideas to life.
 
-What has shipped is gathered in [projects](/projects). Lessons learned along the way are shared in [posts](/posts). What I teach autonomous AI agents lives in [skills](https://tuquet.github.io/docs/skills/), and interactive experiments are in [demos](/demos). You can find my full career milestones on my [curriculum vitae](/cv).
+What has shipped is gathered in [projects](/projects). Lessons learned along the way are shared in [posts](/posts). What I teach autonomous AI agents lives in [skills](https://tuquet.com/docs/skills/), and interactive experiments are in [demos](/demos). You can find my full career milestones on my [curriculum vitae](/cv).
 
 When the laptop is closed, I capture everyday moments through [photography](/photos).
 

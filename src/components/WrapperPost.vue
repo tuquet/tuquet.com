@@ -12,7 +12,7 @@ const router = useRouter()
 const route = useRoute()
 const content = ref<HTMLDivElement>()
 
-const base = 'https://tuquet.github.io'
+const base = 'https://tuquet.com'
 const facebookUrl = 'https://fb.com/quet.jr'
 const tweetUrl = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Reading @quetjr's ${base}${route.path}\n\nI think...`)}`)
 

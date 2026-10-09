@@ -298,9 +298,9 @@ export const sponsors: SponsorItem[] = [
     "name": "Automa",
     "tier": "ecosystem",
     "weight": 48,
-    "link": "https://tuquet.github.io/automa/",
+    "link": "https://tuquet.com/automa/",
     "logo": "/icons/automa.svg",
-    "domain": "tuquet.github.io/automa",
+    "domain": "tuquet.com/automa",
     "timeline": "2024 – Present",
     "desc": "Closed-loop automation orchestration and headless browser coordination platform.",
     "tags": [
