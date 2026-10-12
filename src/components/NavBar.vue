@@ -63,6 +63,9 @@ const { y: scroll } = useWindowScroll()
         <a href="/feed.xml" target="_blank" title="RSS" class="lt-md:hidden">
           <div i-la-rss-square style="font-size:1.25rem; margin: 0 -0.125rem;" />
         </a>
+        <RouterLink to="/login" title="Login / Account">
+          <div i-ri-user-3-line />
+        </RouterLink>
         <ToggleTheme />
       </div>
     </nav>
