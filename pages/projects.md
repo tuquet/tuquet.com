@@ -62,10 +62,10 @@ projects:
       link: 'https://github.com/tuquet/schema'
       desc: 'Single source of truth for JSON schemas to prevent breaking API contracts between CLI, backend, and UI'
       icon: 'i-carbon-code'
-    - name: 'Scoop Bucket'
-      link: 'https://github.com/tuquet/scoop-bucket'
-      desc: 'One-command Windows package distribution bucket for seamless installation and zero-friction updates'
-      icon: 'i-carbon-package'
+    - name: 'Agent Skills'
+      link: 'https://github.com/tuquet/skills'
+      desc: 'Curated library of production AI agent skills and automated runbooks adhering to the Ponytail standard'
+      icon: 'i-carbon-machine-learning-model'
 
   Web UI & Primitives:
     - name: 'Vue UI'

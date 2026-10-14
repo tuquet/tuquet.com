@@ -137,7 +137,7 @@ export default defineConfig({
             'Specter': { link: 'https://github.com/tuquet/cli', imageUrl: '/icons/cli.svg' },
             'Extension Runner': { link: 'https://github.com/tuquet/lib/tree/main/packages/extension-runner', imageUrl: '/icons/extension-runner.svg' },
             'Lunar': { link: 'https://github.com/tuquet/lib/tree/main/packages/lunar', imageUrl: '/icons/lunar.svg' },
-            'Scoop Bucket': { link: 'https://github.com/tuquet/scoop-bucket', imageUrl: '/icons/scoop.svg' },
+            'Skills': { link: 'https://github.com/tuquet/skills', imageUrl: '/icons/skills.svg' },
             'vue-ui': { link: 'https://github.com/tuquet/lib/tree/main/packages/vue-ui', imageUrl: '/icons/vue-ui.svg' },
             'vue-table': { link: 'https://github.com/tuquet/lib/tree/main/packages/vue-table', imageUrl: '/icons/vue-table.svg' },
             'md-export': { link: 'https://github.com/tuquet/lib/tree/main/packages/md-export', imageUrl: '/icons/pdf.svg' },

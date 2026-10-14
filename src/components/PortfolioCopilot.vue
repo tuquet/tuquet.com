@@ -61,7 +61,7 @@ const knowledge = [
   },
   {
     keys: ['runner', 'engine', 'zombie', 'chromium', 'crawler', 'rust', 'medallion', 'job object', 'process'],
-    answer: '**Distributed Automation & Process Supervision Engine:**\n- Engineered a zero-leakage process supervision core using kernel process tree sandboxing with IO completion ports, completely eliminating zombie Chromium processes.\n- Designed a 3-tier **Medallion architecture** (Bronze raw BLOB gzip -> Silver Rust sanitizer & deduplicator -> Gold Supabase sync) with zero-cost local caching.\n- Authored the CLI in Rust with rustyline auto-completion, distributed via official Scoop bucket: [github.com/tuquet/scoop-bucket](https://github.com/tuquet/scoop-bucket).',
+    answer: '**Distributed Automation & Process Supervision Engine:**\n- Engineered a zero-leakage process supervision core using kernel process tree sandboxing with IO completion ports, completely eliminating zombie Chromium processes.\n- Designed a 3-tier **Medallion architecture** (Bronze raw BLOB gzip -> Silver Rust sanitizer & deduplicator -> Gold Supabase sync) with zero-cost local caching.\n- Authored the CLI in Rust with rustyline auto-completion, distributed via high-speed zero-dependency native web installers: [github.com/tuquet/cli](https://github.com/tuquet/cli).',
   },
   {
     keys: ['diagram', 'architecture', 'diagrams', 'pipeline', 'storybook', 'archify', 'visual', 'demo', 'showcase', 'live', 'projects', 'yakmap', 'graph'],

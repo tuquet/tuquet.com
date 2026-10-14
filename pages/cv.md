@@ -180,11 +180,11 @@ Pioneer in marrying a **Product-Led Growth (PLG)** mindset with **AI-augmented e
 -   Architected a zero-leakage process supervision engine in the runner daemon (`tuquet runner`) leveraging kernel process tree sandboxing to eliminate orphan Chromium zombie processes and strictly isolate CPU/RAM.
 -   Engineered a high-throughput Medallion data crawler pipeline (Bronze gzip BLOB storage -> Silver Rust deduplication & HTML sanitizer -> Gold Supabase synchronization).
 -   Standardized local workspace configurations into a Single Source of Truth (`~/.specter/`), eliminating configuration drift across CLI, extensions, and runner runtimes.
--   Automated binary builds, multi-platform packaging, and distribution through an official Scoop bucket (`tuquet/scoop-bucket`).
+-   Automated binary builds, multi-platform packaging, and zero-dependency web installers with native in-place self-updates.
 -   Published modular open-source ecosystem libraries to the official NPM registry under the `@tuquet` scope (`@tuquet/md-export`, `@tuquet/lunar`, `@tuquet/vue-ui`, `@tuquet/extension-runner`).
 - **Programming Language**: Rust, TypeScript, JavaScript, SQL
 - **Framework**: Vue.js Ecosystem (Nuxt, Drawflow), Electron JS, Tailwind CSS, Tokio (Rust Async), Node.js
-- **Platform, server and database**: Supabase, PostgreSQL, WebSockets, Process Tree Sandboxing, Docker, Scoop, GitHub Actions
+- **Platform, server and database**: Supabase, PostgreSQL, WebSockets, Process Tree Sandboxing, Docker, GitHub Actions
 - **Methodology**: Agile Kanban
 
 ---
