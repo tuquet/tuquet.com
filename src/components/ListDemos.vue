@@ -75,7 +75,7 @@ const demos = [
       :class="[demo.hoverBorder, demo.hoverBg]"
     >
       <div class="flex items-center justify-between mb-2 sm:mb-3">
-        <span class="text-xs font-mono uppercase tracking-wider font-semibold" :class="demo.color">
+        <span class="text-xs uppercase tracking-wider font-semibold" :class="demo.color">
           {{ demo.category }}
         </span>
         <span class="text-xs op50 group-hover:translate-x-1 transition-transform">&rarr;</span>

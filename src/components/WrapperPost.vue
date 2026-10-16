@@ -224,17 +224,17 @@ const ArtComponent = computed(() => {
   </article>
   <div v-if="route.path !== '/'" class="prose m-auto mt-8 mb-8 slide-enter animate-delay-500 print:hidden">
     <template v-if="frontmatter.duration">
-      <span font-mono op50>> </span>
+      <span op50>> </span>
       <span op50>discuss on </span>
       <a :href="facebookUrl" target="_blank" op50>facebook</a>
       <span op25> / </span>
       <a :href="tweetUrl" target="_blank" op50>twitter</a>
     </template>
     <br>
-    <span font-mono op50>> </span>
+    <span op50>> </span>
     <RouterLink
       :to="route.path.split('/').slice(0, -1).join('/') || '/'"
-      class="font-mono op50 hover:op75"
+      class="op50 hover:op75"
       v-text="'cd ..'"
     />
   </div>

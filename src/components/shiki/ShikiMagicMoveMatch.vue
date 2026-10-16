@@ -133,7 +133,7 @@ const TokenRenderer = defineComponent({
       </div>
       <span>Key</span>
       <div>
-        <span font-mono :class="hoverKey ? '' : 'op50'">{{ hoverKey || hoverAll ? '(showing all tokens)' : '(hover code to inspect)' }}</span>
+        <span :class="hoverKey ? '' : 'op50'">{{ hoverKey || hoverAll ? '(showing all tokens)' : '(hover code to inspect)' }}</span>
       </div>
     </div>
     <TokenRenderer :tokens="tokens1?.tokens" title="Before" important-rounded-none important-my-0 important-bg-transparent />

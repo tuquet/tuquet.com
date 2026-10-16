@@ -14,7 +14,7 @@ const techItems = computed(() => sponsors.filter((c: any) => c.tier === 'tech'))
       <div select-none relative h18 mt2 pointer-events-none>
         <span text-5em color-transparent absolute left--1rem top-0rem font-bold leading-1em text-stroke-1.5 text-stroke-hex-aaa op35 dark:op20>SPECIAL</span>
       </div>
-      <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-3 tracking-wide uppercase">
+      <div class="text-xs text-zinc-500 dark:text-zinc-400 mb-3 tracking-wide uppercase">
         Special Sponsors
       </div>
       <div class="flex flex-col gap-4 mt-2">
@@ -50,7 +50,7 @@ const techItems = computed(() => sponsors.filter((c: any) => c.tier === 'tech'))
       <div select-none relative h18 mt2 pointer-events-none>
         <span text-5em color-transparent absolute left--1rem top-0rem font-bold leading-1em text-stroke-1.5 text-stroke-hex-aaa op35 dark:op20>PLATINUM</span>
       </div>
-      <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-3 tracking-wide uppercase">
+      <div class="text-xs text-zinc-500 dark:text-zinc-400 mb-3 tracking-wide uppercase">
         Platinum Sponsors
       </div>
       <div class="flex flex-col gap-4 mt-2">
@@ -86,7 +86,7 @@ const techItems = computed(() => sponsors.filter((c: any) => c.tier === 'tech'))
       <div select-none relative h18 mt2 pointer-events-none>
         <span text-5em color-transparent absolute left--1rem top-0rem font-bold leading-1em text-stroke-1.5 text-stroke-hex-aaa op35 dark:op20>ECOSYSTEM</span>
       </div>
-      <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-3 tracking-wide uppercase">
+      <div class="text-xs text-zinc-500 dark:text-zinc-400 mb-3 tracking-wide uppercase">
         Ecosystem Backers &amp; Infrastructure
       </div>
       <div grid="~ cols-1 sm:cols-2 md:cols-4 gap-3.5" class="mt-2">
@@ -102,7 +102,7 @@ const techItems = computed(() => sponsors.filter((c: any) => c.tier === 'tech'))
           </div>
           <div class="flex-auto min-w-0">
             <div class="text-xs font-semibold text-zinc-900 dark:text-zinc-100 truncate">{{ item.name }}</div>
-            <div class="text-[11px] op60 font-mono truncate">{{ item.domain || 'Open Source' }}</div>
+            <div class="text-[11px] op60 truncate">{{ item.domain || 'Open Source' }}</div>
           </div>
         </component>
       </div>
@@ -113,7 +113,7 @@ const techItems = computed(() => sponsors.filter((c: any) => c.tier === 'tech'))
       <div select-none relative h18 mt2 pointer-events-none>
         <span text-5em color-transparent absolute left--1rem top-0rem font-bold leading-1em text-stroke-1.5 text-stroke-hex-aaa op35 dark:op20>TECHNOLOGIES</span>
       </div>
-      <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-3 tracking-wide uppercase">
+      <div class="text-xs text-zinc-500 dark:text-zinc-400 mb-3 tracking-wide uppercase">
         Core Technologies &amp; Cloud Runtimes
       </div>
       <div class="flex flex-wrap gap-2 mt-2">

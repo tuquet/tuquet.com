@@ -63,12 +63,12 @@ onMounted(() => {
         animateContainer: false,
         stagger: 3,
       }"
-      class="font-mono h-112 important-p4 border-x border-b border-base important-rounded-t-none important-bg-transparent"
+      class="h-112 important-p4 border-x border-b border-base important-rounded-t-none important-bg-transparent"
       style="scrollbar-gutter: stable"
     />
     <div
       v-else
-      class="font-mono h-95 important-p4 border border-base important-rounded-b-none important-bg-transparent flex items-center justify-center"
+      class="h-95 important-p4 border border-base important-rounded-b-none important-bg-transparent flex items-center justify-center"
     >
       Loading...
     </div>
