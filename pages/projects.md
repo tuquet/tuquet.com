@@ -1,28 +1,28 @@
 ---
 title: Projects - Tu Quet
 display: Projects
-description: Open-source systems architecture, the Tuquet ecosystem, developer tooling, and libraries by Tu Quet
+description: Open-source systems architecture, the ecosystem, developer tooling, and libraries by Tu Quet
 wrapperClass: 'text-center'
 art: dots
 projects:
-  Tuquet Ecosystem:
-    - name: 'Tuquet CLI'
+  Ecosystem:
+    - name: 'CLI'
       link: 'https://github.com/tuquet/cli'
       desc: 'Unified terminal workspace to orchestrate, monitor, and control all automation workflows, bots, and tunnels'
       icon: 'i-carbon-terminal'
-    - name: 'Tuquet Browser'
+    - name: 'Browser'
       link: 'https://github.com/tuquet/browser'
       desc: 'Custom anti-detect Chromium browser engineered to bypass bot detection, Cloudflare, and fingerprinting'
       icon: 'i-carbon-application-web'
-    - name: 'Tuquet Runner'
+    - name: 'Runner'
       link: 'https://github.com/tuquet/runner'
       desc: 'Autonomous edge engine executing high-volume browser tasks and multi-account automation at massive scale'
       icon: 'i-simple-icons-rust'
-    - name: 'Tuquet Automa'
+    - name: 'Automa'
       link: 'https://github.com/tuquet/automa'
       desc: 'Visual drag-and-drop workflow builder to automate complex browser tasks in minutes without writing code'
       icon: 'i-carbon-flow-data'
-    - name: 'Tuquet Cloud'
+    - name: 'Cloud'
       link: 'https://github.com/tuquet/cloud'
       desc: 'Multi-tenant control plane on Supabase to manage device enrollment, database schemas, and edge permissions'
       icon: 'i-carbon-cloud'
@@ -30,15 +30,15 @@ projects:
       link: 'https://github.com/tuquet/storage'
       desc: 'Multi-tenant cloud storage engine with atomic lease locking to sync antidetect browser profiles safely across machines with zero egress fees'
       icon: 'i-carbon-data-base'
-    - name: 'Tuquet Faker'
+    - name: 'Faker'
       link: 'https://github.com/tuquet/faker'
       desc: 'Ultra-fast generator for legally compliant Vietnamese CCCD, phone numbers, and cohesive test identities'
       icon: 'i-carbon-id-management'
-    - name: 'Tuquet Skills'
+    - name: 'Skills'
       link: 'https://github.com/tuquet/skills'
       desc: 'Production MCP toolkits that empower AI agents to directly control local developer tools and run automation'
       icon: 'i-carbon-tools'
-    - name: 'Tuquet Docs'
+    - name: 'Docs'
       link: 'https://docs.tuquet.com'
       desc: 'Interactive documentation hub with instant search and copy-paste recipes for 68 CLI automation commands'
       icon: 'i-carbon-notebook'

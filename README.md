@@ -1,6 +1,6 @@
 <div align="center">
-  <img src="https://tuquet.com/icons/tuquet.svg" width="76" height="76" alt="Tuquet Logo" />
-  <h1>Tuquet Hub</h1>
+  <img src="https://tuquet.com/icons/tuquet.svg" width="76" height="76" alt="Logo" />
+  <h1>Hub</h1>
   <p><strong>Personal Portfolio, Systems Architecture &amp; Open-Source Automation Portal</strong></p>
 
   <p>

@@ -1,8 +1,8 @@
 import dayjs from 'dayjs'
 
 export const isDark = useDark()
-export const englishOnly = useLocalStorage('tuquet-english-only', false)
-export const galleryView = useLocalStorage<'cover' | 'contain'>('tuquet-gallery-view', 'cover')
+export const englishOnly = useLocalStorage('english-only', false)
+export const galleryView = useLocalStorage<'cover' | 'contain'>('gallery-view', 'cover')
 
 /**
  * Credit to [@hooray](https://github.com/hooray)

@@ -26,7 +26,7 @@ const SUPABASE_URL = (typeof import.meta !== 'undefined' && import.meta.env?.VIT
 const SUPABASE_ANON_KEY = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_SUPABASE_ANON_KEY)
   || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRzd2hhY3NvYXhncGZua2F4bmh6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyOTEzMzcsImV4cCI6MjEwNTg2NzMzN30.QRdxE3CPCF8CtliOtSUcSFO-jbKi99uM2AKlJgKt6RQ'
 
-const SESSION_STORAGE_KEY = 'tuquet_auth_session'
+const SESSION_STORAGE_KEY = 'auth_session'
 
 const currentSession = ref<AuthSession | null>(loadSession())
 

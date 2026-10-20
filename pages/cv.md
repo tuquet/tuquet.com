@@ -167,7 +167,7 @@ Pioneer in marrying a **Product-Led Growth (PLG)** mindset with **AI-augmented e
 - **Platform, server and database**: MySQL, Apache, Nginx
 - **Methodology**: Agile
 
-### [2024 – Present] Tuquet – Developer CLI & Distributed Automation Ecosystem
+### [2024 – Present] – Developer CLI & Distributed Automation Ecosystem
 - **Timeline**: 2024 – Present
 - **Company**: Independent Product Labs (Open-Source R&D)
 - **Client**: Self-initiated Open-Source Developer Tooling & Global Automation Engineers

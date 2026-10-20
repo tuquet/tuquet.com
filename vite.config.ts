@@ -133,7 +133,7 @@ export default defineConfig({
             'Vue Table': { link: 'https://github.com/tuquet/lib/tree/main/packages/vue-table', imageUrl: '/icons/vue-table.svg' },
             'MD Export': { link: 'https://github.com/tuquet/lib/tree/main/packages/md-export', imageUrl: '/icons/pdf.svg' },
             'CLI': { link: 'https://github.com/tuquet/cli', imageUrl: '/icons/cli.svg' },
-            'Tuquet CLI': { link: 'https://github.com/tuquet/cli', imageUrl: '/icons/cli.svg' },
+            'CLI': { link: 'https://github.com/tuquet/cli', imageUrl: '/icons/cli.svg' },
             'Tuquet': { link: 'https://github.com/tuquet/cli', imageUrl: '/icons/cli.svg' },
             'Extension Runner': { link: 'https://github.com/tuquet/lib/tree/main/packages/extension-runner', imageUrl: '/icons/extension-runner.svg' },
             'Lunar': { link: 'https://github.com/tuquet/lib/tree/main/packages/lunar', imageUrl: '/icons/lunar.svg' },

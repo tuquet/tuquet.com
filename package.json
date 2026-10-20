@@ -1,8 +1,23 @@
 {
-  "name": "tuquet-homepage",
-  "type": "module",
+  "name": "@tuquet/site",
+  "version": "1.0.0",
   "private": true,
+  "homepage": "https://tuquet.com",
+  "bugs": {
+    "url": "https://github.com/tuquet/tuquet.com/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuquet/tuquet.com.git"
+  },
+  "license": "MIT",
+  "author": "Tuquet Team <dev@tuquet.com>",
+  "type": "module",
   "packageManager": "pnpm@12.4.1",
+  "engines": {
+    "node": ">=20.18.0",
+    "pnpm": ">=9.0.0"
+  },
   "scripts": {
     "dev": "tsx ./scripts/sponsors-circles.ts && vite --port 3333 --open",
     "build": "tsx ./scripts/generate-seo-assets.ts && tsx ./scripts/sponsors-circles.ts && cross-env NODE_ENV=production vite-ssg build",
