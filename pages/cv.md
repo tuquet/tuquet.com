@@ -179,7 +179,7 @@ Pioneer in marrying a **Product-Led Growth (PLG)** mindset with **AI-augmented e
 -   Developed the visual automation studio & cross-platform desktop suite with **Vue.js (Nuxt), Electron JS & TypeScript**: designed an interactive node-graph canvas (Drawflow), custom automation blocks, secure local IPC bridges, and a real-time execution inspector with instant visual feedback.
 -   Architected a zero-leakage process supervision engine in the runner daemon (`tuquet runner`) leveraging kernel process tree sandboxing to eliminate orphan Chromium zombie processes and strictly isolate CPU/RAM.
 -   Engineered a high-throughput Medallion data crawler pipeline (Bronze gzip BLOB storage -> Silver Rust deduplication & HTML sanitizer -> Gold Supabase synchronization).
--   Standardized local workspace configurations into a Single Source of Truth (`~/.specter/`), eliminating configuration drift across CLI, extensions, and runner runtimes.
+-   Standardized local workspace configurations into a Single Source of Truth (`~/.tuquet/`), eliminating configuration drift across CLI, extensions, and runner runtimes.
 -   Automated binary builds, multi-platform packaging, and zero-dependency web installers with native in-place self-updates.
 -   Published modular open-source ecosystem libraries to the official NPM registry under the `@tuquet` scope (`@tuquet/md-export`, `@tuquet/lunar`, `@tuquet/vue-ui`, `@tuquet/extension-runner`).
 - **Programming Language**: Rust, TypeScript, JavaScript, SQL

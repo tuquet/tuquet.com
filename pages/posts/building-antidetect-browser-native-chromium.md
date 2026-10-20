@@ -92,7 +92,7 @@ Below is the standard flag reference for launching the C++ patched stealth Chrom
 | **`--proxy-server="<proto>://<host>:<port>"`** | `socks5://127.0.0.1:1080` | Routes traffic through SOCKS5 or HTTP proxy. |
 | **`--disable-non-proxied-udp`** | *(Flag)* | Prevents WebRTC STUN leaks bypassing proxy tunnels. |
 | **`--disable-spoofing=<list>`** | `font,gpu` | Selectively disables spoofing modules: `font`, `audio`, `canvas`, `clientrects`, `gpu`. |
-| **`--user-data-dir=<path>`** | `~/.specter/browser/profiles/p1` | Fully isolates session cookies, cache, and state. |
+| **`--user-data-dir=<path>`** | `~/.tuquet/browser/profiles/p1` | Fully isolates session cookies, cache, and state. |
 | **`--no-first-run`** | *(Flag)* | Bypasses initial browser setup wizard. |
 | **`--no-default-browser-check`** | *(Flag)* | Disables the default browser prompt. |
 
@@ -100,10 +100,10 @@ Below is the standard flag reference for launching the C++ patched stealth Chrom
 
 ## 4. Directory Layout (Single Source of Truth)
 
-To organize multiple independent profiles cleanly, structure paths under a single canonical root (documented in the [Specter Dedicated Browser Runtime](https://docs.tuquet.com/en/specter/browser/)):
+To organize multiple independent profiles cleanly, structure paths under a single canonical root (documented in the [Tuquet Dedicated Browser Runtime](https://docs.tuquet.com/en/tuquet/browser/)):
 
 ```text
-~/.specter/browser/
+~/.tuquet/browser/
 ├── runtimes/
 │   └── stealth/                              # Native C++ patched Chromium runtime
 │       ├── chrome.exe
@@ -127,8 +127,8 @@ Below are operational PowerShell scripts for launching profiles:
 ### Example 1: Launch Profile 1 (Seed A, Direct Route)
 
 ```powershell
-$ChromeBin = "$HOME\.specter\browser\runtimes\stealth\chrome.exe"
-$ProfileDir = "$HOME\.specter\browser\profiles\profile_01"
+$ChromeBin = "$HOME\.tuquet\browser\runtimes\stealth\chrome.exe"
+$ProfileDir = "$HOME\.tuquet\browser\profiles\profile_01"
 
 if (-not (Test-Path -Path $ProfileDir)) {
     New-Item -ItemType Directory -Path $ProfileDir -Force | Out-Null
@@ -157,8 +157,8 @@ Start-Process -FilePath $ChromeBin -ArgumentList $ChromeArgs
 ### Example 2: Launch Profile 2 (Seed B, SOCKS5 Proxy, WebRTC Leak Protection)
 
 ```powershell
-$ChromeBin = "$HOME\.specter\browser\runtimes\stealth\chrome.exe"
-$ProfileDir = "$HOME\.specter\browser\profiles\profile_02"
+$ChromeBin = "$HOME\.tuquet\browser\runtimes\stealth\chrome.exe"
+$ProfileDir = "$HOME\.tuquet\browser\profiles\profile_02"
 
 if (-not (Test-Path -Path $ProfileDir)) {
     New-Item -ItemType Directory -Path $ProfileDir -Force | Out-Null
@@ -191,9 +191,9 @@ Start-Process -FilePath $ChromeBin -ArgumentList $ChromeArgs
 Automatically opens two `960x1040` windows side by side to compare fingerprint separation:
 
 ```powershell
-$ChromeBin = "$HOME\.specter\browser\runtimes\stealth\chrome.exe"
-$Profile1 = "$HOME\.specter\browser\profiles\profile_01"
-$Profile2 = "$HOME\.specter\browser\profiles\profile_02"
+$ChromeBin = "$HOME\.tuquet\browser\runtimes\stealth\chrome.exe"
+$Profile1 = "$HOME\.tuquet\browser\profiles\profile_01"
+$Profile2 = "$HOME\.tuquet\browser\profiles\profile_02"
 $TargetUrl = if ($args.Count -gt 0) { $args[0] } else { "https://iphey.com" }
 
 # Window 1 (Left Half - Seed: 133742)
