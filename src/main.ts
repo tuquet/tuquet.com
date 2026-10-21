@@ -7,6 +7,7 @@ import { ViteSSG } from 'vite-ssg'
 import { setupRouterScroller } from 'vue-router-better-scroller'
 import { routes } from 'vue-router/auto-routes'
 import App from './App.vue'
+import { initBugsink } from './utils/bugsink'
 import '@unocss/reset/tailwind.css'
 
 import 'floating-vue/dist/style.css'
@@ -33,6 +34,7 @@ export const createApp = ViteSSG(
     app.use(createPinia())
 
     if (isClient) {
+      initBugsink(app, router)
       const html = document.querySelector('html')!
       setupRouterScroller(router, {
         selectors: {
