@@ -11,7 +11,7 @@
 - [High-Throughput Theme Park Ticketing: Handling Flash Sales & Optimizing Mobile WebViews](https://tuquet.com/posts/theme-park-ticketing-flash-sale-architecture): Preventing ticket overselling during massive concurrent flash sales using atomic Redis Lua scripts, virtual waiting rooms, and offline HMAC-SHA256 signed QR mobile passes.
 - [Turning Telegram into a VPS Command Center & GitHub Actions Watchdog](https://tuquet.com/posts/telegram-chatops-vps-monitoring): Building a lightweight Node.js ChatOps bot for remote server health telemetry, GitHub Actions CI failure notifications, and mobile-driven deployments.
 - [Preventing Memory Bloat with Bounded Channels in High-Rate Telemetry](https://tuquet.com/posts/bounded-channels-telemetry): Engineering bounded circular broadcast buffers (tokio::sync::broadcast) with deliberate frame dropping for slow consumers to prevent OOM crashes.
-- [Reliable SSH SOCKS5 Forwarding through Cloudflare WebSocket Bridges](https://tuquet.com/posts/ssh-socks5-cloudflare-bridge): Stabilizing SSH SOCKS5 tunnels over Cloudflare WebSocket access bridges across restrictive firewalls and NAT boundaries.
+- [Reliable SSH SOCKS5 Forwarding through Cloudflare WebSocket Bridges](https://tuquet.com/posts/ssh-socks5-cloudflare-gateway): Stabilizing SSH SOCKS5 tunnels over Cloudflare WebSocket access bridges across restrictive firewalls and NAT boundaries.
 - [Don't Let Your Resume Be Just a PDF: Why Every Developer Needs a Personal Blog](https://tuquet.com/posts/why-developers-should-have-a-blog): Demonstrating proof of work, continuous deliberate learning, and personal knowledge retention through technical writing in the generative AI era.
 
 ## Author & Contact Details

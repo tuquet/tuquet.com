@@ -147,4 +147,4 @@ The complete open-source implementation—including systemd service definitions 
 
 ### Related Infrastructure & Monitoring Architecture
 * [Zero-Trust Architecture & Risk Isolation: Survival Guide for Web Agencies and Freelancers](/posts/zero-trust-architecture-agency-risk-management)
-* [Reliable SSH SOCKS5 Forwarding through Cloudflare WebSocket Bridges](/posts/ssh-socks5-cloudflare-bridge)
+* [Reliable SSH SOCKS5 Forwarding through Cloudflare WebSocket Bridges](/posts/ssh-socks5-cloudflare-gateway)

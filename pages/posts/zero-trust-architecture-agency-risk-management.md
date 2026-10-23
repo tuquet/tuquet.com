@@ -127,4 +127,4 @@ In software and systems architecture, the best designs are not necessarily the m
 
 ### Related Infrastructure & Security Architecture
 * [Turning Telegram into a VPS Command Center & GitHub Actions Watchdog](/posts/telegram-chatops-vps-monitoring)
-* [Reliable SSH SOCKS5 Forwarding through Cloudflare WebSocket Bridges](/posts/ssh-socks5-cloudflare-bridge)
+* [Reliable SSH SOCKS5 Forwarding through Cloudflare WebSocket Bridges](/posts/ssh-socks5-cloudflare-gateway)
