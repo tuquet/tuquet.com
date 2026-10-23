@@ -17,7 +17,7 @@
   },
   "pillars": [
     "system",
-    "automa",
+    "automation",
     "browser",
     "gateway",
     "faker",
@@ -57,10 +57,10 @@
           "name": "service",
           "type": "choice",
           "required": false,
-          "description": "Target service (gateway, automa, runner, browser, cloud, system, faker)",
+          "description": "Target service (gateway, automation, runner, browser, cloud, system, faker)",
           "choices": [
             "gateway",
-            "automa",
+            "automation",
             "runner",
             "browser",
             "cloud",
@@ -221,7 +221,7 @@
           "choices": [
             "gateway",
             "browser",
-            "automa",
+            "automation",
             "runner",
             "faker",
             "system"
@@ -252,7 +252,7 @@
           "name": "service",
           "type": "string",
           "required": false,
-          "description": "Optional service domain to scope REPL into (automa, browser, gateway, faker)."
+          "description": "Optional service domain to scope REPL into (automation, browser, gateway, faker)."
         }
       ]
     },
@@ -570,12 +570,12 @@
       ]
     },
     {
-      "id": "tuquet.automa.inspect",
+      "id": "tuquet.automation.inspect",
       "route": [
-        "automa",
+        "automation",
         "inspect"
       ],
-      "pillar": "automa",
+      "pillar": "automation",
       "title": "Inspect Workflow DAG",
       "description": "Inspect and validate a workflow JSON file, its block sequence, and parameters.",
       "arguments": [
@@ -592,22 +592,22 @@
       }
     },
     {
-      "id": "tuquet.automa.probe",
+      "id": "tuquet.automation.probe",
       "route": [
-        "automa",
+        "automation",
         "probe"
       ],
-      "pillar": "automa",
+      "pillar": "automation",
       "title": "Probe Automation Engine",
       "description": "Probe Automa manifest capabilities and protocol version."
     },
     {
-      "id": "tuquet.automa.run",
+      "id": "tuquet.automation.run",
       "route": [
-        "automa",
+        "automation",
         "run"
       ],
-      "pillar": "automa",
+      "pillar": "automation",
       "title": "Execute Automation Workflow",
       "description": "Execute a DAG workflow directly via Chromium automation worker.",
       "arguments": [
@@ -650,23 +650,23 @@
       }
     },
     {
-      "id": "tuquet.automa.studio",
+      "id": "tuquet.automation.studio",
       "route": [
-        "automa",
+        "automation",
         "studio"
       ],
-      "pillar": "automa",
+      "pillar": "automation",
       "title": "Launch Automa Web Studio",
       "description": "Launch Automa Web Studio in default system browser."
     },
     {
-      "id": "tuquet.automa.workflow.delete",
+      "id": "tuquet.automation.workflow.delete",
       "route": [
-        "automa",
+        "automation",
         "workflow",
         "delete"
       ],
-      "pillar": "automa",
+      "pillar": "automation",
       "title": "Delete Stored Workflow",
       "description": "Delete a workflow from database and vault.",
       "arguments": [
@@ -687,13 +687,13 @@
       ]
     },
     {
-      "id": "tuquet.automa.workflow.export",
+      "id": "tuquet.automation.workflow.export",
       "route": [
-        "automa",
+        "automation",
         "workflow",
         "export"
       ],
-      "pillar": "automa",
+      "pillar": "automation",
       "title": "Export Workflow File",
       "description": "Export a workflow from database or vault to a JSON file.",
       "arguments": [
@@ -714,13 +714,13 @@
       ]
     },
     {
-      "id": "tuquet.automa.workflow.import",
+      "id": "tuquet.automation.workflow.import",
       "route": [
-        "automa",
+        "automation",
         "workflow",
         "import"
       ],
-      "pillar": "automa",
+      "pillar": "automation",
       "title": "Import Workflow File",
       "description": "Import a workflow file (.json) into SQLite database and vault.",
       "arguments": [
@@ -752,13 +752,13 @@
       ]
     },
     {
-      "id": "tuquet.automa.workflow.info",
+      "id": "tuquet.automation.workflow.info",
       "route": [
-        "automa",
+        "automation",
         "workflow",
         "info"
       ],
-      "pillar": "automa",
+      "pillar": "automation",
       "title": "Inspect Stored Workflow Details",
       "description": "Inspect details, triggers, parameters, and block sequence of a stored workflow.",
       "arguments": [
@@ -771,13 +771,13 @@
       ]
     },
     {
-      "id": "tuquet.automa.workflow.list",
+      "id": "tuquet.automation.workflow.list",
       "route": [
-        "automa",
+        "automation",
         "workflow",
         "list"
       ],
-      "pillar": "automa",
+      "pillar": "automation",
       "title": "List Stored Workflows",
       "description": "List all workflows saved in SQLite database and local file vault.",
       "options": [
@@ -929,8 +929,8 @@
           "name": "id",
           "type": "string",
           "required": false,
-          "default": "automa",
-          "description": "Extension ID to inspect (defaults to 'automa')."
+          "default": "automation",
+          "description": "Extension ID to inspect (defaults to 'automation')."
         }
       ]
     },
@@ -949,7 +949,7 @@
           "name": "id",
           "type": "string",
           "required": true,
-          "description": "Extension ID from catalog (e.g. 'automa', 'ublock', 'cookie-injector')."
+          "description": "Extension ID from catalog (e.g. 'automation', 'ublock', 'cookie-injector')."
         }
       ],
       "options": [
@@ -1008,14 +1008,14 @@
       ],
       "pillar": "browser",
       "title": "Extension Filesystem Path",
-      "description": "Print the absolute filesystem path of an extension (defaults to 'automa').",
+      "description": "Print the absolute filesystem path of an extension (defaults to 'automation').",
       "arguments": [
         {
           "name": "id",
           "type": "string",
           "required": false,
-          "default": "automa",
-          "description": "Extension ID (defaults to 'automa')."
+          "default": "automation",
+          "description": "Extension ID (defaults to 'automation')."
         }
       ]
     },

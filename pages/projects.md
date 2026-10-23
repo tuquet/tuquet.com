@@ -19,7 +19,7 @@ projects:
       desc: 'Autonomous edge engine executing high-volume browser tasks and multi-account automation at massive scale'
       icon: 'i-simple-icons-rust'
     - name: 'Automa'
-      link: 'https://github.com/tuquet/automa'
+      link: 'https://github.com/tuquet/automation'
       desc: 'Visual drag-and-drop workflow builder to automate complex browser tasks in minutes without writing code'
       icon: 'i-carbon-flow-data'
     - name: 'Cloud'

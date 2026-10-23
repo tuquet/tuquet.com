@@ -53,7 +53,7 @@
       "items": {
         "type": "string"
       },
-      "default": ["automa"],
+      "default": ["automation"],
       "description": "List of extensions automatically injected into newly launched profiles"
     },
     "extra_args": {

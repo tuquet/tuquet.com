@@ -294,13 +294,13 @@ export const sponsors: SponsorItem[] = [
     "size": 77.5
   },
   {
-    "id": "automa",
+    "id": "automation",
     "name": "Automa",
     "tier": "ecosystem",
     "weight": 48,
-    "link": "https://docs.tuquet.com/en/tuquet/automa/",
-    "logo": "/icons/automa.svg",
-    "domain": "docs.tuquet.com/en/tuquet/automa",
+    "link": "https://docs.tuquet.com/en/tuquet/automation/",
+    "logo": "/icons/automation.svg",
+    "domain": "docs.tuquet.com/en/tuquet/automation",
     "timeline": "2024 – Present",
     "desc": "Closed-loop automation orchestration and headless browser coordination platform.",
     "tags": [
