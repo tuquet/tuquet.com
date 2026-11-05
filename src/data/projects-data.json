@@ -1,6 +1,6 @@
 {
-  "total": 9,
-  "updatedAt": "2026-11-05T07:12:41.121Z",
+  "total": 8,
+  "updatedAt": "2026-11-05T19:46:06.645Z",
   "categories": {
     "Ecosystem": [
       {
@@ -12,7 +12,7 @@
         "description": "Ultra-High Performance Distributed Automation Mesh & Browser Sandbox Runtime in Rust",
         "desc": "Ultra-High Performance Distributed Automation Mesh & Browser Sandbox Runtime in Rust",
         "icon": "i-simple-icons-rust",
-        "stars": 0,
+        "stars": 1,
         "forks": 0,
         "language": "Rust",
         "topics": [
@@ -34,7 +34,7 @@
         "description": "Medusa v2 e-commerce platform with Next.js Storefront and Docker",
         "desc": "Medusa v2 e-commerce platform with Next.js Storefront and Docker",
         "icon": "i-carbon-shopping-cart",
-        "stars": 0,
+        "stars": 1,
         "forks": 0,
         "language": "TypeScript",
         "topics": [
@@ -56,7 +56,7 @@
         "description": "Centralized Identity, Authentication, and Entitlements Platform",
         "desc": "Centralized Identity, Authentication, and Entitlements Platform",
         "icon": "i-simple-icons-supabase",
-        "stars": 0,
+        "stars": 1,
         "forks": 0,
         "language": "PLpgSQL",
         "topics": [
@@ -77,7 +77,7 @@
         "description": "Central workstation desktop GUI and preferences engine with Vue 3, Shadcn UI, and Tauri v2",
         "desc": "Central workstation desktop GUI and preferences engine with Vue 3, Shadcn UI, and Tauri v2",
         "icon": "i-simple-icons-tauri",
-        "stars": 0,
+        "stars": 1,
         "forks": 0,
         "language": "TypeScript",
         "topics": [
@@ -98,7 +98,7 @@
         "description": "Multi-tenant cloud storage hub: Cloudflare Pages + D1 + R2 + WebDAV for antidetect browser profiles & media",
         "desc": "Multi-tenant cloud storage hub: Cloudflare Pages + D1 + R2 + WebDAV for antidetect browser profiles & media",
         "icon": "i-carbon-data-base",
-        "stars": 0,
+        "stars": 1,
         "forks": 0,
         "language": "JavaScript",
         "topics": [
@@ -123,7 +123,7 @@
         "description": "Curated library of production AI agent skills and automated runbooks adhering to the Ponytail standard",
         "desc": "Curated library of production AI agent skills and automated runbooks adhering to the Ponytail standard",
         "icon": "i-carbon-tools",
-        "stars": 0,
+        "stars": 1,
         "forks": 0,
         "language": "TypeScript",
         "topics": [
@@ -138,28 +138,6 @@
         "category": "AI & Agent Systems",
         "isArchived": false,
         "weight": 95
-      },
-      {
-        "name": "Claude-Agy",
-        "repo": "tuquet/claude-agy",
-        "url": "https://github.com/tuquet/claude-agy",
-        "link": "https://github.com/tuquet/claude-agy",
-        "homepage": "https://tuquet.com/projects",
-        "description": "Run Anthropic Claude Code CLI powered by Google Antigravity quotas with zero API token costs",
-        "desc": "Run Anthropic Claude Code CLI powered by Google Antigravity quotas with zero API token costs",
-        "icon": "i-simple-icons-anthropic",
-        "stars": 0,
-        "forks": 0,
-        "language": "JavaScript",
-        "topics": [
-          "ai-tooling",
-          "antigravity",
-          "claude",
-          "cli"
-        ],
-        "category": "AI & Agent Systems",
-        "isArchived": false,
-        "weight": 85
       }
     ],
     "Developer Infrastructure": [
@@ -172,7 +150,7 @@
         "description": "Interactive visual architecture map that unravels monorepo dependencies and data flows",
         "desc": "Interactive visual architecture map that unravels monorepo dependencies and data flows",
         "icon": "i-carbon-network-4",
-        "stars": 0,
+        "stars": 1,
         "forks": 0,
         "language": "TypeScript",
         "topics": [
@@ -194,7 +172,7 @@
         "description": "Automated release tracking and distribution dashboard for open-source software and tools",
         "desc": "Automated release tracking and distribution dashboard for open-source software and tools",
         "icon": "i-carbon-rocket",
-        "stars": 0,
+        "stars": 1,
         "forks": 0,
         "language": "TypeScript",
         "topics": [
@@ -211,13 +189,11 @@
   "allTopics": [
     "agent-skills",
     "ai",
-    "ai-tooling",
     "antigravity",
     "architecture-map",
     "automation",
     "browser-sandbox",
     "claude",
-    "cli",
     "cloudflare-pages",
     "cloudflare-r2",
     "cursor",
