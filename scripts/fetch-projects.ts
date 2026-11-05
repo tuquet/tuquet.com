@@ -111,12 +111,12 @@ function resolveCategory(name: string, topics: string[]): string {
   const n = name.toLowerCase()
 
   // AI & Agent Systems
-  if (n === 'skills-pack' || n === 'claude-agy' || topics.includes('agent-skills') || topics.includes('ai') || topics.includes('claude')) {
+  if (topics.includes('tuquet-agents') || n === 'skills-pack' || n === 'claude-agy' || topics.includes('agent-skills') || topics.includes('ai') || topics.includes('claude')) {
     return 'AI & Agent Systems'
   }
 
   // Developer Infrastructure
-  if (n === 'yak-map' || n === 'releases' || n === 'docs' || topics.includes('tuquet-ops') || topics.includes('chatops') || topics.includes('alerting')) {
+  if (topics.includes('tuquet-ops') || n === 'yak-map' || n === 'releases' || n === 'docs' || topics.includes('chatops') || topics.includes('alerting')) {
     return 'Developer Infrastructure'
   }
 

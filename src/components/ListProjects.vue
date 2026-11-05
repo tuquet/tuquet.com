@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import defaultData from '~/data/projects-data.json'
 
 interface ProjectItem {
@@ -23,72 +23,16 @@ const props = defineProps<{
   projects?: Record<string, ProjectItem[]>
 }>()
 
-const searchQuery = ref('')
-const selectedTopic = ref<string>('all')
-
 // Use prop projects if passed, otherwise default to generated projectsData
-const baseProjects = computed<Record<string, ProjectItem[]>>(() => {
+const projects = computed<Record<string, ProjectItem[]>>(() => {
   if (props.projects && Object.keys(props.projects).length > 0)
     return props.projects
   return (defaultData.categories as unknown as Record<string, ProjectItem[]>) || {}
 })
 
-// All topics collected from GitHub repos
-const availableTopics = computed<string[]>(() => {
-  return (defaultData.allTopics as string[]) || []
-})
-
 function slug(name: string) {
   return name.toLowerCase().replace(/[\s\\/]+/g, '-')
 }
-
-function selectTopic(topic: string) {
-  selectedTopic.value = selectedTopic.value === topic ? 'all' : topic
-}
-
-// Filtered projects by search query and topic
-const filteredProjects = computed(() => {
-  const query = searchQuery.value.trim().toLowerCase()
-  const topicFilter = selectedTopic.value.toLowerCase()
-
-  const result: Record<string, ProjectItem[]> = {}
-
-  for (const [category, items] of Object.entries(baseProjects.value)) {
-    const matched = items.filter((item) => {
-      // Topic filter check
-      if (topicFilter !== 'all') {
-        const itemTopics = (item.topics || []).map(t => t.toLowerCase())
-        const matchesTopic = itemTopics.includes(topicFilter)
-        if (!matchesTopic) return false
-      }
-
-      // Search query check
-      if (!query) return true
-
-      const nameMatch = item.name.toLowerCase().includes(query)
-      const descText = (item.description || item.desc || '').toLowerCase()
-      const descMatch = descText.includes(query)
-      const topicMatch = (item.topics || []).some(t => t.toLowerCase().includes(query))
-      const langMatch = (item.language || '').toLowerCase().includes(query)
-
-      return nameMatch || descMatch || topicMatch || langMatch
-    })
-
-    if (matched.length > 0) {
-      result[category] = matched
-    }
-  }
-
-  return result
-})
-
-const totalVisibleCount = computed(() => {
-  return Object.values(filteredProjects.value).reduce((acc, list) => acc + list.length, 0)
-})
-
-const totalProjectsCount = computed(() => {
-  return Object.values(baseProjects.value).reduce((acc, list) => acc + list.length, 0)
-})
 </script>
 
 <template>
@@ -138,87 +82,9 @@ const totalProjectsCount = computed(() => {
       <hr>
     </div>
 
-    <!-- Search & Filter Controls -->
-    <div class="my-6 max-w-200 mx-auto px-4">
-      <!-- Search Input -->
-      <div class="relative flex items-center mb-3">
-        <div class="absolute left-3.5 text-base op40 i-carbon-search pointer-events-none" />
-        <input
-          v-model="searchQuery"
-          type="text"
-          placeholder="Filter repositories by name, topic, or keyword..."
-          class="w-full pl-10 pr-9 py-2 text-sm rounded-lg border border-base bg-transparent transition-all outline-none focus:(border-primary ring-1 ring-primary/30)"
-        >
-        <button
-          v-if="searchQuery"
-          class="absolute right-3 text-sm op40 hover:op80 transition-opacity cursor-pointer"
-          title="Clear search"
-          @click="searchQuery = ''"
-        >
-          <div i-carbon-close />
-        </button>
-      </div>
-
-      <!-- Topic Pills Filter -->
-      <div
-        v-if="availableTopics.length > 0"
-        class="flex flex-wrap items-center justify-center gap-1.5 text-xs"
-      >
-        <button
-          class="px-2.5 py-1 rounded-full border transition-all cursor-pointer select-none"
-          :class="selectedTopic === 'all'
-            ? 'bg-neutral-800 text-white border-neutral-700 dark:(bg-neutral-200 text-black border-white) font-medium shadow-sm'
-            : 'border-base op60 hover:(op100 bg-neutral-500/10)'"
-          @click="selectedTopic = 'all'"
-        >
-          All ({{ totalProjectsCount }})
-        </button>
-        <button
-          v-for="topic in availableTopics"
-          :key="topic"
-          class="px-2.5 py-1 rounded-full border transition-all cursor-pointer select-none font-mono"
-          :class="selectedTopic === topic
-            ? 'bg-neutral-800 text-white border-neutral-700 dark:(bg-neutral-200 text-black border-white) font-medium shadow-sm'
-            : 'border-base op60 hover:(op100 bg-neutral-500/10)'"
-          @click="selectTopic(topic)"
-        >
-          #{{ topic }}
-        </button>
-      </div>
-
-      <!-- Match counter when filtered -->
-      <div
-        v-if="searchQuery || selectedTopic !== 'all'"
-        class="mt-3 text-center text-xs op50"
-      >
-        Showing {{ totalVisibleCount }} of {{ totalProjectsCount }} repositories
-        <button
-          class="ml-2 underline op70 hover:op100 cursor-pointer"
-          @click="searchQuery = ''; selectedTopic = 'all'"
-        >
-          Reset filters
-        </button>
-      </div>
-    </div>
-
-    <!-- Empty State -->
-    <div
-      v-if="totalVisibleCount === 0"
-      class="py-16 text-center op50"
-    >
-      <div class="text-4xl mb-2 i-carbon-search-locate inline-block" />
-      <p>No public repository matches your search.</p>
-      <button
-        class="mt-3 px-3 py-1 text-sm border border-base rounded hover:bg-neutral-500/10 cursor-pointer"
-        @click="searchQuery = ''; selectedTopic = 'all'"
-      >
-        Clear filters
-      </button>
-    </div>
-
     <!-- Category Sections -->
     <div
-      v-for="key, cidx in Object.keys(filteredProjects)"
+      v-for="key, cidx in Object.keys(projects)"
       :key="key"
       slide-enter
       :style="{ '--enter-stage': cidx + 1 }"
@@ -244,7 +110,7 @@ const totalProjectsCount = computed(() => {
         grid="~ cols-1 md:cols-2 gap-4 lg:cols-3"
       >
         <div
-          v-for="item, idx in filteredProjects[key]"
+          v-for="item, idx in projects[key]"
           :key="idx"
           class="item relative flex flex-col justify-between"
         >
@@ -267,7 +133,7 @@ const totalProjectsCount = computed(() => {
             <!-- Content Area -->
             <div class="flex-auto min-w-0">
               <div class="flex items-center gap-2">
-                <span class="text-base font-semibold">{{ item.name }}</span>
+                <span class="text-base font-semibold leading-tight">{{ item.name }}</span>
                 <!-- Star count badge if > 0 -->
                 <span
                   v-if="item.stars && item.stars > 0"
@@ -291,20 +157,18 @@ const totalProjectsCount = computed(() => {
             </div>
           </a>
 
-          <!-- GitHub Topics (Clickable Filter Pills) -->
+          <!-- GitHub Topics -->
           <div
             v-if="item.topics && item.topics.length > 0"
             class="flex flex-wrap gap-1.5 mt-3 pt-2 border-t border-base/15"
           >
-            <button
+            <span
               v-for="t in item.topics"
               :key="t"
-              class="text-[10px] px-1.5 py-0.2 rounded bg-neutral-500/10 op50 hover:op100 transition-opacity cursor-pointer border-none font-mono"
-              :title="`Filter by topic: ${t}`"
-              @click.stop="selectTopic(t)"
+              class="text-[10px] px-1.5 py-0.2 rounded bg-neutral-500/10 op50 font-mono select-none"
             >
               #{{ t }}
-            </button>
+            </span>
           </div>
         </div>
       </div>
@@ -327,7 +191,7 @@ const totalProjectsCount = computed(() => {
         <div class="i-ri-menu-2-fill" />
       </div>
       <ul>
-        <li v-for="key of Object.keys(filteredProjects)" :key="key">
+        <li v-for="key of Object.keys(projects)" :key="key">
           <a :href="`#${slug(key)}`">{{ key }}</a>
         </li>
       </ul>
