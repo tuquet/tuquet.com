@@ -239,7 +239,8 @@ async function main() {
     const category = resolveCategory(repo.name, topics)
     const icon = detectIcon(repo.name, language, topics)
     const weight = WEIGHT_ORDER[repo.name.toLowerCase()] ?? 30
-    const link = repo.homepageUrl || repo.url
+    const isSelfLink = repo.homepageUrl && (repo.homepageUrl.includes('tuquet.com/projects') || repo.homepageUrl === 'https://tuquet.com' || repo.homepageUrl === 'https://tuquet.com/')
+    const link = (repo.homepageUrl && !isSelfLink) ? repo.homepageUrl : repo.url
 
     projectList.push({
       name,
