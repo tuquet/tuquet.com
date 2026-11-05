@@ -1,77 +1,9 @@
-<div align="center">
-  <img src="https://tuquet.com/icons/tuquet.svg" width="76" height="76" alt="Logo" />
-  <h1>Hub</h1>
-  <p><strong>Personal Portfolio, Systems Architecture &amp; Open-Source Automation Portal</strong></p>
-
-  <p>
-    <a href="https://tuquet.com/"><img src="https://img.shields.io/badge/Live-tuquet.com-brightgreen.svg" alt="Live Website" /></a>
-    <img src="https://img.shields.io/badge/Vue-3.x-brightgreen.svg" alt="Vue 3" />
-    <img src="https://img.shields.io/badge/Vite--SSG-Static-blue.svg" alt="Vite-SSG" />
-    <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License" /></a>
-  </p>
-</div>
-
----
-
-## 🌐 Navigation
-
-- **Portfolio**: [tuquet.com](https://tuquet.com/)
-- **Interactive CV & Resume**: [tuquet.com/cv/](https://tuquet.com/cv/)
-- **Projects Catalog**: [tuquet.com/projects/](https://tuquet.com/projects/)
-- **Automa Studio**: [docs.tuquet.com/en/tuquet/automation/](https://docs.tuquet.com/en/tuquet/automation/)
-- **Component Lab (Storybook)**: [storybook.tuquet.com/](https://storybook.tuquet.com/)
-
----
-
-## 🛠️ Tech Stack
-
-- **Framework**: Vue 3 + Vite-SSG (Server-Side Generation)
-- **Styling**: UnoCSS + Typography presets (100% Roboto font invariance)
-- **Canvas Art**: Generative plum blossom branch algorithm
-- **Icons**: Custom Squircle SVGs + Unplugin Icons
-
----
-
-## 💻 Local Development
-
-```bash
-# Install dependencies
-pnpm install
-
-# Start local development server
-pnpm dev
-
-# Build static SSG output
-pnpm build
-```
-
----
-
-## 🌐 Ecosystem
-
-Part of the **Automation & Agent Ecosystem**:
-
-- [Automa](https://github.com/tuquet/automation) — Native Chrome/Edge Desktop UI Automation Browser.
-- [Runner](https://github.com/tuquet/runner) — High-Performance Distributed Process Supervision Engine in Rust.
-- [Browser](https://github.com/tuquet/browser) — High-Performance Headless Web Scraping & Stealth Automation Core.
-- [Cloud](https://github.com/tuquet/cloud) — Enterprise Orchestration & Real-time Task Control Plane.
-- [CLI](https://github.com/tuquet/cli) — Developer Ergonomic CLI & Unified Command Center.
-- [Lib](https://github.com/tuquet/lib) — Monorepo for Shared Enterprise UI & Utilities (`vue-ui`, `vue-table`, `md-export`, `extension-runner`, `lunar`).
-
----
-
-## 📄 License
-
-Distributed under the [MIT License](LICENSE).
-
----
-
-<div align="center">
-  <samp>
-    <a href="https://tuquet.com">Portfolio</a> •
-    <a href="https://tuquet.com/cv">CV &amp; Resume</a> •
-    <a href="https://docs.tuquet.com/en/tuquet/automation/">Automa Studio</a> •
-    <a href="https://storybook.tuquet.com/">Component Lab</a> •
-    <a href="https://docs.tuquet.com">Documentation Hub</a>
-  </samp>
-</div>
+<p align="center">
+  <b><a href="https://tuquet.com">Portfolio</a></b> &nbsp;&bull;&nbsp;
+  <b><a href="https://tuquet.com/posts">Blog</a></b> &nbsp;&bull;&nbsp;
+  <b><a href="https://docs.tuquet.com">Docs</a></b>
+  <br>
+  <b><a href="https://yakmap.tuquet.com">Yak Map</a></b> &nbsp;&bull;&nbsp;
+  <b><a href="https://release.tuquet.com">Releases</a></b> &nbsp;&bull;&nbsp;
+  <b><a href="https://tuquet.com/cv">CV &amp; Experience</a></b>
+</p>
