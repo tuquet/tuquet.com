@@ -78,6 +78,12 @@ export default defineConfig({
     'i-carbon-network-4',
     'i-carbon-code',
     'i-carbon-notebook',
+    'i-carbon-shopping-cart',
+    'i-simple-icons-supabase',
+    'i-simple-icons-tauri',
+    'i-carbon-rocket',
+    'i-simple-icons-typescript',
+    'i-simple-icons-javascript',
     'i-carbon-unknown',
   ],
 })
