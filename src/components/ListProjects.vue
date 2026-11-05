@@ -116,7 +116,7 @@ function slug(name: string) {
         >
           <!-- Main Link Area -->
           <a
-            :href="item.link || item.url"
+            :href="item.url || item.link"
             target="_blank"
             rel="noopener noreferrer"
             class="flex items-start flex-auto no-underline! color-inherit group"

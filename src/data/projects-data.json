@@ -1,6 +1,6 @@
 {
   "total": 10,
-  "updatedAt": "2026-11-05T06:29:48.064Z",
+  "updatedAt": "2026-11-05T06:37:43.657Z",
   "categories": {
     "Ecosystem": [
       {
@@ -93,7 +93,7 @@
         "name": "Storage Hub",
         "repo": "tuquet/storage",
         "url": "https://github.com/tuquet/storage",
-        "link": "https://storage.tuquet.com/",
+        "link": "https://github.com/tuquet/storage",
         "homepage": "https://storage.tuquet.com/",
         "description": "Multi-tenant cloud storage hub: Cloudflare Pages + D1 + R2 + WebDAV for antidetect browser profiles & media",
         "desc": "Multi-tenant cloud storage hub: Cloudflare Pages + D1 + R2 + WebDAV for antidetect browser profiles & media",
@@ -167,7 +167,7 @@
         "name": "Yak Map",
         "repo": "tuquet/yak-map",
         "url": "https://github.com/tuquet/yak-map",
-        "link": "https://yakmap.tuquet.com",
+        "link": "https://github.com/tuquet/yak-map",
         "homepage": "https://yakmap.tuquet.com",
         "description": "Interactive visual architecture map that unravels monorepo dependencies and data flows",
         "desc": "Interactive visual architecture map that unravels monorepo dependencies and data flows",
@@ -189,7 +189,7 @@
         "name": "Releases",
         "repo": "tuquet/releases",
         "url": "https://github.com/tuquet/releases",
-        "link": "https://release.tuquet.com",
+        "link": "https://github.com/tuquet/releases",
         "homepage": "https://release.tuquet.com",
         "description": "Automated release tracking and distribution dashboard for open-source software and tools",
         "desc": "Automated release tracking and distribution dashboard for open-source software and tools",
@@ -210,7 +210,7 @@
         "name": "Docs",
         "repo": "tuquet/docs",
         "url": "https://github.com/tuquet/docs",
-        "link": "http://specter.tuquet.com/",
+        "link": "https://github.com/tuquet/docs",
         "homepage": "http://specter.tuquet.com/",
         "description": "Internal business documentation, operational runbooks, and resource management SOPs",
         "desc": "Internal business documentation, operational runbooks, and resource management SOPs",
