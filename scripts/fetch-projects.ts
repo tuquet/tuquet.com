@@ -131,7 +131,7 @@ function resolveCategory(name: string, topics: string[]): string {
 // Fallback descriptions for repos that currently have empty descriptions on GitHub
 const FALLBACK_DESCRIPTIONS: Record<string, string> = {
   console: 'Central workstation desktop GUI and preferences engine built with Vue 3, Shadcn UI, and Tauri v2',
-  releases: 'Automated release tracking and software distribution dashboard for Tuquet open-source software',
+  releases: 'Automated release tracking and distribution dashboard for open-source software and tools',
 }
 
 // Priority sort weight
@@ -231,7 +231,8 @@ async function main() {
     if (topics.includes('customers')) continue
 
     const name = TITLE_MAP[repo.name.toLowerCase()] || repo.name
-    const description = (repo.description && repo.description.trim()) || FALLBACK_DESCRIPTIONS[repo.name.toLowerCase()] || ''
+    let description = (repo.description && repo.description.trim()) || FALLBACK_DESCRIPTIONS[repo.name.toLowerCase()] || ''
+    description = description.replace(/\bTuquet\s*/gi, '').replace(/^[:\s-]+/, '').trim()
     const language = repo.primaryLanguage?.name || null
     const stars = repo.stargazerCount ?? 0
     const forks = repo.forkCount ?? 0

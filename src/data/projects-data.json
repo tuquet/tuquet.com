@@ -1,6 +1,6 @@
 {
   "total": 10,
-  "updatedAt": "2026-11-05T06:18:59.763Z",
+  "updatedAt": "2026-11-05T06:23:48.685Z",
   "categories": {
     "Ecosystem": [
       {
@@ -95,8 +95,8 @@
         "url": "https://github.com/tuquet/storage",
         "link": "https://storage.tuquet.com/",
         "homepage": "https://storage.tuquet.com/",
-        "description": "Tuquet Multi-Tenant Storage Hub: Cloudflare Pages + D1 + R2 + WebDAV for Antidetect Browser Profiles & Media",
-        "desc": "Tuquet Multi-Tenant Storage Hub: Cloudflare Pages + D1 + R2 + WebDAV for Antidetect Browser Profiles & Media",
+        "description": "Multi-tenant cloud storage hub: Cloudflare Pages + D1 + R2 + WebDAV for antidetect browser profiles & media",
+        "desc": "Multi-tenant cloud storage hub: Cloudflare Pages + D1 + R2 + WebDAV for antidetect browser profiles & media",
         "icon": "i-carbon-data-base",
         "stars": 0,
         "forks": 0,
@@ -191,8 +191,8 @@
         "url": "https://github.com/tuquet/releases",
         "link": "https://release.tuquet.com",
         "homepage": "https://release.tuquet.com",
-        "description": "Automated release tracking and distribution dashboard for Tuquet open-source software",
-        "desc": "Automated release tracking and distribution dashboard for Tuquet open-source software",
+        "description": "Automated release tracking and distribution dashboard for open-source software and tools",
+        "desc": "Automated release tracking and distribution dashboard for open-source software and tools",
         "icon": "i-carbon-rocket",
         "stars": 0,
         "forks": 0,
@@ -212,8 +212,8 @@
         "url": "https://github.com/tuquet/docs",
         "link": "http://specter.tuquet.com/",
         "homepage": "http://specter.tuquet.com/",
-        "description": "Tuquet Ecosystem internal business documentation, operational runbooks, and MMO resource management SOPs",
-        "desc": "Tuquet Ecosystem internal business documentation, operational runbooks, and MMO resource management SOPs",
+        "description": "Internal business documentation, operational runbooks, and resource management SOPs",
+        "desc": "Internal business documentation, operational runbooks, and resource management SOPs",
         "icon": "i-carbon-notebook",
         "stars": 0,
         "forks": 0,
