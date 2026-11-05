@@ -1,4 +1,4 @@
-name: "Sync: Ecosystem Projects Data"
+name: "Sync: projects data"
 
 on:
   schedule:
