@@ -4,16 +4,19 @@ import defaultData from '~/data/projects-data.json'
 
 interface ProjectItem {
   name: string
-  repo?: string
+  repo: string
+  url: string
   link: string
-  githubUrl?: string
-  desc: string
+  homepage?: string | null
+  description: string
+  desc?: string
   icon: string
-  stars?: number
-  forks?: number
+  stars: number
+  forks: number
   language?: string | null
-  topics?: string[]
-  category?: string
+  topics: string[]
+  category: string
+  isArchived: boolean
 }
 
 const props = defineProps<{
@@ -30,17 +33,10 @@ const baseProjects = computed<Record<string, ProjectItem[]>>(() => {
   return (defaultData.categories as unknown as Record<string, ProjectItem[]>) || {}
 })
 
-// Curated highlight topic pills
-const highlightedTopics = [
-  { label: 'All', value: 'all' },
-  { label: 'Rust', value: 'rust' },
-  { label: 'Vue 3', value: 'vue3' },
-  { label: 'AI & Agents', value: 'ai' },
-  { label: 'Automation', value: 'automation' },
-  { label: 'TypeScript', value: 'typescript' },
-  { label: 'Cloudflare', value: 'cloudflare' },
-  { label: 'Supabase', value: 'supabase' },
-]
+// All topics collected from GitHub repos
+const availableTopics = computed<string[]>(() => {
+  return (defaultData.allTopics as string[]) || []
+})
 
 function slug(name: string) {
   return name.toLowerCase().replace(/[\s\\/]+/g, '-')
@@ -62,12 +58,7 @@ const filteredProjects = computed(() => {
       // Topic filter check
       if (topicFilter !== 'all') {
         const itemTopics = (item.topics || []).map(t => t.toLowerCase())
-        const itemLang = (item.language || '').toLowerCase()
-        const matchesTopic = itemTopics.some(t => t.includes(topicFilter))
-          || itemLang.includes(topicFilter)
-          || (topicFilter === 'ai' && (itemTopics.includes('agent-skills') || itemTopics.includes('claude') || itemTopics.includes('antigravity')))
-          || (topicFilter === 'vue3' && (itemTopics.includes('vue') || itemLang === 'vue'))
-          || (topicFilter === 'cloudflare' && (itemTopics.includes('cloudflare-workers') || itemTopics.includes('cloudflare')))
+        const matchesTopic = itemTopics.includes(topicFilter)
         if (!matchesTopic) return false
       }
 
@@ -75,11 +66,12 @@ const filteredProjects = computed(() => {
       if (!query) return true
 
       const nameMatch = item.name.toLowerCase().includes(query)
-      const descMatch = (item.desc || '').toLowerCase().includes(query)
-      const langMatch = (item.language || '').toLowerCase().includes(query)
+      const descText = (item.description || item.desc || '').toLowerCase()
+      const descMatch = descText.includes(query)
       const topicMatch = (item.topics || []).some(t => t.toLowerCase().includes(query))
+      const langMatch = (item.language || '').toLowerCase().includes(query)
 
-      return nameMatch || descMatch || langMatch || topicMatch
+      return nameMatch || descMatch || topicMatch || langMatch
     })
 
     if (matched.length > 0) {
@@ -102,7 +94,7 @@ const totalProjectsCount = computed(() => {
 <template>
   <div class="max-w-300 mx-auto">
     <p text-center mt--6 mb5 op50 text-lg italic>
-      Open-source architecture, ecosystem mesh, and developer tooling.
+      Public open-source architecture, ecosystem mesh, and developer tooling.
     </p>
 
     <!-- Quick Links Bar -->
@@ -146,20 +138,20 @@ const totalProjectsCount = computed(() => {
       <hr>
     </div>
 
-    <!-- Interactive Search & Topic Filter Section -->
+    <!-- Search & Filter Controls -->
     <div class="my-6 max-w-200 mx-auto px-4">
       <!-- Search Input -->
-      <div class="relative flex items-center mb-4">
+      <div class="relative flex items-center mb-3">
         <div class="absolute left-3.5 text-base op40 i-carbon-search pointer-events-none" />
         <input
           v-model="searchQuery"
           type="text"
-          placeholder="Filter projects by name, keyword, or tech stack..."
+          placeholder="Filter repositories by name, topic, or keyword..."
           class="w-full pl-10 pr-9 py-2 text-sm rounded-lg border border-base bg-transparent transition-all outline-none focus:(border-primary ring-1 ring-primary/30)"
         >
         <button
           v-if="searchQuery"
-          class="absolute right-3 text-sm op40 hover:op80 transition-opacity"
+          class="absolute right-3 text-sm op40 hover:op80 transition-opacity cursor-pointer"
           title="Clear search"
           @click="searchQuery = ''"
         >
@@ -167,18 +159,30 @@ const totalProjectsCount = computed(() => {
         </button>
       </div>
 
-      <!-- Topic Filter Pills -->
-      <div class="flex flex-wrap items-center justify-center gap-1.5 text-xs">
+      <!-- Topic Pills Filter -->
+      <div
+        v-if="availableTopics.length > 0"
+        class="flex flex-wrap items-center justify-center gap-1.5 text-xs"
+      >
         <button
-          v-for="topic in highlightedTopics"
-          :key="topic.value"
           class="px-2.5 py-1 rounded-full border transition-all cursor-pointer select-none"
-          :class="selectedTopic === topic.value
+          :class="selectedTopic === 'all'
             ? 'bg-neutral-800 text-white border-neutral-700 dark:(bg-neutral-200 text-black border-white) font-medium shadow-sm'
             : 'border-base op60 hover:(op100 bg-neutral-500/10)'"
-          @click="selectTopic(topic.value)"
+          @click="selectedTopic = 'all'"
         >
-          {{ topic.label }}
+          All ({{ totalProjectsCount }})
+        </button>
+        <button
+          v-for="topic in availableTopics"
+          :key="topic"
+          class="px-2.5 py-1 rounded-full border transition-all cursor-pointer select-none font-mono"
+          :class="selectedTopic === topic
+            ? 'bg-neutral-800 text-white border-neutral-700 dark:(bg-neutral-200 text-black border-white) font-medium shadow-sm'
+            : 'border-base op60 hover:(op100 bg-neutral-500/10)'"
+          @click="selectTopic(topic)"
+        >
+          #{{ topic }}
         </button>
       </div>
 
@@ -187,7 +191,7 @@ const totalProjectsCount = computed(() => {
         v-if="searchQuery || selectedTopic !== 'all'"
         class="mt-3 text-center text-xs op50"
       >
-        Showing {{ totalVisibleCount }} of {{ totalProjectsCount }} projects
+        Showing {{ totalVisibleCount }} of {{ totalProjectsCount }} repositories
         <button
           class="ml-2 underline op70 hover:op100 cursor-pointer"
           @click="searchQuery = ''; selectedTopic = 'all'"
@@ -197,13 +201,13 @@ const totalProjectsCount = computed(() => {
       </div>
     </div>
 
-    <!-- Empty state -->
+    <!-- Empty State -->
     <div
       v-if="totalVisibleCount === 0"
       class="py-16 text-center op50"
     >
       <div class="text-4xl mb-2 i-carbon-search-locate inline-block" />
-      <p>No projects match your filter criteria.</p>
+      <p>No public repository matches your search.</p>
       <button
         class="mt-3 px-3 py-1 text-sm border border-base rounded hover:bg-neutral-500/10 cursor-pointer"
         @click="searchQuery = ''; selectedTopic = 'all'"
@@ -244,27 +248,23 @@ const totalProjectsCount = computed(() => {
           :key="idx"
           class="item relative flex flex-col justify-between"
         >
-          <component
-            :is="item.link.startsWith('http') ? 'a' : 'RouterLink'"
-            class="flex items-start flex-auto no-underline! color-inherit"
-            v-bind="item.link.startsWith('http') ? {
-              href: item.link,
-              target: '_blank',
-              rel: 'noopener noreferrer',
-            } : {
-              to: item.link,
-            }"
+          <!-- Main Link Area -->
+          <a
+            :href="item.link || item.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-start flex-auto no-underline! color-inherit group"
             :title="item.name"
           >
             <!-- Project Icon -->
-            <div v-if="item.icon" class="pt-1.5 pr-4 shrink-0">
+            <div v-if="item.icon" class="pt-1 pr-4 shrink-0">
               <div
-                class="text-3xl opacity-60 transition-transform duration-200 group-hover:scale-110"
+                class="text-3xl opacity-50 transition-transform duration-200 group-hover:scale-110"
                 :class="item.icon || 'i-carbon-unknown'"
               />
             </div>
 
-            <!-- Content -->
+            <!-- Content Area -->
             <div class="flex-auto min-w-0">
               <div class="flex items-center gap-2">
                 <span class="text-base font-semibold">{{ item.name }}</span>
@@ -277,25 +277,27 @@ const totalProjectsCount = computed(() => {
                   <div class="i-carbon-star text-amber text-[10px]" />
                   {{ item.stars }}
                 </span>
-                <!-- Language badge -->
+                <!-- Archived Badge -->
                 <span
-                  v-if="item.language"
-                  class="text-[10px] px-1.5 py-0.2 rounded border border-base/40 op40 uppercase tracking-wide ml-auto font-mono"
+                  v-if="item.isArchived"
+                  class="text-[10px] px-1.5 py-0.2 rounded border border-base/40 op40 uppercase font-mono tracking-wide ml-auto"
                 >
-                  {{ item.language }}
+                  archived
                 </span>
               </div>
-              <div class="desc text-xs opacity-60 font-normal mt-1 leading-relaxed" v-html="item.desc" />
+              <div class="desc text-xs opacity-50 font-normal mt-1 leading-relaxed">
+                {{ item.description || item.desc }}
+              </div>
             </div>
-          </component>
+          </a>
 
-          <!-- Topics Pill List (Clickable to Filter) -->
+          <!-- GitHub Topics (Clickable Filter Pills) -->
           <div
             v-if="item.topics && item.topics.length > 0"
-            class="flex flex-wrap gap-1 mt-2.5 pt-2 border-t border-base/20"
+            class="flex flex-wrap gap-1.5 mt-3 pt-2 border-t border-base/15"
           >
             <button
-              v-for="t in item.topics.slice(0, 4)"
+              v-for="t in item.topics"
               :key="t"
               class="text-[10px] px-1.5 py-0.2 rounded bg-neutral-500/10 op50 hover:op100 transition-opacity cursor-pointer border-none font-mono"
               :title="`Filter by topic: ${t}`"
@@ -312,7 +314,7 @@ const totalProjectsCount = computed(() => {
     <div class="prose pb5 mx-auto mt12 text-center">
       <div block mt-5>
         <a href="https://github.com/tuquet" target="_blank" op50>
-          Explore all open repositories on GitHub @tuquet
+          Explore all repositories on GitHub @tuquet
         </a>
       </div>
     </div>

@@ -7,342 +7,148 @@ if (!process.env.NODE_TLS_REJECT_UNAUTHORIZED) {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 }
 
-interface GitHubRepo {
+export interface GitHubRepoRaw {
   name: string
-  full_name?: string
   description: string | null
-  html_url?: string
-  url?: string
-  homepage?: string | null
-  homepageUrl?: string | null
+  url: string
+  homepageUrl: string | null
+  repositoryTopics?: { name: string }[] | null
   topics?: string[]
-  repositoryTopics?: { name: string }[]
-  stargazers_count?: number
   stargazerCount?: number
-  forks_count?: number
+  stargazers_count?: number
   forkCount?: number
-  language?: string | null
+  forks_count?: number
   primaryLanguage?: { name: string } | null
-  archived?: boolean
+  language?: string | null
   isArchived?: boolean
-  fork?: boolean
+  archived?: boolean
   isFork?: boolean
-  updated_at?: string
+  fork?: boolean
+  updatedAt?: string
 }
 
-export interface ProjectItem {
+export interface SchemaProject {
   name: string
-  repo?: string
+  repo: string
+  url: string
   link: string
-  githubUrl?: string
+  homepage: string | null
+  description: string
   desc: string
   icon: string
-  stars?: number
-  forks?: number
-  language?: string | null
+  stars: number
+  forks: number
+  language: string | null
   topics: string[]
   category: string
-  weight?: number
+  isArchived: boolean
+  weight: number
 }
 
-// Canonical Projects list (exact titles & descriptions from original projects.md + active repos)
-const CANONICAL_PROJECTS: ProjectItem[] = [
-  // --- Ecosystem ---
-  {
-    name: 'Operon',
-    repo: 'tuquet/operon',
-    link: 'https://github.com/tuquet/operon',
-    desc: 'Ultra-high performance distributed automation mesh and stealth browser sandbox runtime in Rust',
-    icon: 'i-simple-icons-rust',
-    category: 'Ecosystem',
-    language: 'Rust',
-    topics: ['automation', 'browser-sandbox', 'rust', 'tuquet-core'],
-    weight: 120,
-  },
-  {
-    name: 'CLI',
-    repo: 'tuquet/cli',
-    link: 'https://github.com/tuquet/cli',
-    desc: 'Unified terminal workspace to orchestrate, monitor, and control all automation workflows, bots, and tunnels',
-    icon: 'i-carbon-terminal',
-    category: 'Ecosystem',
-    language: 'Rust',
-    topics: ['cli', 'terminal', 'automation', 'rust'],
-    weight: 110,
-  },
-  {
-    name: 'Browser',
-    repo: 'tuquet/browser',
-    link: 'https://github.com/tuquet/browser',
-    desc: 'Custom anti-detect Chromium browser engineered to bypass bot detection, Cloudflare, and fingerprinting',
-    icon: 'i-carbon-application-web',
-    category: 'Ecosystem',
-    language: 'Rust',
-    topics: ['browser', 'antidetect', 'stealth', 'chromium'],
-    weight: 105,
-  },
-  {
-    name: 'Runner',
-    repo: 'tuquet/runner',
-    link: 'https://github.com/tuquet/runner',
-    desc: 'Autonomous edge engine executing high-volume browser tasks and multi-account automation at massive scale',
-    icon: 'i-simple-icons-rust',
-    category: 'Ecosystem',
-    language: 'Rust',
-    topics: ['runner', 'edge', 'automation', 'rust'],
-    weight: 100,
-  },
-  {
-    name: 'Automa',
-    link: 'https://github.com/tuquet/automation',
-    desc: 'Visual drag-and-drop workflow builder to automate complex browser tasks in minutes without writing code',
-    icon: 'i-carbon-flow-data',
-    category: 'Ecosystem',
-    topics: ['workflow', 'automation', 'drag-and-drop'],
-    weight: 95,
-  },
-  {
-    name: 'Console',
-    repo: 'tuquet/console',
-    link: 'https://github.com/tuquet/console',
-    desc: 'Central workstation desktop GUI and preferences engine with Vue 3, Shadcn UI, and Tauri v2',
-    icon: 'i-simple-icons-tauri',
-    category: 'Ecosystem',
-    language: 'TypeScript',
-    topics: ['tauri', 'vue3', 'workstation', 'shadcn'],
-    weight: 90,
-  },
-  {
-    name: 'Store',
-    repo: 'tuquet/store',
-    link: 'https://github.com/tuquet/store',
-    desc: 'Medusa v2 e-commerce platform with Next.js Storefront and Docker orchestration',
-    icon: 'i-carbon-shopping-cart',
-    category: 'Ecosystem',
-    language: 'TypeScript',
-    topics: ['ecommerce', 'medusajs', 'nextjs', 'storefront'],
-    weight: 85,
-  },
-  {
-    name: 'Id',
-    repo: 'tuquet/id',
-    link: 'https://github.com/tuquet/id',
-    desc: 'Centralized Identity, Authentication, and Entitlements Platform powered by Supabase with Row Level Security',
-    icon: 'i-simple-icons-supabase',
-    category: 'Ecosystem',
-    language: 'PLpgSQL',
-    topics: ['iam', 'identity', 'supabase', 'entitlements'],
-    weight: 80,
-  },
-  {
-    name: 'Cloud',
-    repo: 'tuquet/cloud',
-    link: 'https://github.com/tuquet/cloud',
-    desc: 'Multi-tenant control plane on Supabase to manage device enrollment, database schemas, and edge permissions',
-    icon: 'i-carbon-cloud',
-    category: 'Ecosystem',
-    language: 'PLpgSQL',
-    topics: ['supabase', 'cloud', 'control-plane'],
-    weight: 75,
-  },
-  {
-    name: 'Storage Hub',
-    repo: 'tuquet/storage',
-    link: 'https://github.com/tuquet/storage',
-    desc: 'Multi-tenant cloud storage engine with atomic lease locking to sync antidetect browser profiles safely across machines with zero egress fees',
-    icon: 'i-carbon-data-base',
-    category: 'Ecosystem',
-    language: 'JavaScript',
-    topics: ['storage', 'cloudflare-r2', 'profiles'],
-    weight: 70,
-  },
-  {
-    name: 'Faker',
-    repo: 'tuquet/faker',
-    link: 'https://github.com/tuquet/faker',
-    desc: 'Ultra-fast generator for legally compliant Vietnamese CCCD, phone numbers, and cohesive test identities',
-    icon: 'i-carbon-id-management',
-    category: 'Ecosystem',
-    language: 'Rust',
-    topics: ['faker', 'vietnamese-cccd', 'rust'],
-    weight: 65,
-  },
-  {
-    name: 'Skills',
-    repo: 'tuquet/skills-pack',
-    link: 'https://github.com/tuquet/skills-pack',
-    desc: 'Production MCP toolkits that empower AI agents to directly control local developer tools and run automation',
-    icon: 'i-carbon-tools',
-    category: 'Ecosystem',
-    language: 'TypeScript',
-    topics: ['skills', 'mcp', 'agent-skills'],
-    weight: 60,
-  },
-  {
-    name: 'Docs',
-    link: 'https://docs.tuquet.com',
-    desc: 'Interactive documentation hub with instant search and copy-paste recipes for 68 CLI automation commands',
-    icon: 'i-carbon-notebook',
-    category: 'Ecosystem',
-    topics: ['documentation', 'recipes', 'cli'],
-    weight: 55,
-  },
-
-  // --- AI & Agent Systems ---
-  {
-    name: 'Claude-Agy',
-    repo: 'tuquet/claude-agy',
-    link: 'https://github.com/tuquet/claude-agy',
-    desc: 'Run Anthropic Claude Code CLI powered by Google Antigravity quotas with zero API token costs',
-    icon: 'i-simple-icons-anthropic',
-    category: 'AI & Agent Systems',
-    language: 'JavaScript',
-    topics: ['claude', 'antigravity', 'cli', 'ai'],
-    weight: 90,
-  },
-  {
-    name: 'Telegram ChatOps',
-    repo: 'tuquet/bot',
-    link: 'https://github.com/tuquet/bot',
-    desc: '24/7 server watchdog that sends instant downtime alerts to Telegram and lets you fix issues via chat',
-    icon: 'i-simple-icons-telegram',
-    category: 'AI & Agent Systems',
-    language: 'JavaScript',
-    topics: ['telegram', 'chatops', 'cloudflare-workers', 'alerting'],
-    weight: 85,
-  },
-
-  // --- Developer Infrastructure ---
-  {
-    name: 'Yak Map',
-    repo: 'tuquet/yak-map',
-    link: 'https://yakmap.tuquet.com/',
-    desc: 'Interactive visual architecture map that unravels monorepo dependencies and data flows at a glance',
-    icon: 'i-carbon-network-4',
-    category: 'Developer Infrastructure',
-    language: 'TypeScript',
-    topics: ['visualization', 'architecture', 'monorepo'],
-    weight: 60,
-  },
-  {
-    name: 'Schema Registry',
-    link: 'https://github.com/tuquet/schema',
-    desc: 'Single source of truth for JSON schemas to prevent breaking API contracts between CLI, backend, and UI',
-    icon: 'i-carbon-code',
-    category: 'Developer Infrastructure',
-    topics: ['json-schema', 'contracts', 'api'],
-    weight: 55,
-  },
-  {
-    name: 'Agent Skills',
-    repo: 'tuquet/skills-pack',
-    link: 'https://github.com/tuquet/skills-pack',
-    desc: 'Curated library of production AI agent skills and automated runbooks adhering to the Ponytail standard',
-    icon: 'i-carbon-machine-learning-model',
-    category: 'Developer Infrastructure',
-    language: 'TypeScript',
-    topics: ['ai', 'agent-skills', 'runbooks'],
-    weight: 50,
-  },
-  {
-    name: 'Release Radar',
-    repo: 'tuquet/releases',
-    link: 'https://release.tuquet.com/',
-    desc: 'Automated release tracking and distribution dashboard for all Tuquet open-source software and tools',
-    icon: 'i-carbon-rocket',
-    category: 'Developer Infrastructure',
-    language: 'TypeScript',
-    topics: ['releases', 'updates', 'dashboard'],
-    weight: 45,
-  },
-
-  // --- Web UI & Primitives ---
-  {
-    name: 'Vue UI',
-    link: 'https://github.com/tuquet/lib/tree/main/packages/vue-ui',
-    desc: 'Production-ready Vue 3 component library built on Shadcn-Vue with dark mode out of the box',
-    icon: 'i-simple-icons-vuedotjs',
-    category: 'Web UI & Primitives',
-    language: 'TypeScript',
-    topics: ['vue3', 'ui', 'components'],
-    weight: 40,
-  },
-  {
-    name: 'Vue Table',
-    link: 'https://github.com/tuquet/lib/tree/main/packages/vue-table',
-    desc: 'High-performance virtualized data table for Vue 3 that smoothly renders massive datasets with zero lag',
-    icon: 'i-carbon-data-table',
-    category: 'Web UI & Primitives',
-    language: 'TypeScript',
-    topics: ['vue3', 'data-table', 'virtualization'],
-    weight: 35,
-  },
-  {
-    name: 'MD Export',
-    link: 'https://github.com/tuquet/lib/tree/main/packages/md-export',
-    desc: 'Export entire Markdown folders into publication-grade vector PDFs and high-res images with zero styling bugs',
-    icon: 'i-carbon-document-pdf',
-    category: 'Web UI & Primitives',
-    language: 'TypeScript',
-    topics: ['markdown', 'pdf', 'export'],
-    weight: 30,
-  },
-  {
-    name: 'Extension Runner',
-    link: 'https://github.com/tuquet/lib/tree/main/packages/extension-runner',
-    desc: 'Headless test runner to debug and execute Chrome extensions in automated CI/CD pipelines',
-    icon: 'i-carbon-extensions',
-    category: 'Web UI & Primitives',
-    language: 'TypeScript',
-    topics: ['chrome-extension', 'automation'],
-    weight: 25,
-  },
-  {
-    name: 'Lunar Calendar',
-    link: 'https://github.com/tuquet/lib/tree/main/packages/lunar',
-    desc: 'Astronomical Vietnamese Lunar-Solar calendar engine with Can Chi calculation and zero timezone drift',
-    icon: 'i-carbon-moon',
-    category: 'Web UI & Primitives',
-    language: 'TypeScript',
-    topics: ['vietnamese', 'lunar-calendar', 'astronomy'],
-    weight: 20,
-  },
-]
-
-function normalizeRepo(raw: any): GitHubRepo {
-  const topics: string[] = []
-  if (Array.isArray(raw.topics)) {
-    topics.push(...raw.topics)
-  }
-  else if (Array.isArray(raw.repositoryTopics)) {
-    topics.push(...raw.repositoryTopics.map((t: any) => t.name))
-  }
-
-  const language = raw.language || raw.primaryLanguage?.name || null
-  const stars = raw.stargazers_count ?? raw.stargazerCount ?? 0
-  const forks = raw.forks_count ?? raw.forkCount ?? 0
-  const isArchived = Boolean(raw.archived ?? raw.isArchived)
-  const isFork = Boolean(raw.fork ?? raw.isFork)
-  const html_url = raw.html_url || raw.url
-  const homepage = raw.homepage || raw.homepageUrl || null
-
-  return {
-    name: raw.name,
-    full_name: raw.full_name || `tuquet/${raw.name}`,
-    description: raw.description,
-    html_url,
-    homepage,
-    topics,
-    stargazers_count: stars,
-    forks_count: forks,
-    language,
-    archived: isArchived,
-    fork: isFork,
-    updated_at: raw.updated_at,
-  }
+// Canonical display titles mapping
+const TITLE_MAP: Record<string, string> = {
+  'operon': 'Operon',
+  'store': 'Store',
+  'id': 'Id',
+  'console': 'Console',
+  'skills-pack': 'Skills Pack',
+  'storage': 'Storage Hub',
+  'yak-map': 'Yak Map',
+  'claude-agy': 'Claude-Agy',
+  'releases': 'Releases',
+  'cli': 'CLI',
+  'browser': 'Browser',
+  'cloud': 'Cloud',
+  'faker': 'Faker',
+  'docs': 'Docs',
 }
 
-async function fetchGithubRepos(): Promise<GitHubRepo[]> {
+// Repos to completely exclude from the public portfolio
+const EXCLUDED_REPOS = new Set([
+  'tuquet.com',
+  'tuquet',
+  'dotfiles',
+  'install',
+  'scoop-bucket',
+  'relay',
+  'lib', // per user decision: deleted from list
+  'nhaateliertattoo.com', // per user decision: private customer repo
+  'hugobbq.com', // per user decision: private customer repo
+])
+
+function detectIcon(name: string, lang: string | null, topics: string[]): string {
+  const n = name.toLowerCase()
+  const l = (lang || '').toLowerCase()
+
+  if (n === 'operon') return 'i-simple-icons-rust'
+  if (n === 'store') return 'i-carbon-shopping-cart'
+  if (n === 'id') return 'i-simple-icons-supabase'
+  if (n === 'console') return 'i-simple-icons-tauri'
+  if (n === 'skills-pack') return 'i-carbon-tools'
+  if (n === 'storage') return 'i-carbon-data-base'
+  if (n === 'yak-map') return 'i-carbon-network-4'
+  if (n === 'claude-agy') return 'i-simple-icons-anthropic'
+  if (n === 'releases') return 'i-carbon-rocket'
+  if (n === 'cli') return 'i-carbon-terminal'
+  if (n === 'browser') return 'i-carbon-application-web'
+  if (n === 'cloud') return 'i-carbon-cloud'
+  if (n === 'faker') return 'i-carbon-id-management'
+  if (n === 'docs') return 'i-carbon-notebook'
+
+  if (topics.includes('claude') || topics.includes('ai')) return 'i-simple-icons-anthropic'
+  if (topics.includes('tauri')) return 'i-simple-icons-tauri'
+  if (topics.includes('vue3') || l === 'vue') return 'i-simple-icons-vuedotjs'
+  if (topics.includes('supabase')) return 'i-simple-icons-supabase'
+
+  if (l === 'rust') return 'i-simple-icons-rust'
+  if (l === 'typescript') return 'i-simple-icons-typescript'
+  if (l === 'javascript') return 'i-simple-icons-javascript'
+
+  return 'i-carbon-code'
+}
+
+function resolveCategory(name: string, topics: string[]): string {
+  const n = name.toLowerCase()
+
+  // AI & Agent Systems
+  if (n === 'skills-pack' || n === 'claude-agy' || topics.includes('agent-skills') || topics.includes('ai') || topics.includes('claude')) {
+    return 'AI & Agent Systems'
+  }
+
+  // Developer Infrastructure
+  if (n === 'yak-map' || n === 'releases' || n === 'docs' || topics.includes('tuquet-ops') || topics.includes('chatops') || topics.includes('alerting')) {
+    return 'Developer Infrastructure'
+  }
+
+  // Core Ecosystem
+  return 'Ecosystem'
+}
+
+// Fallback descriptions for repos that currently have empty descriptions on GitHub
+const FALLBACK_DESCRIPTIONS: Record<string, string> = {
+  console: 'Central workstation desktop GUI and preferences engine built with Vue 3, Shadcn UI, and Tauri v2',
+  releases: 'Automated release tracking and software distribution dashboard for Tuquet open-source software',
+}
+
+// Priority sort weight
+const WEIGHT_ORDER: Record<string, number> = {
+  'operon': 100,
+  'store': 90,
+  'id': 85,
+  'console': 80,
+  'storage': 75,
+  'cli': 70,
+  'browser': 65,
+  'cloud': 55,
+  'faker': 50,
+  'skills-pack': 95,
+  'claude-agy': 85,
+  'yak-map': 80,
+  'releases': 70,
+  'docs': 60,
+}
+
+async function fetchGithubRepos(): Promise<GitHubRepoRaw[]> {
   const token = process.env.GITHUB_TOKEN
   const headers: Record<string, string> = {
     Accept: 'application/vnd.github+json',
@@ -352,120 +158,146 @@ async function fetchGithubRepos(): Promise<GitHubRepo[]> {
     headers.Authorization = `Bearer ${token}`
   }
 
-  // 1. Try public GitHub REST API
+  // 1. Try public GitHub REST API (returns only public repositories)
   try {
     const res = await fetch('https://api.github.com/users/tuquet/repos?per_page=100&type=all', { headers })
     if (res.ok) {
       const data = await res.json() as any[]
-      return data.map(normalizeRepo)
+      return data.map(r => ({
+        name: r.name,
+        description: r.description,
+        url: r.html_url,
+        homepageUrl: r.homepage,
+        topics: r.topics || [],
+        stargazerCount: r.stargazers_count ?? 0,
+        forkCount: r.forks_count ?? 0,
+        primaryLanguage: r.language ? { name: r.language } : null,
+        isArchived: r.archived ?? false,
+        isFork: r.fork ?? false,
+      }))
     }
   }
-  catch (e) {
-    // console.warn('Direct GitHub API fetch failed, attempting gh CLI fallback...', (e as any)?.message || e)
+  catch {
+    // fallback
   }
 
-  // 2. Fallback to `gh` CLI if installed
+  // 2. Fallback to `gh` CLI
   try {
-    const output = execSync('gh repo list tuquet --limit 100 --json name,description,url,homepageUrl,repositoryTopics,stargazerCount,primaryLanguage,isArchived,isFork', {
+    const output = execSync('gh repo list tuquet --limit 100 --json name,description,url,homepageUrl,repositoryTopics,stargazerCount,forkCount,primaryLanguage,isArchived,isFork', {
       encoding: 'utf-8',
       stdio: ['pipe', 'pipe', 'ignore'],
     })
     const data = JSON.parse(output)
     if (Array.isArray(data) && data.length > 0) {
-      return data.map(normalizeRepo)
+      return data.map(r => ({
+        name: r.name,
+        description: r.description,
+        url: r.url,
+        homepageUrl: r.homepageUrl,
+        topics: (r.repositoryTopics || []).map((t: any) => t.name),
+        stargazerCount: r.stargazerCount ?? 0,
+        forkCount: r.forkCount ?? 0,
+        primaryLanguage: r.primaryLanguage,
+        isArchived: r.isArchived ?? false,
+        isFork: r.isFork ?? false,
+      }))
     }
   }
   catch {
-    // ignore
+    // fallback
   }
 
   return []
 }
 
 async function main() {
-  console.log('Fetching repositories from GitHub API...')
+  console.log('Fetching repositories from GitHub API (SSOT)...')
   const repos = await fetchGithubRepos()
-  console.log(`Resolved ${repos.length} repos from GitHub`)
+  console.log(`Fetched ${repos.length} raw repos from GitHub`)
 
-  // Index repos by repo short name & full name
-  const repoMap = new Map<string, GitHubRepo>()
+  const projectList: SchemaProject[] = []
+
   for (const repo of repos) {
-    repoMap.set(repo.name.toLowerCase(), repo)
-    if (repo.full_name) {
-      repoMap.set(repo.full_name.toLowerCase(), repo)
-    }
+    if (repo.isFork) continue
+    if (EXCLUDED_REPOS.has(repo.name.toLowerCase())) continue
+
+    const topics = repo.topics || []
+
+    // Exclude customer repos per user instruction
+    if (topics.includes('customers')) continue
+
+    const name = TITLE_MAP[repo.name.toLowerCase()] || repo.name
+    const description = (repo.description && repo.description.trim()) || FALLBACK_DESCRIPTIONS[repo.name.toLowerCase()] || ''
+    const language = repo.primaryLanguage?.name || null
+    const stars = repo.stargazerCount ?? 0
+    const forks = repo.forkCount ?? 0
+    const isArchived = Boolean(repo.isArchived)
+    const category = resolveCategory(repo.name, topics)
+    const icon = detectIcon(repo.name, language, topics)
+    const weight = WEIGHT_ORDER[repo.name.toLowerCase()] ?? 30
+    const link = repo.homepageUrl || repo.url
+
+    projectList.push({
+      name,
+      repo: `tuquet/${repo.name}`,
+      url: repo.url,
+      link,
+      homepage: repo.homepageUrl || null,
+      description,
+      desc: description,
+      icon,
+      stars,
+      forks,
+      language,
+      topics,
+      category,
+      isArchived,
+      weight,
+    })
   }
 
-  // Deep clone canonical list
-  const projectList: ProjectItem[] = JSON.parse(JSON.stringify(CANONICAL_PROJECTS))
+  // Sort by weight descending
+  projectList.sort((a, b) => b.weight - a.weight)
 
-  // Enrich canonical projects with live GitHub stats
-  for (const item of projectList) {
-    let matchedRepo: GitHubRepo | undefined
-
-    if (item.repo) {
-      matchedRepo = repoMap.get(item.repo.toLowerCase()) || repoMap.get(item.repo.replace(/^tuquet\//i, '').toLowerCase())
-    }
-    else {
-      // Try matching by name
-      matchedRepo = repoMap.get(item.name.toLowerCase())
-    }
-
-    if (matchedRepo) {
-      item.stars = matchedRepo.stargazers_count ?? 0
-      item.forks = matchedRepo.forks_count ?? 0
-      if (!item.language && matchedRepo.language) {
-        item.language = matchedRepo.language
-      }
-      if (matchedRepo.topics && matchedRepo.topics.length > 0) {
-        // Merge topics uniquely
-        const merged = new Set([...item.topics, ...matchedRepo.topics])
-        item.topics = Array.from(merged)
-      }
-      if (!item.githubUrl && matchedRepo.html_url) {
-        item.githubUrl = matchedRepo.html_url
-      }
-    }
-  }
-
-  // Build categories map preserving original category order
-  const categories: Record<string, ProjectItem[]> = {
+  // Group into categories
+  const categories: Record<string, SchemaProject[]> = {
     'Ecosystem': [],
     'AI & Agent Systems': [],
     'Developer Infrastructure': [],
-    'Web UI & Primitives': [],
   }
 
   const allTopicsSet = new Set<string>()
 
-  for (const item of projectList) {
-    if (!categories[item.category]) {
-      categories[item.category] = []
+  for (const project of projectList) {
+    if (!categories[project.category]) {
+      categories[project.category] = []
     }
-    categories[item.category].push(item)
+    categories[project.category].push(project)
 
-    if (item.language) {
-      allTopicsSet.add(item.language)
-    }
-    for (const t of item.topics) {
-      if (!t.startsWith('cat-') && !t.startsWith('icon-')) {
-        allTopicsSet.add(t)
-      }
+    for (const t of project.topics) {
+      allTopicsSet.add(t)
     }
   }
 
-  const output = {
+  // Prune empty categories
+  for (const key of Object.keys(categories)) {
+    if (categories[key].length === 0) {
+      delete categories[key]
+    }
+  }
+
+  const schemaOutput = {
+    total: projectList.length,
+    updatedAt: new Date().toISOString(),
     categories,
     allTopics: Array.from(allTopicsSet).sort((a, b) => a.localeCompare(b)),
-    totalProjects: projectList.length,
-    updatedAt: new Date().toISOString(),
   }
 
   const outputPath = path.resolve('src/data/projects-data.json')
   await fs.mkdir(path.dirname(outputPath), { recursive: true })
-  await fs.writeFile(outputPath, JSON.stringify(output, null, 2), 'utf-8')
+  await fs.writeFile(outputPath, JSON.stringify(schemaOutput, null, 2), 'utf-8')
 
-  console.log(`Generated ${outputPath} with ${projectList.length} canonical projects across ${Object.keys(categories).length} categories.`)
+  console.log(`Generated 100% SSOT GitHub Projects to ${outputPath} (${projectList.length} repos across ${Object.keys(categories).length} categories).`)
 }
 
 main().catch((err) => {
