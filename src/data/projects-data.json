@@ -1,6 +1,6 @@
 {
-  "total": 14,
-  "updatedAt": "2026-11-05T05:53:18.911Z",
+  "total": 10,
+  "updatedAt": "2026-11-05T06:08:48.510Z",
   "categories": {
     "Ecosystem": [
       {
@@ -19,8 +19,7 @@
           "automation",
           "browser-sandbox",
           "rust",
-          "stealth-browser",
-          "tuquet-core"
+          "stealth-browser"
         ],
         "category": "Ecosystem",
         "isArchived": false,
@@ -42,8 +41,7 @@
           "ecommerce",
           "medusajs",
           "nextjs",
-          "storefront",
-          "tuquet-core"
+          "storefront"
         ],
         "category": "Ecosystem",
         "isArchived": false,
@@ -64,8 +62,7 @@
         "topics": [
           "entitlements",
           "iam",
-          "supabase",
-          "tuquet-core"
+          "supabase"
         ],
         "category": "Ecosystem",
         "isArchived": false,
@@ -85,7 +82,6 @@
         "language": "TypeScript",
         "topics": [
           "tauri",
-          "tuquet-core",
           "vue3",
           "workstation"
         ],
@@ -110,99 +106,11 @@
           "cloudflare-r2",
           "profiles",
           "storage",
-          "tuquet-core",
           "webdav"
         ],
         "category": "Ecosystem",
         "isArchived": false,
         "weight": 75
-      },
-      {
-        "name": "CLI",
-        "repo": "tuquet/cli",
-        "url": "https://github.com/tuquet/cli",
-        "link": "https://github.com/tuquet/cli",
-        "homepage": null,
-        "description": "Master control CLI, cloud-connected runner daemon, and browser automation engine for the Tuquet Ecosystem",
-        "desc": "Master control CLI, cloud-connected runner daemon, and browser automation engine for the Tuquet Ecosystem",
-        "icon": "i-carbon-terminal",
-        "stars": 0,
-        "forks": 0,
-        "language": "Rust",
-        "topics": [
-          "automation",
-          "cli",
-          "rust",
-          "tuquet-legacy"
-        ],
-        "category": "Ecosystem",
-        "isArchived": true,
-        "weight": 70
-      },
-      {
-        "name": "Browser",
-        "repo": "tuquet/browser",
-        "url": "https://github.com/tuquet/browser",
-        "link": "https://github.com/tuquet/browser",
-        "homepage": null,
-        "description": "Dedicated Browser Runtime, Multi-Profile Sandbox & Automation Subsystem for Tuquet",
-        "desc": "Dedicated Browser Runtime, Multi-Profile Sandbox & Automation Subsystem for Tuquet",
-        "icon": "i-carbon-application-web",
-        "stars": 0,
-        "forks": 0,
-        "language": "Rust",
-        "topics": [
-          "browser-sandbox",
-          "chromium",
-          "rust",
-          "tuquet-legacy"
-        ],
-        "category": "Ecosystem",
-        "isArchived": true,
-        "weight": 65
-      },
-      {
-        "name": "Cloud",
-        "repo": "tuquet/cloud",
-        "url": "https://github.com/tuquet/cloud",
-        "link": "https://github.com/tuquet/cloud",
-        "homepage": null,
-        "description": "Supabase Control Plane, Realtime Event Dispatch, and Telemetry DB for Tuquet Ecosystem",
-        "desc": "Supabase Control Plane, Realtime Event Dispatch, and Telemetry DB for Tuquet Ecosystem",
-        "icon": "i-carbon-cloud",
-        "stars": 0,
-        "forks": 0,
-        "language": "PLpgSQL",
-        "topics": [
-          "control-plane",
-          "supabase",
-          "tuquet-legacy"
-        ],
-        "category": "Ecosystem",
-        "isArchived": true,
-        "weight": 55
-      },
-      {
-        "name": "Faker",
-        "repo": "tuquet/faker",
-        "url": "https://github.com/tuquet/faker",
-        "link": "https://github.com/tuquet/faker",
-        "homepage": null,
-        "description": "Enterprise-grade synthetic persona and identity test data generator with validated national ID and geographic structures",
-        "desc": "Enterprise-grade synthetic persona and identity test data generator with validated national ID and geographic structures",
-        "icon": "i-carbon-id-management",
-        "stars": 0,
-        "forks": 0,
-        "language": "Rust",
-        "topics": [
-          "faker",
-          "rust",
-          "tuquet-legacy",
-          "vietnamese-cccd"
-        ],
-        "category": "Ecosystem",
-        "isArchived": true,
-        "weight": 50
       }
     ],
     "AI & Agent Systems": [
@@ -225,8 +133,7 @@
           "claude",
           "cursor",
           "mcp",
-          "skills",
-          "tuquet-agents"
+          "skills"
         ],
         "category": "AI & Agent Systems",
         "isArchived": false,
@@ -248,8 +155,7 @@
           "ai-tooling",
           "antigravity",
           "claude",
-          "cli",
-          "tuquet-agents"
+          "cli"
         ],
         "category": "AI & Agent Systems",
         "isArchived": false,
@@ -272,7 +178,6 @@
         "topics": [
           "architecture-map",
           "monorepo",
-          "tuquet-ops",
           "typescript",
           "visualization"
         ],
@@ -295,8 +200,7 @@
         "topics": [
           "dashboard",
           "releases",
-          "software-distribution",
-          "tuquet-ops"
+          "software-distribution"
         ],
         "category": "Developer Infrastructure",
         "isArchived": false,
@@ -316,8 +220,7 @@
         "language": "HTML",
         "topics": [
           "documentation",
-          "runbooks",
-          "tuquet-ops"
+          "runbooks"
         ],
         "category": "Developer Infrastructure",
         "isArchived": true,
@@ -333,18 +236,15 @@
     "architecture-map",
     "automation",
     "browser-sandbox",
-    "chromium",
     "claude",
     "cli",
     "cloudflare-pages",
     "cloudflare-r2",
-    "control-plane",
     "cursor",
     "dashboard",
     "documentation",
     "ecommerce",
     "entitlements",
-    "faker",
     "iam",
     "mcp",
     "medusajs",
@@ -361,12 +261,7 @@
     "storefront",
     "supabase",
     "tauri",
-    "tuquet-agents",
-    "tuquet-core",
-    "tuquet-legacy",
-    "tuquet-ops",
     "typescript",
-    "vietnamese-cccd",
     "visualization",
     "vue3",
     "webdav",

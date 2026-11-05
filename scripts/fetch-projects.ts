@@ -74,6 +74,10 @@ const EXCLUDED_REPOS = new Set([
   'lib', // per user decision: deleted from list
   'nhaateliertattoo.com', // per user decision: private customer repo
   'hugobbq.com', // per user decision: private customer repo
+  'cli', // per user decision: remove to clean up
+  'browser', // per user decision: remove to clean up
+  'cloud', // per user decision: remove to clean up
+  'faker', // per user decision: remove to clean up
 ])
 
 function detectIcon(name: string, lang: string | null, topics: string[]): string {
@@ -111,12 +115,12 @@ function resolveCategory(name: string, topics: string[]): string {
   const n = name.toLowerCase()
 
   // AI & Agent Systems
-  if (topics.includes('tuquet-agents') || n === 'skills-pack' || n === 'claude-agy' || topics.includes('agent-skills') || topics.includes('ai') || topics.includes('claude')) {
+  if (n === 'skills-pack' || n === 'claude-agy' || topics.includes('agent-skills') || topics.includes('ai') || topics.includes('claude') || topics.includes('mcp')) {
     return 'AI & Agent Systems'
   }
 
   // Developer Infrastructure
-  if (topics.includes('tuquet-ops') || n === 'yak-map' || n === 'releases' || n === 'docs' || topics.includes('chatops') || topics.includes('alerting')) {
+  if (n === 'yak-map' || n === 'releases' || n === 'docs' || topics.includes('chatops') || topics.includes('alerting') || topics.includes('visualization') || topics.includes('releases')) {
     return 'Developer Infrastructure'
   }
 

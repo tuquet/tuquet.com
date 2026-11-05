@@ -160,7 +160,7 @@ function slug(name: string) {
           <!-- GitHub Topics -->
           <div
             v-if="item.topics && item.topics.length > 0"
-            class="flex flex-wrap gap-1.5 mt-3 pt-2 border-t border-base/15"
+            class="flex flex-wrap gap-1.5 mt-3 pt-2"
           >
             <span
               v-for="t in item.topics"
