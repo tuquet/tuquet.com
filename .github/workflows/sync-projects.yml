@@ -1,0 +1,77 @@
+name: "Sync: Ecosystem Projects Data"
+
+on:
+  schedule:
+    # Auto-sync twice daily at 00:00 and 12:00 UTC
+    - cron: '0 0,12 * * *'
+  workflow_dispatch:
+    inputs:
+      force_deploy:
+        description: 'Force dispatch deploy trigger even if no catalog changes'
+        required: false
+        default: false
+        type: boolean
+  repository_dispatch:
+    types:
+      - sync-projects
+      - update-projects
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-projects
+  cancel-in-progress: false
+
+jobs:
+  sync-projects:
+    name: Sync Projects & Update Source of Truth
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Fetch Ecosystem Projects (GitHub API SSOT)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pnpm projects
+
+      - name: Check for Changes in Projects Data
+        id: git-check
+        run: |
+          if [ -n "$(git status --porcelain src/data/projects-data.json)" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit & Push Updated Projects Data
+        if: steps.git-check.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/projects-data.json
+          git commit -m "chore(data): auto-sync ecosystem projects catalog [skip ci]"
+          git push origin main
+
+      - name: Step Summary
+        run: |
+          echo "### 🌐 Ecosystem Projects Sync Report" >> $GITHUB_STEP_SUMMARY
+          echo "- **Status:** ${{ steps.git-check.outputs.has_changes == 'true' && '✅ Data Updated & Pushed to main' || 'ℹ️ No Changes Detected' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Target File:** \`src/data/projects-data.json\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Timestamp:** \`$(date -u)\`" >> $GITHUB_STEP_SUMMARY

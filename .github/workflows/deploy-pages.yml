@@ -1,4 +1,4 @@
-name: Deploy Homepage to GitHub Pages
+name: "CD: Homepage (GitHub Pages Deploy)"
 
 on:
   push:
@@ -7,6 +7,10 @@ on:
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
+  repository_dispatch:
+    types:
+      - deploy-site
+      - trigger-deploy
 
 permissions:
   contents: read

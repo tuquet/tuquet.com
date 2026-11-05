@@ -1,6 +1,6 @@
 {
-  "total": 10,
-  "updatedAt": "2026-11-05T06:37:43.657Z",
+  "total": 9,
+  "updatedAt": "2026-11-05T07:12:41.121Z",
   "categories": {
     "Ecosystem": [
       {
@@ -205,26 +205,6 @@
         "category": "Developer Infrastructure",
         "isArchived": false,
         "weight": 70
-      },
-      {
-        "name": "Docs",
-        "repo": "tuquet/docs",
-        "url": "https://github.com/tuquet/docs",
-        "link": "https://github.com/tuquet/docs",
-        "homepage": "http://specter.tuquet.com/",
-        "description": "Internal business documentation, operational runbooks, and resource management SOPs",
-        "desc": "Internal business documentation, operational runbooks, and resource management SOPs",
-        "icon": "i-carbon-notebook",
-        "stars": 0,
-        "forks": 0,
-        "language": "HTML",
-        "topics": [
-          "documentation",
-          "runbooks"
-        ],
-        "category": "Developer Infrastructure",
-        "isArchived": true,
-        "weight": 60
       }
     ]
   },
@@ -242,7 +222,6 @@
     "cloudflare-r2",
     "cursor",
     "dashboard",
-    "documentation",
     "ecommerce",
     "entitlements",
     "iam",
@@ -252,7 +231,6 @@
     "nextjs",
     "profiles",
     "releases",
-    "runbooks",
     "rust",
     "skills",
     "software-distribution",
