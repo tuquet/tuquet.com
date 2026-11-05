@@ -45,113 +45,218 @@ export interface ProjectItem {
   weight?: number
 }
 
-// Map topic tag to Category
-const TOPIC_CATEGORY_MAP: Record<string, string> = {
-  'cat-ecosystem': 'Ecosystem',
-  'tuquet-core': 'Ecosystem',
-  'automation': 'Ecosystem',
-  'browser-sandbox': 'Ecosystem',
-  'cat-ai': 'AI & Agent Systems',
-  'ai': 'AI & Agent Systems',
-  'agent-skills': 'AI & Agent Systems',
-  'claude': 'AI & Agent Systems',
-  'antigravity': 'AI & Agent Systems',
-  'cat-infra': 'Developer Infrastructure',
-  'tuquet-ops': 'Developer Infrastructure',
-  'chatops': 'Developer Infrastructure',
-  'cloudflare-workers': 'Developer Infrastructure',
-  'alerting': 'Developer Infrastructure',
-  'cat-ui': 'Web UI & Primitives',
-  'vue3': 'Web UI & Primitives',
-  'tauri': 'Web UI & Primitives',
-  'workstation': 'Web UI & Primitives',
-  'customers': 'Client Solutions',
-  'cat-client': 'Client Solutions',
-}
-
-// Curation dictionary to polish names, icons, and descriptions
-const REPO_OVERRIDES: Record<string, Partial<ProjectItem>> = {
-  'operon': {
+// Canonical Projects list (exact titles & descriptions from original projects.md + active repos)
+const CANONICAL_PROJECTS: ProjectItem[] = [
+  // --- Ecosystem ---
+  {
     name: 'Operon',
+    repo: 'tuquet/operon',
+    link: 'https://github.com/tuquet/operon',
     desc: 'Ultra-high performance distributed automation mesh and stealth browser sandbox runtime in Rust',
     icon: 'i-simple-icons-rust',
     category: 'Ecosystem',
+    language: 'Rust',
+    topics: ['automation', 'browser-sandbox', 'rust', 'tuquet-core'],
+    weight: 120,
+  },
+  {
+    name: 'CLI',
+    repo: 'tuquet/cli',
+    link: 'https://github.com/tuquet/cli',
+    desc: 'Unified terminal workspace to orchestrate, monitor, and control all automation workflows, bots, and tunnels',
+    icon: 'i-carbon-terminal',
+    category: 'Ecosystem',
+    language: 'Rust',
+    topics: ['cli', 'terminal', 'automation', 'rust'],
+    weight: 110,
+  },
+  {
+    name: 'Browser',
+    repo: 'tuquet/browser',
+    link: 'https://github.com/tuquet/browser',
+    desc: 'Custom anti-detect Chromium browser engineered to bypass bot detection, Cloudflare, and fingerprinting',
+    icon: 'i-carbon-application-web',
+    category: 'Ecosystem',
+    language: 'Rust',
+    topics: ['browser', 'antidetect', 'stealth', 'chromium'],
+    weight: 105,
+  },
+  {
+    name: 'Runner',
+    repo: 'tuquet/runner',
+    link: 'https://github.com/tuquet/runner',
+    desc: 'Autonomous edge engine executing high-volume browser tasks and multi-account automation at massive scale',
+    icon: 'i-simple-icons-rust',
+    category: 'Ecosystem',
+    language: 'Rust',
+    topics: ['runner', 'edge', 'automation', 'rust'],
     weight: 100,
   },
-  'skills-pack': {
-    name: 'Agent Skills Pack',
-    desc: 'Curated production AI agent skills pack for Claude Code, Antigravity, and Cursor — one npm install away',
-    icon: 'i-carbon-tools',
-    category: 'AI & Agent Systems',
+  {
+    name: 'Automa',
+    link: 'https://github.com/tuquet/automation',
+    desc: 'Visual drag-and-drop workflow builder to automate complex browser tasks in minutes without writing code',
+    icon: 'i-carbon-flow-data',
+    category: 'Ecosystem',
+    topics: ['workflow', 'automation', 'drag-and-drop'],
+    weight: 95,
+  },
+  {
+    name: 'Console',
+    repo: 'tuquet/console',
+    link: 'https://github.com/tuquet/console',
+    desc: 'Central workstation desktop GUI and preferences engine with Vue 3, Shadcn UI, and Tauri v2',
+    icon: 'i-simple-icons-tauri',
+    category: 'Ecosystem',
+    language: 'TypeScript',
+    topics: ['tauri', 'vue3', 'workstation', 'shadcn'],
     weight: 90,
   },
-  'claude-agy': {
-    name: 'Claude-Agy',
-    desc: 'Run Anthropic Claude Code CLI powered by Google Antigravity quotas with zero API token costs',
-    icon: 'i-simple-icons-anthropic',
-    category: 'AI & Agent Systems',
+  {
+    name: 'Store',
+    repo: 'tuquet/store',
+    link: 'https://github.com/tuquet/store',
+    desc: 'Medusa v2 e-commerce platform with Next.js Storefront and Docker orchestration',
+    icon: 'i-carbon-shopping-cart',
+    category: 'Ecosystem',
+    language: 'TypeScript',
+    topics: ['ecommerce', 'medusajs', 'nextjs', 'storefront'],
     weight: 85,
   },
-  'bot': {
-    name: 'Telegram ChatOps',
-    desc: 'Tuquet ecosystem watchdog: 24/7 server monitoring, downtime alerts to Telegram, and incident management via chat',
-    icon: 'i-simple-icons-telegram',
-    category: 'Developer Infrastructure',
-    weight: 80,
-  },
-  'id': {
-    name: 'Identity Hub',
+  {
+    name: 'Id',
+    repo: 'tuquet/id',
+    link: 'https://github.com/tuquet/id',
     desc: 'Centralized Identity, Authentication, and Entitlements Platform powered by Supabase with Row Level Security',
     icon: 'i-simple-icons-supabase',
     category: 'Ecosystem',
+    language: 'PLpgSQL',
+    topics: ['iam', 'identity', 'supabase', 'entitlements'],
+    weight: 80,
+  },
+  {
+    name: 'Cloud',
+    repo: 'tuquet/cloud',
+    link: 'https://github.com/tuquet/cloud',
+    desc: 'Multi-tenant control plane on Supabase to manage device enrollment, database schemas, and edge permissions',
+    icon: 'i-carbon-cloud',
+    category: 'Ecosystem',
+    language: 'PLpgSQL',
+    topics: ['supabase', 'cloud', 'control-plane'],
     weight: 75,
   },
-  'console': {
-    name: 'Workstation Console',
-    desc: 'Central workstation desktop GUI and preferences engine built with Vue 3, Shadcn UI, and Tauri v2',
-    icon: 'i-simple-icons-vuedotjs',
-    category: 'Ecosystem',
-    weight: 70,
-  },
-  'store': {
-    name: 'Commerce Engine',
-    desc: 'Medusa v2 e-commerce backend with Next.js Storefront, Docker orchestration, and multi-tenant catalog',
-    icon: 'i-carbon-shopping-cart',
-    category: 'Ecosystem',
-    weight: 65,
-  },
-  'storage': {
+  {
     name: 'Storage Hub',
-    desc: 'Multi-tenant cloud storage engine with atomic lease locking to sync antidetect browser profiles safely with zero egress fees',
+    repo: 'tuquet/storage',
+    link: 'https://github.com/tuquet/storage',
+    desc: 'Multi-tenant cloud storage engine with atomic lease locking to sync antidetect browser profiles safely across machines with zero egress fees',
     icon: 'i-carbon-data-base',
     category: 'Ecosystem',
+    language: 'JavaScript',
+    topics: ['storage', 'cloudflare-r2', 'profiles'],
+    weight: 70,
+  },
+  {
+    name: 'Faker',
+    repo: 'tuquet/faker',
+    link: 'https://github.com/tuquet/faker',
+    desc: 'Ultra-fast generator for legally compliant Vietnamese CCCD, phone numbers, and cohesive test identities',
+    icon: 'i-carbon-id-management',
+    category: 'Ecosystem',
+    language: 'Rust',
+    topics: ['faker', 'vietnamese-cccd', 'rust'],
+    weight: 65,
+  },
+  {
+    name: 'Skills',
+    repo: 'tuquet/skills-pack',
+    link: 'https://github.com/tuquet/skills-pack',
+    desc: 'Production MCP toolkits that empower AI agents to directly control local developer tools and run automation',
+    icon: 'i-carbon-tools',
+    category: 'Ecosystem',
+    language: 'TypeScript',
+    topics: ['skills', 'mcp', 'agent-skills'],
     weight: 60,
   },
-  'yak-map': {
+  {
+    name: 'Docs',
+    link: 'https://docs.tuquet.com',
+    desc: 'Interactive documentation hub with instant search and copy-paste recipes for 68 CLI automation commands',
+    icon: 'i-carbon-notebook',
+    category: 'Ecosystem',
+    topics: ['documentation', 'recipes', 'cli'],
+    weight: 55,
+  },
+
+  // --- AI & Agent Systems ---
+  {
+    name: 'Claude-Agy',
+    repo: 'tuquet/claude-agy',
+    link: 'https://github.com/tuquet/claude-agy',
+    desc: 'Run Anthropic Claude Code CLI powered by Google Antigravity quotas with zero API token costs',
+    icon: 'i-simple-icons-anthropic',
+    category: 'AI & Agent Systems',
+    language: 'JavaScript',
+    topics: ['claude', 'antigravity', 'cli', 'ai'],
+    weight: 90,
+  },
+  {
+    name: 'Telegram ChatOps',
+    repo: 'tuquet/bot',
+    link: 'https://github.com/tuquet/bot',
+    desc: '24/7 server watchdog that sends instant downtime alerts to Telegram and lets you fix issues via chat',
+    icon: 'i-simple-icons-telegram',
+    category: 'AI & Agent Systems',
+    language: 'JavaScript',
+    topics: ['telegram', 'chatops', 'cloudflare-workers', 'alerting'],
+    weight: 85,
+  },
+
+  // --- Developer Infrastructure ---
+  {
     name: 'Yak Map',
+    repo: 'tuquet/yak-map',
+    link: 'https://yakmap.tuquet.com/',
     desc: 'Interactive visual architecture map that unravels monorepo dependencies and data flows at a glance',
     icon: 'i-carbon-network-4',
     category: 'Developer Infrastructure',
+    language: 'TypeScript',
+    topics: ['visualization', 'architecture', 'monorepo'],
+    weight: 60,
+  },
+  {
+    name: 'Schema Registry',
+    link: 'https://github.com/tuquet/schema',
+    desc: 'Single source of truth for JSON schemas to prevent breaking API contracts between CLI, backend, and UI',
+    icon: 'i-carbon-code',
+    category: 'Developer Infrastructure',
+    topics: ['json-schema', 'contracts', 'api'],
     weight: 55,
   },
-  'lib': {
-    name: 'Design System & UI',
-    desc: 'Enterprise UI primitives, high-performance Data Tables, and Design System for Vue 3',
-    icon: 'i-simple-icons-vuedotjs',
-    category: 'Web UI & Primitives',
+  {
+    name: 'Agent Skills',
+    repo: 'tuquet/skills-pack',
+    link: 'https://github.com/tuquet/skills-pack',
+    desc: 'Curated library of production AI agent skills and automated runbooks adhering to the Ponytail standard',
+    icon: 'i-carbon-machine-learning-model',
+    category: 'Developer Infrastructure',
+    language: 'TypeScript',
+    topics: ['ai', 'agent-skills', 'runbooks'],
     weight: 50,
   },
-  'releases': {
+  {
     name: 'Release Radar',
+    repo: 'tuquet/releases',
+    link: 'https://release.tuquet.com/',
     desc: 'Automated release tracking and distribution dashboard for all Tuquet open-source software and tools',
     icon: 'i-carbon-rocket',
     category: 'Developer Infrastructure',
+    language: 'TypeScript',
+    topics: ['releases', 'updates', 'dashboard'],
     weight: 45,
   },
-}
 
-// Subprojects / Monorepo packages that are showcased alongside repos
-const MANUAL_SHOWCASE_PROJECTS: ProjectItem[] = [
+  // --- Web UI & Primitives ---
   {
     name: 'Vue UI',
     link: 'https://github.com/tuquet/lib/tree/main/packages/vue-ui',
@@ -237,51 +342,6 @@ function normalizeRepo(raw: any): GitHubRepo {
   }
 }
 
-function detectIcon(repo: GitHubRepo): string {
-  const lang = (repo.language || '').toLowerCase()
-  const topics = repo.topics || []
-
-  // Check explicit icon topic: icon-xyz
-  const iconTopic = topics.find(t => t.startsWith('icon-'))
-  if (iconTopic) {
-    const iconName = iconTopic.replace(/^icon-/, '')
-    return `i-carbon-${iconName}`
-  }
-
-  if (topics.includes('telegram') || topics.includes('chatops')) return 'i-simple-icons-telegram'
-  if (topics.includes('claude') || topics.includes('anthropic')) return 'i-simple-icons-anthropic'
-  if (topics.includes('supabase')) return 'i-simple-icons-supabase'
-  if (topics.includes('tauri')) return 'i-simple-icons-tauri'
-  if (topics.includes('vue3') || lang === 'vue') return 'i-simple-icons-vuedotjs'
-  if (topics.includes('medusajs') || topics.includes('ecommerce')) return 'i-carbon-shopping-cart'
-  if (topics.includes('cloudflare-workers') || topics.includes('cloudflare')) return 'i-simple-icons-cloudflare'
-
-  if (lang === 'rust') return 'i-simple-icons-rust'
-  if (lang === 'typescript') return 'i-simple-icons-typescript'
-  if (lang === 'javascript') return 'i-simple-icons-javascript'
-  if (lang === 'python') return 'i-simple-icons-python'
-  if (lang === 'go') return 'i-simple-icons-go'
-  if (lang === 'powershell') return 'i-simple-icons-powershell'
-
-  return 'i-carbon-code'
-}
-
-function resolveCategory(repo: GitHubRepo): string | null {
-  const topics = repo.topics || []
-  for (const topic of topics) {
-    if (TOPIC_CATEGORY_MAP[topic]) {
-      return TOPIC_CATEGORY_MAP[topic]
-    }
-  }
-
-  // Fallback check in overrides
-  if (REPO_OVERRIDES[repo.name]?.category) {
-    return REPO_OVERRIDES[repo.name]!.category!
-  }
-
-  return null
-}
-
 async function fetchGithubRepos(): Promise<GitHubRepo[]> {
   const token = process.env.GITHUB_TOKEN
   const headers: Record<string, string> = {
@@ -294,15 +354,14 @@ async function fetchGithubRepos(): Promise<GitHubRepo[]> {
 
   // 1. Try public GitHub REST API
   try {
-    const res = await fetch('https://api.github.com/users/tuquet/repos?per_page=100&type=owner', { headers })
+    const res = await fetch('https://api.github.com/users/tuquet/repos?per_page=100&type=all', { headers })
     if (res.ok) {
       const data = await res.json() as any[]
       return data.map(normalizeRepo)
     }
-    console.warn(`GitHub API warning: ${res.status} ${res.statusText}`)
   }
   catch (e) {
-    console.warn('Direct GitHub API fetch failed, attempting gh CLI fallback...', (e as any)?.message || e)
+    // console.warn('Direct GitHub API fetch failed, attempting gh CLI fallback...', (e as any)?.message || e)
   }
 
   // 2. Fallback to `gh` CLI if installed
@@ -313,12 +372,11 @@ async function fetchGithubRepos(): Promise<GitHubRepo[]> {
     })
     const data = JSON.parse(output)
     if (Array.isArray(data) && data.length > 0) {
-      console.log(`Fetched ${data.length} repos via gh CLI fallback.`)
       return data.map(normalizeRepo)
     }
   }
-  catch (err) {
-    console.warn('gh CLI fallback failed:', (err as any)?.message || err)
+  catch {
+    // ignore
   }
 
   return []
@@ -327,53 +385,50 @@ async function fetchGithubRepos(): Promise<GitHubRepo[]> {
 async function main() {
   console.log('Fetching repositories from GitHub API...')
   const repos = await fetchGithubRepos()
-  console.log(`Resolved ${repos.length} raw repos`)
+  console.log(`Resolved ${repos.length} repos from GitHub`)
 
-  const projectList: ProjectItem[] = []
-
-  // Repos to exclude from projects listing
-  const EXCLUDED_REPOS = new Set(['tuquet.com', 'tuquet', 'dotfiles', 'install', 'scoop-bucket'])
-
+  // Index repos by repo short name & full name
+  const repoMap = new Map<string, GitHubRepo>()
   for (const repo of repos) {
-    if (repo.archived || repo.fork || EXCLUDED_REPOS.has(repo.name)) continue
-
-    const category = resolveCategory(repo)
-    // If no category and not in overrides, skip internal or unclassified repos
-    if (!category && !REPO_OVERRIDES[repo.name]) continue
-
-    const override = REPO_OVERRIDES[repo.name] || {}
-    const finalCategory = override.category || category || 'Developer Infrastructure'
-    const name = override.name || repo.name
-    const desc = override.desc || repo.description || 'Open source software and tools by Tu Quet'
-    const link = override.link || repo.homepage || repo.html_url || `https://github.com/tuquet/${repo.name}`
-    const icon = override.icon || detectIcon(repo)
-    const weight = override.weight ?? ((repo.stargazers_count || 0) * 10)
-
-    projectList.push({
-      name,
-      repo: repo.full_name,
-      link,
-      githubUrl: repo.html_url,
-      desc,
-      icon,
-      stars: repo.stargazers_count,
-      forks: repo.forks_count,
-      language: repo.language,
-      topics: repo.topics || [],
-      category: finalCategory,
-      weight,
-    })
+    repoMap.set(repo.name.toLowerCase(), repo)
+    if (repo.full_name) {
+      repoMap.set(repo.full_name.toLowerCase(), repo)
+    }
   }
 
-  // Merge manual showcase packages
-  for (const manual of MANUAL_SHOWCASE_PROJECTS) {
-    projectList.push(manual)
+  // Deep clone canonical list
+  const projectList: ProjectItem[] = JSON.parse(JSON.stringify(CANONICAL_PROJECTS))
+
+  // Enrich canonical projects with live GitHub stats
+  for (const item of projectList) {
+    let matchedRepo: GitHubRepo | undefined
+
+    if (item.repo) {
+      matchedRepo = repoMap.get(item.repo.toLowerCase()) || repoMap.get(item.repo.replace(/^tuquet\//i, '').toLowerCase())
+    }
+    else {
+      // Try matching by name
+      matchedRepo = repoMap.get(item.name.toLowerCase())
+    }
+
+    if (matchedRepo) {
+      item.stars = matchedRepo.stargazers_count ?? 0
+      item.forks = matchedRepo.forks_count ?? 0
+      if (!item.language && matchedRepo.language) {
+        item.language = matchedRepo.language
+      }
+      if (matchedRepo.topics && matchedRepo.topics.length > 0) {
+        // Merge topics uniquely
+        const merged = new Set([...item.topics, ...matchedRepo.topics])
+        item.topics = Array.from(merged)
+      }
+      if (!item.githubUrl && matchedRepo.html_url) {
+        item.githubUrl = matchedRepo.html_url
+      }
+    }
   }
 
-  // Sort by weight descending
-  projectList.sort((a, b) => (b.weight || 0) - (a.weight || 0))
-
-  // Group into categories
+  // Build categories map preserving original category order
   const categories: Record<string, ProjectItem[]> = {
     'Ecosystem': [],
     'AI & Agent Systems': [],
@@ -399,13 +454,6 @@ async function main() {
     }
   }
 
-  // Remove empty categories
-  for (const key of Object.keys(categories)) {
-    if (categories[key].length === 0) {
-      delete categories[key]
-    }
-  }
-
   const output = {
     categories,
     allTopics: Array.from(allTopicsSet).sort((a, b) => a.localeCompare(b)),
@@ -417,7 +465,7 @@ async function main() {
   await fs.mkdir(path.dirname(outputPath), { recursive: true })
   await fs.writeFile(outputPath, JSON.stringify(output, null, 2), 'utf-8')
 
-  console.log(`Generated ${outputPath} with ${projectList.length} projects across ${Object.keys(categories).length} categories.`)
+  console.log(`Generated ${outputPath} with ${projectList.length} canonical projects across ${Object.keys(categories).length} categories.`)
 }
 
 main().catch((err) => {
