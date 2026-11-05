@@ -19,8 +19,9 @@
     "pnpm": ">=9.0.0"
   },
   "scripts": {
-    "dev": "tsx ./scripts/sponsors-circles.ts && vite --port 3333 --open",
-    "build": "tsx ./scripts/generate-seo-assets.ts && tsx ./scripts/sponsors-circles.ts && cross-env NODE_ENV=production vite-ssg build",
+    "dev": "tsx ./scripts/fetch-projects.ts && tsx ./scripts/sponsors-circles.ts && vite --port 3333 --open",
+    "build": "tsx ./scripts/fetch-projects.ts && tsx ./scripts/generate-seo-assets.ts && tsx ./scripts/sponsors-circles.ts && cross-env NODE_ENV=production vite-ssg build",
+    "projects": "tsx ./scripts/fetch-projects.ts",
     "sponsors": "tsx ./scripts/sponsors-circles.ts",
     "preview": "vite preview"
   },

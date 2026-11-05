@@ -1,0 +1,288 @@
+{
+  "categories": {
+    "Ecosystem": [
+      {
+        "name": "Operon",
+        "repo": "tuquet/operon",
+        "link": "https://github.com/tuquet/operon",
+        "githubUrl": "https://github.com/tuquet/operon",
+        "desc": "Ultra-high performance distributed automation mesh and stealth browser sandbox runtime in Rust",
+        "icon": "i-simple-icons-rust",
+        "stars": 0,
+        "forks": 0,
+        "language": "Rust",
+        "topics": [
+          "automation",
+          "browser-sandbox",
+          "rust",
+          "tuquet-core"
+        ],
+        "category": "Ecosystem",
+        "weight": 100
+      },
+      {
+        "name": "Identity Hub",
+        "repo": "tuquet/id",
+        "link": "https://github.com/tuquet/id",
+        "githubUrl": "https://github.com/tuquet/id",
+        "desc": "Centralized Identity, Authentication, and Entitlements Platform powered by Supabase with Row Level Security",
+        "icon": "i-simple-icons-supabase",
+        "stars": 0,
+        "forks": 0,
+        "language": "PLpgSQL",
+        "topics": [
+          "entitlements",
+          "iam",
+          "supabase",
+          "tuquet-core"
+        ],
+        "category": "Ecosystem",
+        "weight": 75
+      },
+      {
+        "name": "Workstation Console",
+        "repo": "tuquet/console",
+        "link": "https://github.com/tuquet/console",
+        "githubUrl": "https://github.com/tuquet/console",
+        "desc": "Central workstation desktop GUI and preferences engine built with Vue 3, Shadcn UI, and Tauri v2",
+        "icon": "i-simple-icons-vuedotjs",
+        "stars": 0,
+        "forks": 0,
+        "language": "TypeScript",
+        "topics": [
+          "tauri",
+          "tuquet-core",
+          "vue3",
+          "workstation"
+        ],
+        "category": "Ecosystem",
+        "weight": 70
+      },
+      {
+        "name": "Commerce Engine",
+        "repo": "tuquet/store",
+        "link": "https://github.com/tuquet/store",
+        "githubUrl": "https://github.com/tuquet/store",
+        "desc": "Medusa v2 e-commerce backend with Next.js Storefront, Docker orchestration, and multi-tenant catalog",
+        "icon": "i-carbon-shopping-cart",
+        "stars": 0,
+        "forks": 0,
+        "language": "TypeScript",
+        "topics": [
+          "ecommerce",
+          "medusajs",
+          "nextjs",
+          "storefront",
+          "tuquet-core"
+        ],
+        "category": "Ecosystem",
+        "weight": 65
+      },
+      {
+        "name": "Storage Hub",
+        "repo": "tuquet/storage",
+        "link": "https://storage.tuquet.com/",
+        "githubUrl": "https://github.com/tuquet/storage",
+        "desc": "Multi-tenant cloud storage engine with atomic lease locking to sync antidetect browser profiles safely with zero egress fees",
+        "icon": "i-carbon-data-base",
+        "stars": 0,
+        "forks": 0,
+        "language": "JavaScript",
+        "topics": [],
+        "category": "Ecosystem",
+        "weight": 60
+      }
+    ],
+    "AI & Agent Systems": [
+      {
+        "name": "Agent Skills Pack",
+        "repo": "tuquet/skills-pack",
+        "link": "https://github.com/tuquet/skills-pack",
+        "githubUrl": "https://github.com/tuquet/skills-pack",
+        "desc": "Curated production AI agent skills pack for Claude Code, Antigravity, and Cursor — one npm install away",
+        "icon": "i-carbon-tools",
+        "stars": 0,
+        "forks": 0,
+        "language": "TypeScript",
+        "topics": [
+          "agent-skills",
+          "ai",
+          "antigravity",
+          "claude",
+          "cursor",
+          "skills"
+        ],
+        "category": "AI & Agent Systems",
+        "weight": 90
+      },
+      {
+        "name": "Claude-Agy",
+        "repo": "tuquet/claude-agy",
+        "link": "https://github.com/tuquet/claude-agy",
+        "githubUrl": "https://github.com/tuquet/claude-agy",
+        "desc": "Run Anthropic Claude Code CLI powered by Google Antigravity quotas with zero API token costs",
+        "icon": "i-simple-icons-anthropic",
+        "stars": 0,
+        "forks": 0,
+        "language": "JavaScript",
+        "topics": [],
+        "category": "AI & Agent Systems",
+        "weight": 85
+      }
+    ],
+    "Developer Infrastructure": [
+      {
+        "name": "Yak Map",
+        "repo": "tuquet/yak-map",
+        "link": "https://yakmap.tuquet.com/",
+        "githubUrl": "https://github.com/tuquet/yak-map",
+        "desc": "Interactive visual architecture map that unravels monorepo dependencies and data flows at a glance",
+        "icon": "i-carbon-network-4",
+        "stars": 0,
+        "forks": 0,
+        "language": "TypeScript",
+        "topics": [],
+        "category": "Developer Infrastructure",
+        "weight": 55
+      },
+      {
+        "name": "Release Radar",
+        "repo": "tuquet/releases",
+        "link": "https://release.tuquet.com/",
+        "githubUrl": "https://github.com/tuquet/releases",
+        "desc": "Automated release tracking and distribution dashboard for all Tuquet open-source software and tools",
+        "icon": "i-carbon-rocket",
+        "stars": 0,
+        "forks": 0,
+        "language": "TypeScript",
+        "topics": [],
+        "category": "Developer Infrastructure",
+        "weight": 45
+      }
+    ],
+    "Web UI & Primitives": [
+      {
+        "name": "Design System & UI",
+        "repo": "tuquet/lib",
+        "link": "https://storybook.tuquet.com/",
+        "githubUrl": "https://github.com/tuquet/lib",
+        "desc": "Enterprise UI primitives, high-performance Data Tables, and Design System for Vue 3",
+        "icon": "i-simple-icons-vuedotjs",
+        "stars": 0,
+        "forks": 0,
+        "language": "TypeScript",
+        "topics": [],
+        "category": "Web UI & Primitives",
+        "weight": 50
+      },
+      {
+        "name": "Vue UI",
+        "link": "https://github.com/tuquet/lib/tree/main/packages/vue-ui",
+        "desc": "Production-ready Vue 3 component library built on Shadcn-Vue with dark mode out of the box",
+        "icon": "i-simple-icons-vuedotjs",
+        "category": "Web UI & Primitives",
+        "language": "TypeScript",
+        "topics": [
+          "vue3",
+          "ui",
+          "components"
+        ],
+        "weight": 40
+      },
+      {
+        "name": "Vue Table",
+        "link": "https://github.com/tuquet/lib/tree/main/packages/vue-table",
+        "desc": "High-performance virtualized data table for Vue 3 that smoothly renders massive datasets with zero lag",
+        "icon": "i-carbon-data-table",
+        "category": "Web UI & Primitives",
+        "language": "TypeScript",
+        "topics": [
+          "vue3",
+          "data-table",
+          "virtualization"
+        ],
+        "weight": 35
+      },
+      {
+        "name": "MD Export",
+        "link": "https://github.com/tuquet/lib/tree/main/packages/md-export",
+        "desc": "Export entire Markdown folders into publication-grade vector PDFs and high-res images with zero styling bugs",
+        "icon": "i-carbon-document-pdf",
+        "category": "Web UI & Primitives",
+        "language": "TypeScript",
+        "topics": [
+          "markdown",
+          "pdf",
+          "export"
+        ],
+        "weight": 30
+      },
+      {
+        "name": "Extension Runner",
+        "link": "https://github.com/tuquet/lib/tree/main/packages/extension-runner",
+        "desc": "Headless test runner to debug and execute Chrome extensions in automated CI/CD pipelines",
+        "icon": "i-carbon-extensions",
+        "category": "Web UI & Primitives",
+        "language": "TypeScript",
+        "topics": [
+          "chrome-extension",
+          "automation"
+        ],
+        "weight": 25
+      },
+      {
+        "name": "Lunar Calendar",
+        "link": "https://github.com/tuquet/lib/tree/main/packages/lunar",
+        "desc": "Astronomical Vietnamese Lunar-Solar calendar engine with Can Chi calculation and zero timezone drift",
+        "icon": "i-carbon-moon",
+        "category": "Web UI & Primitives",
+        "language": "TypeScript",
+        "topics": [
+          "vietnamese",
+          "lunar-calendar",
+          "astronomy"
+        ],
+        "weight": 20
+      }
+    ]
+  },
+  "allTopics": [
+    "agent-skills",
+    "ai",
+    "antigravity",
+    "astronomy",
+    "automation",
+    "browser-sandbox",
+    "chrome-extension",
+    "claude",
+    "components",
+    "cursor",
+    "data-table",
+    "ecommerce",
+    "entitlements",
+    "export",
+    "iam",
+    "JavaScript",
+    "lunar-calendar",
+    "markdown",
+    "medusajs",
+    "nextjs",
+    "pdf",
+    "PLpgSQL",
+    "rust",
+    "Rust",
+    "skills",
+    "storefront",
+    "supabase",
+    "tauri",
+    "tuquet-core",
+    "TypeScript",
+    "ui",
+    "vietnamese",
+    "virtualization",
+    "vue3",
+    "workstation"
+  ],
+  "totalProjects": 15,
+  "updatedAt": "2026-11-05T03:46:24.018Z"
+}
