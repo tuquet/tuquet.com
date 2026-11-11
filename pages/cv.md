@@ -1,12 +1,12 @@
 ---
 title: Nguyen Dinh Tu - Curriculum Vitae
 display: Curriculum Vitae
-subtitle: Technical Project Lead & Senior Software Engineer
-description: Technical Project Lead & Senior Software Engineer specializing in distributed systems, real-time telemetry streaming, high-scale web applications, and AI-augmented workflows.
+subtitle: Lead Fullstack & AI-Native Engineer
+description: Lead Fullstack & AI-Native Engineer with 10+ years of end-to-end ownership across web/mobile clients, Java microservices, Data Warehouse platforms, and Agentic AI workflows.
 image: https://avatars.githubusercontent.com/u/20990824?v=4
 lang: en
-date: 2026-10-02
-updated: 'October 2026'
+date: 2026-11-11
+updated: 'November 2026'
 art: plum
 class: 'cv-page'
 wrapperClass: 'max-w-5xl'
@@ -18,7 +18,7 @@ wrapperClass: 'max-w-5xl'
       <strong class="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">Nguyen Dinh Tu</strong>
       <span class="profile-nickname text-sm text-zinc-500 dark:text-zinc-400 ml-2">(Tu Quet)</span>
     </div>
-    <span class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 font-medium">Technical Project Lead &amp; Systems Architect</span>
+    <span class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 font-medium">Lead Fullstack &amp; AI-Native Engineer</span>
   </div>
 
   <div class="flex flex-wrap gap-x-4 gap-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 pt-2 border-t border-zinc-200 dark:border-zinc-800">
@@ -31,178 +31,122 @@ wrapperClass: 'max-w-5xl'
   </div>
 </div>
 
-<p><em>Technical Lead & Senior Software Engineer with a <strong>Product-first mindset</strong>, specialized in <strong>distributed backend systems</strong>, <strong>high-scale web applications</strong>, and <strong>optimizing engineering productivity</strong> through <strong>AI-augmented workflows (MCP, LLMs)</strong>.</em></p>
+<p><em><strong>Lead Fullstack &amp; AI-Native Engineer</strong> with <strong>10+ years</strong> of end-to-end ownership across web/mobile clients, <strong>Java</strong> microservices, and <strong>Data Warehouse</strong> platforms for <strong>Lotte World</strong>, <strong>VinFast</strong>, <strong>SocialBeat</strong>, and <strong>ShopBase</strong>. Focused on bridging <strong>React / Next.js / TypeScript</strong>, <strong>Java 17/21/25 LTS (Spring Boot 3.x)</strong>, and <strong>Agentic AI (Harness, Skills, MCP)</strong> to accelerate full-lifecycle product delivery.</em></p>
 
-## CAREER SUMMARY
+## PROFESSIONAL SUMMARY
 
-Accomplished Technical Lead & Senior Software Engineer with over 8 years of experience engineering high-scale distributed systems, resilient backend services, and world-class web applications. Deeply versatile across systems programming (Rust, Java/Spring Boot, Node.js) and modern web ecosystems (React, Next.js, Vue.js, Micro-frontends). Proven expertise in data pipelines, real-time telemetry streaming (WebSockets, SSE), distributed caching, and Core Web Vitals optimization.
-
-Pioneer in marrying a **Product-Led Growth (PLG)** mindset with **AI-augmented engineering workflows (MCP, LLM toolchains)** to drive technical excellence, deliver resilient software architectures, and scale cross-functional engineering teams.
-
----
+- Over **10+ years** of end-to-end fullstack engineering and technical leadership (**Tech Lead, CPO**).
+- **Frontend & Mobile:** **TypeScript**, **React 18**, **Next.js**, **Vue 3**, **Angular**, **React Native** (WebView bridges), **Tailwind CSS**, and Core Web Vitals tuning.
+- **Backend & Data:** **Java 17/21/25 LTS** (Virtual Threads), **Spring Boot 3.x**, **Spring Cloud / Security 6**, **Rust (Tokio)**, **Kafka / RabbitMQ**, **PostgreSQL**, **MS SQL**, **ClickHouse**, and **Redis**.
+- **System Architecture:** Microservices & Micro-frontends, Clean Architecture / DDD, Design Systems, and sub-second OLAP Data Warehouse APIs.
+- **DevOps & Quality:** **Docker**, **Kubernetes**, **CI/CD**, **OpenTelemetry / Grafana**, and automated testing (**Playwright, Jest, JUnit 5, Testcontainers**).
+- **AI-Native Engineering:** Architecting custom **Agent Harnesses**, reusable **Agent Skills**, **Model Context Protocol (MCP)** servers, **Agentic Workflows**, and **Spring AI** integrations.
+- Direct **remote & onsite** leadership with Korean, Japanese, and global stakeholders.
 
 ## CORE COMPETENCIES & TECHNICAL SKILLS
 
 | Domain | Core Stack & Capabilities |
 | :--- | :--- |
-| **Backend & Systems Engineering** | Java (Spring Boot, Security, JPA), Rust (Tokio, Systems Programming), Node.js (NestJS, Express), Event-Driven Architecture |
-| **API Design & Streaming** | REST, GraphQL, gRPC, WebSockets, SSE, API Gateways, BFF, Distributed IPC |
-| **Databases & Caching** | PostgreSQL, MS SQL Server, Redis (Pub/Sub, Caching), ClickHouse OLAP, Apache Solr, Schema & Index Optimization |
-| **Frontend Architecture** | React (Next.js, Server Components), Vue.js (Nuxt), TypeScript, Electron JS |
-| **Scalability & Performance** | Micro-frontends (Module Federation), Design Systems (Storybook, Radix), Core Web Vitals (LCP < 2s, INP < 150ms) |
-| **Real-time Data Visualization** | Canvas/SVG Charting, Virtual Grids, ECharts, Highcharts, TanStack Query, SWR |
-| **DevOps & Cloud** | Docker, Kubernetes fundamentals, Azure Cloud, GitHub Actions CI/CD, Turborepo Monorepo |
-| **AI-Augmented Engineering** | Model Context Protocol (MCP), LLM Toolchains, Playwright, Vitest, Jest |
-| **Engineering Leadership** | Technical Strategy, 15+ Engineers Leadership, Architecture Roadmaps, Tech Debt Governance, Agile Scrum |
+| **Frontend & Hybrid Mobile** | TypeScript, React 18, Next.js, Vue 3, Nuxt, Angular, React Native (WebView Bridge), Electron, Tauri, Tailwind CSS |
+| **State & Web Performance** | Zustand, Redux, TanStack Query, WebSockets/SSE/WebRTC, Design Systems, Core Web Vitals (LCP < 2.0s, INP < 150ms) |
+| **Backend & Distributed Systems** | Java 17/21/25 LTS (Virtual Threads, JVM Tuning, GraalVM), Spring Boot 3.4+, Spring Cloud, Spring Security 6, WebFlux, Rust (Tokio) |
+| **APIs & Event Messaging** | REST, gRPC, GraphQL (DGS), WebSocket, Apache Kafka, RabbitMQ, CQRS / Saga |
+| **Data, Caching & Warehousing** | Hibernate 6 / JPA, MyBatis, QueryDSL, JOOQ, PostgreSQL, MS SQL, MySQL, ClickHouse OLAP, Apache Solr, Redis Cluster |
+| **Architecture & AI-Native** | Microservices, Micro-frontends, DDD / Clean Architecture, Agent Harness, Reusable Skills, MCP, Agentic Workflows, Spring AI / LangChain4j |
+| **Cloud, Observability & QA** | Docker, Kubernetes, AWS / Azure, CI/CD, Turborepo, OpenTelemetry, Prometheus, Grafana, Playwright, JUnit 5, Testcontainers |
 
----
+## WORK EXPERIENCE
 
-## PROFESSIONAL EXPERIENCE
-
-| Company | Role | Duration | Key Clients & Scope |
-| :--- | :--- | :--- | :--- |
-| **CMC Global** | Technical Project Lead | 09/2024 – Present | Smart EV Telemetry Platform, Lotte Group (Theme Park Portals) |
-| **ICOMM Tech** | CPO & Tech Lead | 05/2020 – 08/2024 | Enterprise Big Data & Multi-Channel Communications |
-| **OpenCommerce Group** | Senior Software Engineer | 12/2018 – 04/2020 | High-Converting E-Commerce Storefronts & Merchant Suite |
-| **TDT Asia** | Full-stack Engineer | 05/2018 – 12/2018 | Japanese Enterprise ERP Portals |
-| **Lush Era** | Software Engineer | 12/2016 – 04/2018 | Real-time Telemedicine & Healthcare Web Application |
-
----
+| From | To | Company | Position | Key Scope |
+| :--- | :--- | :--- | :--- | :--- |
+| 09/2024 | Present | **CMC Global** ([cmcglobal.com.vn](https://cmcglobal.com.vn)) | Technical Leader (TL) | Lotte World App (Korea), VinFast Digital Twin Portal |
+| 05/2020 | 08/2024 | **iCOMM Tech. JSC** ([icomm.vn](https://icomm.vn)) | Chief Product Officer (CPO) | SocialBeat (`socialbeat.vn`) – Social Listening & Data Warehouse |
+| 12/2018 | 04/2020 | **OpenCommerce Group** ([opencommercegroup.com](https://www.opencommercegroup.com)) | Senior Fullstack Engineer (SFE) | ShopBase (`shopbase.com`) – Cross-Border E-Commerce |
+| 05/2018 | 12/2018 | **TDT Asia JSC** ([tdt-asia.com](https://tdt-asia.com)) | Fullstack Engineer (SE) | Confidential Fintech Trading Platform (`Project Waku`) |
+| 12/2016 | 04/2018 | **Lush Era** ([dochereonline.com](https://dochereonline.com)) | Fullstack Web & Mobile Developer | Dr.HereOnline – Smart Clinic & Telemedicine (Web, iOS, Android) |
 
 ## FEATURED PROJECT LIST
 
-### [09/2024 – Present] High-Scale Web & Booking Portals – Lotte Group (Theme Park & Hospitality) <span id="lotte"></span><span id="high-scale-web--booking-portals--lotte-group-theme-park--hospitality"></span>
-- **Timeline**: 09/2024 – Present
-- **Company**: CMC Global
-- **Client**: Lotte Group (Lotte World, Theme Parks & Hospitality)
-- **Team size**: 15+ engineers
-- **Project description**: High-scale digital ecosystem for Lotte premier amusement parks and hospitality destinations, encompassing high-traffic web portals & partner booking webviews, real-time attraction wait-time & reservation engines, and digital interactive park navigation.
-- **Responsibilities**:
-  - Served as **Lead Frontend Engineer**, steering the architectural refactoring, component modularity, and feature delivery for high-traffic Park Visitor Web Portals and Partner Booking WebViews adhering to client enterprise standards.
-  - Implemented responsive Web and mobile-embedded WebView user interfaces using React, Vite, and Tailwind CSS, ensuring UI fidelity with design documentation and smooth interactions.
-  - Configured streamlined local developer workflows and mock data synchronization between Spring Boot backend services and React / React Native frontend clients.
-  - Performed continuous code maintenance, bug fixes, and performance tuning to guarantee cross-browser compatibility and responsive UX across mobile WebViews.
-- **Programming Language**: TypeScript, JavaScript, Java
-- **Framework**: React, Vite, React Native, Tailwind CSS, Spring Boot
-- **Platform, server and database**: Docker, Redis, MS SQL Server
-- **Methodology**: Agile Scrum
+### 1. [01/2025 – Present] Lotte World Adventure App ([adventure.lotteworld.com](https://adventure.lotteworld.com) & [adventurebusan.lotteworld.com](https://adventurebusan.lotteworld.com)) <span id="lotte"></span><span id="high-scale-web--booking-portals--lotte-group-theme-park--hospitality"></span>
 
-### [09/2024 – Present] Electric Vehicle (EV) Telemetry & Fleet Monitoring Platform <span id="electric-vehicle-ev-telemetry--fleet-monitoring-platform"></span>
-- **Timeline**: 09/2024 – Present
-- **Company**: CMC Global
-- **Client**: Global Smart Electric Vehicle Manufacturer (Tier-1 Enterprise)
-- **Team size**: 15+ engineers (3 squads)
-- **Project description**: Large-scale telemetry dashboard platform for aggregating, monitoring, and analyzing telemetry and operational status for fleets of 100k+ smart connected electric vehicles (EVs).
-- **Responsibilities**:
--   Served as **Technical Project Lead**, establishing overall technical architecture, engineering standards, and high-throughput telemetry streaming across 3 squads (15+ engineers) processing millions of daily EV operational events.
--   Architected a **Micro-frontends** architecture and standardized a shared enterprise **Design System**, ensuring visual consistency and decoupled release cycles across squads.
--   Optimized high-throughput telemetry streaming via WebSockets by implementing **Virtual Scrolling, Canvas Data Charting, and Debounced/Throttled State Updates**, while orchestrating high-throughput BFF aggregation services in **Rust** to sustain a continuous 60fps rendering rate under high data volume without blocking the Main Thread.
--   Formulated a comprehensive **Core Web Vitals** strategy: orchestrated route-based and component-based dynamic code splitting, reducing INP to < 150ms and maintaining LCP < 2.0s across all mission-critical monitor views.
--   Introduced **AI-augmented Frontend SDLC** practices (LLM UI generation, automated visual regression testing), elevating frontend feature delivery velocity by 25%.
-- **Programming Language**: TypeScript, JavaScript, HTML5, CSS3, Rust (BFF tooling)
-- **Framework**: React (Concurrent Features), Next.js, Tailwind CSS, Zustand, Node.js
-- **Platform, server and database**: Azure Cloud, Docker, Kubernetes, WebSockets, PostgreSQL, Redis
-- **Methodology**: Agile Scrum
+- **Description:** Official **Lotte World App** ([Google Play](https://play.google.com/store/apps/details?id=com.lotteworld.android.adventure) / iOS) and multi-service backend for Seoul & Busan parks, handling smart ticketing, live wait times, 3D Unity maps, and staff operations.
+- **Client:** Lotte World / Hotel Lotte Co., Ltd. ([lotteworld.com](https://www.lotteworld.com) – Korea)
+- **Role & Team:** Technical Leader · 6 members (Hybrid Remote & Onsite)
+- **Key Responsibilities:**
+  - Led end-to-end delivery across React Native ↔ React 18 WebView bridge and Java 21 / Spring Boot 3.3 services (`adv-hp`, `advb-hp`, `abi-hp-dmap`).
+  - Built native device-ID extraction bridge paired with fail-closed MyBatis/MS SQL short-circuit queries and Redis caching for ticketless Staff Entry Bypass.
+  - Synced 5-minute backend wait-time aggregation with 3D Unity map markers and integrated turn-by-turn AR camera navigation.
+- **Tech Stack:** TypeScript, React 18, React Native (0.83), Unity 3D, Java 21, Spring Boot 3.3, MyBatis, MS SQL Server, Redis, Docker.
 
-### [05/2020 – 08/2024] Big Data Analytics & Interactive Intelligence Platform <span id="big-data-analytics--interactive-intelligence-platform"></span>
-- **Timeline**: 05/2020 – 08/2024
-- **Company**: ICOMM Tech
-- **Client**: Government, Banking & Aviation Sectors
-- **Team size**: 15+ engineers
-- **Project description**: Multi-platform enterprise Big Data extraction and intelligence dashboard, delivering interactive data visualization, real-time reporting, and deep analytics under strict enterprise security constraints.
-- **Responsibilities**:
--   Directed product roadmap and technical architecture as **Chief Product Officer (CPO) & Technical Lead**.
--   Engineered an interactive **Data Visualization Dashboard** powered by ECharts and Highcharts, solving high-density data rendering challenges for 100,000+ complex visual data points without frame drops.
--   Implemented **Client-side Caching (SWR/React Query patterns)** and **Virtualized Data Grids**, enabling near-instantaneous search, filtering, and paging across millions of records.
--   Established automated frontend quality assurance suites (End-to-End testing with Cypress/Playwright and unit testing with Jest), achieving 99.9% application uptime SLA.
--   Mentored 15+ engineers in Component-Driven Architecture, JavaScript Clean Code principles, and runtime render profiling.
-- **Programming Language**: TypeScript, JavaScript, HTML5, SCSS/CSS3, Python
-- **Framework**: React Ecosystem, Redux Toolkit, ECharts, .NET Core (Backend API)
-- **Platform, server and database**: Docker, Kubernetes, Redis, Apache Solr, ClickHouse
-- **Methodology**: Agile Scrum
+### 2. [09/2024 – Present] VinFast Digital Twin Portal ([vinfast.vn](https://vinfast.vn) / [vinfastauto.com](https://vinfastauto.com)) <span id="vinfast"></span><span id="electric-vehicle-ev-telemetry--fleet-monitoring-platform"></span>
 
-### [12/2018 – 04/2020] High-Converting E-Commerce Storefront & Merchant Suite
-- **Timeline**: 12/2018 – 04/2020
-- **Company**: OpenCommerce Group
-- **Client**: Global E-commerce Merchants
-- **Team size**: 8–10 engineers
-- **Project description**: Ultra-fast e-commerce storefront platform and intelligent cross-selling engine integrated across Shopify, WooCommerce, and WordPress ecosystems.
-- **Responsibilities**:
--   Served as **Senior Software Engineer**, spearheading storefront user interface development and AI-driven cross-selling recommendation widgets geared toward Product-Led Growth (PLG).
--   Maximized conversion rate optimization (CRO) and checkout velocity: drove **First Contentful Paint (FCP) to < 1.2s** and **LCP to < 1.8s**, contributing to an estimated 15–20% increase in merchant revenue.
--   Engineered reusable, modular UI components using **Vue.js and React**, enforcing scoped styles, responsive image optimization (WebP/AVIF), and aggressive bundle size minimization.
--   Delivered seamless Mobile-First responsive layouts and frictionless multi-gateway payment flows.
-- **Programming Language**: TypeScript, JavaScript, HTML5, CSS3, Rust (microservices)
-- **Framework**: Vue.js (Vuex), React, Tailwind CSS, Laravel (Backend API)
-- **Platform, server and database**: AWS, Nginx, Redis, MySQL
-- **Methodology**: Agile Scrum
+- **Description:** Fullstack web portal and data-serving platform connected to Enterprise Data Warehouses to track, visualize, and analyze EV lifecycle, diagnostics, and fleet quality.
+- **Client:** VinFast ([vinfastauto.com](https://vinfastauto.com) – EV & Automotive)
+- **Role & Team:** Technical Leader · 6 members (Hybrid Remote & Onsite)
+- **Key Responsibilities:**
+  - Owned fullstack architecture: React 18 modular portal & Design System on frontend paired with Java 21 (Virtual Threads) & Spring Boot 3.4 APIs.
+  - Cut Data Warehouse query latency to < 150ms via QueryDSL/JOOQ, materialized views, and Redis caching while keeping 60fps UI grids (LCP < 2.0s).
+  - Enforced OAuth2/RBAC security, OpenTelemetry/Grafana observability, and AI-assisted delivery workflows (+25% team velocity).
+- **Tech Stack:** TypeScript, React 18, Vite, TanStack Query, ECharts, Java 21, Spring Boot 3.4, QueryDSL/JOOQ, PostgreSQL, Redis, Azure (AKS).
 
-### [05/2018 – 12/2018] Enterprise Japanese Business Management Portal
-- **Timeline**: 05/2018 – 12/2018
-- **Company**: TDT Asia
-- **Client**: Japanese Small & Medium Enterprises (SMB Solutions – Japan Market)
-- **Team size**: 6–8 engineers
-- **Project description**: Enterprise Resource Planning (ERP) and business management web portal customized to meet the rigorous quality and UX standards of the Japanese corporate market.
-- **Responsibilities**:
--   Operated as **Fullstack Software Engineer**, taking primary ownership of the Single Page Application (SPA) client architecture.
--   Leveraged **Angular with RxJS Observables** for reactive state handling and orchestrated complex business workflows with Angular Reactive Forms.
--   Ensured strict **Cross-Browser Compatibility** (Chrome, Firefox, Safari, Edge) and achieved pixel-perfect adherence to Japanese UX/UI specifications.
-- **Programming Language**: TypeScript, JavaScript, HTML5, SCSS
-- **Framework**: Angular, Angular Material, RxJS, Spring Boot (Backend API)
-- **Platform, server and database**: Tomcat, Docker, MySQL
-- **Methodology**: Agile Scrum
+### 3. [05/2020 – 08/2024] SocialBeat ([socialbeat.vn](https://socialbeat.vn)) – Social Listening & BI Platform <span id="socialbeat"></span><span id="big-data-analytics--interactive-intelligence-platform"></span>
 
-### [12/2016 – 04/2018] Responsive Real-time Telemedicine Web Application
-- **Timeline**: 12/2016 – 04/2018
-- **Company**: Lush Era
-- **Client**: Medical Clinics & Healthcare Service Providers
-- **Team size**: 5 engineers
-- **Project description**: Secure real-time telemedicine and remote healthcare consultation web application connecting patients with certified medical specialists via video and chat.
-- **Responsibilities**:
--   Acted as **Software Engineer**, building an intuitive, accessible, and fast-loading telemedicine web client.
--   Engineered **Mobile-First Responsive Layouts**, prioritizing Web Accessibility (a11y) standards for elderly patients and individuals with visual impairments.
--   Implemented interactive WebRTC video calling interfaces and low-latency real-time messaging UI.
-- **Programming Language**: JavaScript, HTML5, CSS3, PHP
-- **Framework**: jQuery, Bootstrap, Laravel (Backend)
-- **Platform, server and database**: MySQL, Apache, Nginx
-- **Methodology**: Agile
+- **Description:** Enterprise social listening and media monitoring platform crawling multi-source internet data into a Data Warehouse for sentiment analysis, crisis alerts, and competitor tracking.
+- **Client:** iCOMM ([icomm.vn](https://icomm.vn)) – Enterprises, Banks & Government Agencies
+- **Role & Team:** Chief Product Officer (CPO) & Principal Architect · 5+ members
+- **Key Responsibilities:**
+  - Directed product roadmap and fullstack architecture from distributed crawlers/Kafka pipelines (ClickHouse, Solr) to executive BI dashboards.
+  - Built sub-second OLAP APIs (.NET Core, C#, Redis Cluster cache) powering interactive React/ECharts/Highcharts views over 100,000+ data points.
+  - Scaled and mentored a 5+ engineer team, maintaining 99.9% SLA via Playwright, automated load tests, and Kubernetes CI/CD.
+- **Tech Stack:** C#, .NET Core, Python, Kafka, ClickHouse, Apache Solr, TypeScript, React, Redux Toolkit, ECharts, Redis, Kubernetes.
 
-### [2024 – Present] – Developer CLI & Distributed Automation Ecosystem
-- **Timeline**: 2024 – Present
-- **Company**: Independent Product Labs (Open-Source R&D)
-- **Client**: Self-initiated Open-Source Developer Tooling & Global Automation Engineers
-- **Team size**: Principal Architect (Solo Project)
-- **Project description**: High-performance open-source developer tooling ecosystem and distributed browser automation suite consisting of a unified master CLI (`tuquet`) in Rust, a visual workflow studio & cross-platform desktop suite (Vue.js / Nuxt, Electron JS), a supervised background runner daemon (`tuquet runner`), and cloud coordination services.
-- **Responsibilities**:
--   Acted as **Creator & Principal Architect**, architecting the end-to-end multi-runtime ecosystem spanning systems programming in Rust, visual web studio in Vue.js, and distributed task supervision.
--   Engineered the master CLI (`tuquet`) in **Rust**: built an interactive scoped shell with hierarchical state management, rustyline-based smart tab-completion, ANSI color styling, and sub-command delegation (`automation`, `runner`, `cloud`, `browser`).
--   Developed the visual automation studio & cross-platform desktop suite with **Vue.js (Nuxt), Electron JS & TypeScript**: designed an interactive node-graph canvas (Drawflow), custom automation blocks, secure local IPC bridges, and a real-time execution inspector with instant visual feedback.
--   Architected a zero-leakage process supervision engine in the runner daemon (`tuquet runner`) leveraging kernel process tree sandboxing to eliminate orphan Chromium zombie processes and strictly isolate CPU/RAM.
--   Engineered a high-throughput Medallion data crawler pipeline (Bronze gzip BLOB storage -> Silver Rust deduplication & HTML sanitizer -> Gold Supabase synchronization).
--   Standardized local workspace configurations into a Single Source of Truth (`~/.tuquet/`), eliminating configuration drift across CLI, extensions, and runner runtimes.
--   Automated binary builds, multi-platform packaging, and zero-dependency web installers with native in-place self-updates.
--   Published modular open-source ecosystem libraries to the official NPM registry under the `@tuquet` scope (`@tuquet/md-export`, `@tuquet/lunar`, `@tuquet/vue-ui`, `@tuquet/extension-runner`).
-- **Programming Language**: Rust, TypeScript, JavaScript, SQL
-- **Framework**: Vue.js Ecosystem (Nuxt, Drawflow), Electron JS, Tailwind CSS, Tokio (Rust Async), Node.js
-- **Platform, server and database**: Supabase, PostgreSQL, WebSockets, Process Tree Sandboxing, Docker, GitHub Actions
-- **Methodology**: Agile Kanban
+### 4. [12/2018 – 04/2020] ShopBase ([shopbase.com](https://www.shopbase.com)) – Cross-Border E-Commerce Platform <span id="shopbase"></span>
 
----
+- **Description:** Cross-border e-commerce storefront builder and automated CRO/Upsell app suite for international dropshipping and print-on-demand merchants.
+- **Client:** OpenCommerce Group ([opencommercegroup.com](https://www.opencommercegroup.com))
+- **Role & Team:** Senior Fullstack Engineer · 10 members
+- **Key Responsibilities:**
+  - Built fast Vue/React storefronts (LCP < 1.8s) and real-time Spring Boot/Redis Upsell APIs (p99 < 60ms), lifting merchant conversion by 15–20%.
+  - Engineered RabbitMQ webhook workers, Redisson distributed inventory locks, and Stripe/PayPal checkout flows for flash-sale traffic.
+- **Tech Stack:** TypeScript, Vue.js, React, Tailwind CSS, Java 11, Spring Boot, RabbitMQ, Redisson, MySQL, Redis, AWS.
 
-## ACHIEVEMENTS & AWARDS
+### 5. [05/2018 – 12/2018] Confidential Fintech Platform (`Project Waku` – Internal / NDA) <span id="waku"></span>
 
-- **Q4/2025:** **Rising Star Award (CMC Global)** – Recognized for exemplary technical leadership and high-impact delivery of the EV Telemetry platform.
-- **2023:** **Team of the Year (ICOMM Tech)** – Leading the engineering organization to exceed all product delivery targets.
-- **2022:** **Outstanding Employee (ICOMM Tech)** – Awarded for spearheading the flagship Big Data platform.
+- **Description:** Secure web trading and multi-account financial operations platform built for international capital markets under strict compliance.
+- **Client:** International Financial Client (via TDT Asia – [tdt-asia.com](https://tdt-asia.com))
+- **Role & Team:** Fullstack Engineer · 6–8 members
+- **Key Responsibilities:**
+  - Built Angular/RxJS reactive trading screens alongside ACID-compliant Spring Boot/Batch ledger services and RBAC security.
+  - Ensured exact decimal currency handling, eliminated N+1 SQL bottlenecks, and delivered full JUnit regression coverage.
+- **Tech Stack:** TypeScript, Angular, RxJS, Java 8/11, Spring Boot, Spring Security, Spring Batch, Hibernate/MyBatis, MySQL, Redis.
 
----
+### 6. [12/2016 – 04/2018] Dr.HereOnline ([dochereonline.com](https://dochereonline.com)) – Telemedicine Platform <span id="drhereonline"></span>
 
-## EDUCATION
+- **Description:** Multi-platform smart clinic ecosystem (Web + iOS & Android) connecting patients with specialists for scheduling, video consultations, and digital health records.
+- **Client:** Dr.HereOnline Healthcare Platform ([dochereonline.com](https://dochereonline.com))
+- **Role & Team:** Fullstack Web & Mobile Developer · 5 members
+- **Key Responsibilities:**
+  - Built responsive web portals and shared Java/Spring RESTful APIs serving Web, iOS, and Android Member/Expert apps.
+  - Implemented end-to-end WebRTC video consultation rooms and real-time WebSocket chat.
+- **Tech Stack:** JavaScript, Bootstrap, Java 8, Spring Boot/MVC, Hibernate, WebRTC, WebSocket, MySQL.
 
-**FPT University** | Information Technology (01/2012 – 09/2014)  
-- **Focus:** Full-Stack Web Development, Desktop Application Design & Software Architecture.
-- **Academic Standing:** GPA 8.2/10
-- **English Proficiency:** TOEIC 650 (Fluent technical reading/writing & professional collaboration)
+### 7. [2024 – Present] Tuquet Ecosystem ([tuquet.com](https://tuquet.com)) – Developer CLI & Distributed Automation <span id="tuquet"></span>
+
+- **Description:** Open-source developer tooling and browser automation ecosystem featuring a Rust master CLI (`tuquet`), visual workflow studio (Nuxt / Electron), supervised runner daemon, and `@tuquet/*` NPM packages.
+- **Role & Team:** Creator & Principal Architect · Open-Source R&D
+- **Key Responsibilities:**
+  - Built the interactive `tuquet` CLI & runner daemon in Rust (Tokio) with kernel process-tree sandboxing and Medallion ELT crawling (SQLite WAL → Supabase).
+  - Developed the visual node-graph automation studio in Vue 3 / Nuxt & Electron and published modular `@tuquet/*` packages to NPM.
+- **Tech Stack:** Rust, Tokio, TypeScript, Vue 3, Nuxt, Electron, Tailwind CSS, SQLite WAL, Supabase (PostgreSQL), Docker, GitHub Actions.
+
+## EDUCATION & AWARDS
+
+| Time | Organization / School | Award / Major |
+| :--- | :--- | :--- |
+| 2025 | **CMC Global** ([cmcglobal.com.vn](https://cmcglobal.com.vn)) | **Rising Star Award** – Leadership on VinFast Digital Twin project |
+| 2023 | **iCOMM** ([icomm.vn](https://icomm.vn)) | **Team of the Year** – Leading technical engineering organization |
+| 2022 | **iCOMM** ([icomm.vn](https://icomm.vn)) | **Outstanding Employee** – Delivery of flagship Big Data platform |
+| 2014 | **FPT University** ([fpt.edu.vn](https://fpt.edu.vn)) | **Information Technology** (GPA: 8.2 · TOEIC 650) |
 
 <style>
 .cv-page .prose {
