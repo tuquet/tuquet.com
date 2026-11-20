@@ -1,6 +1,6 @@
 {
-  "total": 8,
-  "updatedAt": "2026-11-20T06:44:35.497Z",
+  "total": 9,
+  "updatedAt": "2026-11-20T19:51:33.832Z",
   "categories": {
     "Ecosystem": [
       {
@@ -8,19 +8,14 @@
         "repo": "tuquet/operon",
         "url": "https://github.com/tuquet/operon",
         "link": "https://github.com/tuquet/operon",
-        "homepage": "https://tuquet.com/projects",
-        "description": "Ultra-High Performance Distributed Automation Mesh & Browser Sandbox Runtime in Rust",
-        "desc": "Ultra-High Performance Distributed Automation Mesh & Browser Sandbox Runtime in Rust",
+        "homepage": null,
+        "description": "Operon umbrella repository (console, core, docs)",
+        "desc": "Operon umbrella repository (console, core, docs)",
         "icon": "i-simple-icons-rust",
-        "stars": 1,
+        "stars": 0,
         "forks": 0,
-        "language": "Rust",
-        "topics": [
-          "automation",
-          "browser-sandbox",
-          "rust",
-          "stealth-browser"
-        ],
+        "language": null,
+        "topics": [],
         "category": "Ecosystem",
         "isArchived": false,
         "weight": 100
@@ -111,6 +106,28 @@
         "category": "Ecosystem",
         "isArchived": false,
         "weight": 75
+      },
+      {
+        "name": "core",
+        "repo": "tuquet/core",
+        "url": "https://github.com/tuquet/core",
+        "link": "https://github.com/tuquet/core",
+        "homepage": "https://tuquet.com/projects",
+        "description": "Ultra-High Performance Distributed Automation Mesh & Browser Sandbox Runtime in Rust",
+        "desc": "Ultra-High Performance Distributed Automation Mesh & Browser Sandbox Runtime in Rust",
+        "icon": "i-simple-icons-rust",
+        "stars": 1,
+        "forks": 0,
+        "language": "Rust",
+        "topics": [
+          "automation",
+          "browser-sandbox",
+          "rust",
+          "stealth-browser"
+        ],
+        "category": "Ecosystem",
+        "isArchived": false,
+        "weight": 30
       }
     ],
     "AI & Agent Systems": [
