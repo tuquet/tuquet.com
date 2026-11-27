@@ -241,7 +241,7 @@ export default defineConfig({
       const isRoot = route === '/' || route === ''
       const isPost = route.startsWith('/posts/') && route !== '/posts'
 
-      let pageTitle = 'Nguyen Dinh Tu (Tu Quet) | Technical Lead & Systems Architect'
+      let pageTitle = 'Nguyen Dinh Tu (Tu Quet) | Software Engineer & Architect'
       if (!isRoot && fm?.title) {
         if (fm.title.includes('Tu Quet') || fm.title.includes('Nguyen Dinh Tu'))
           pageTitle = fm.title
@@ -249,7 +249,7 @@ export default defineConfig({
           pageTitle = `${fm.title} · Tu Quet`
       }
 
-      const defaultDesc = 'Nguyen Dinh Tu (Tu Quet) — Lead Fullstack & AI-Native Systems Architect building enterprise web, mobile, and desktop platforms, EV telemetry portals, and local-first developer tooling.'
+      const defaultDesc = 'Nguyen Dinh Tu (Tu Quet) — Software Engineer & Architect building enterprise software, web/mobile/desktop platforms, EV telemetry portals, and local-first developer tooling.'
       const pageDescription = fm?.description || defaultDesc
       const canonicalUrl = `https://tuquet.com${isRoot ? '/' : route}`
       const ogType = isPost ? 'article' : 'website'

@@ -54,14 +54,7 @@ wrapperClass: 'font-roboto'
 
 ## WORK EXPERIENCE
 
-| From | To | Company | Position | Key Scope |
-| :--- | :--- | :--- | :--- | :--- |
-| 09/2024 | Present | **CMC Global** ([cmcglobal.com.vn](https://cmcglobal.com.vn)) | Technical Leader (TL) | VinFast Telemetry Web Portal (Ongoing); Lotte World App – Korea (Paused) |
-| 05/2020 | 08/2024 | **iCOMM Tech. JSC** ([icomm.vn](https://icomm.vn)) | PM & Chief Product Officer (CPO) | SocialBeat (`socialbeat.vn`) – Big Data & BI Web Platform |
-| 12/2018 | 04/2020 | **OpenCommerce Group** ([opencommercegroup.com](https://www.opencommercegroup.com)) | Senior Fullstack Engineer (SFE) | ShopBase (`shopbase.com`) – Cross-Border E-Commerce Platform |
-| 05/2018 | 12/2018 | **TDT Asia JSC** ([tdt-asia.com](https://tdt-asia.com)) | Fullstack Engineer (SE) | Confidential Fintech Trading Platform (`Project Waku`) |
-| 12/2016 | 04/2018 | **Lush Era** ([dochereonline.com](https://dochereonline.com)) | Fullstack Web & Mobile Dev | Dr.HereOnline – Telemedicine Web & Mobile Apps (iOS, Android) |
-| 09/2014 | 11/2016 | **Bao Phat Web Solutions** ([baophat.com](https://baophat.com)) | Fullstack Web Developer | SEO-First Corporate Websites & Portals (50+ Clients) |
+<CvExperienceTable lang="en" />
 
 ## FEATURED PROJECTS
 
@@ -161,14 +154,7 @@ wrapperClass: 'font-roboto'
 
 ## KINH NGHIỆM LÀM VIỆC
 
-| Từ | Đến | Doanh nghiệp | Vị trí | Phạm vi chính |
-| :--- | :--- | :--- | :--- | :--- |
-| 09/2024 | Hiện tại | **CMC Global** ([cmcglobal.com.vn](https://cmcglobal.com.vn)) | Technical Leader (TL) | VinFast Telemetry Web Portal (Đang triển khai); Lotte World App – Hàn Quốc (Tạm dừng) |
-| 05/2020 | 08/2024 | **iCOMM Tech. JSC** ([icomm.vn](https://icomm.vn)) | PM & Giám đốc Sản phẩm (CPO) | SocialBeat (`socialbeat.vn`) – Nền tảng Web Big Data & BI |
-| 12/2018 | 04/2020 | **OpenCommerce Group** ([opencommercegroup.com](https://www.opencommercegroup.com)) | Senior Fullstack Engineer (SFE) | ShopBase (`shopbase.com`) – Nền tảng Thương mại điện tử xuyên biên giới |
-| 05/2018 | 12/2018 | **TDT Asia JSC** ([tdt-asia.com](https://tdt-asia.com)) | Fullstack Engineer (SE) | Nền tảng giao dịch Fintech bảo mật (`Project Waku`) |
-| 12/2016 | 04/2018 | **Lush Era** ([dochereonline.com](https://dochereonline.com)) | Fullstack Web & Mobile Dev | Dr.HereOnline – Ứng dụng Web & Mobile y tế từ xa (iOS, Android) |
-| 09/2014 | 11/2016 | **Bao Phat Web Solutions** ([baophat.com](https://baophat.com)) | Fullstack Web Developer | Website Doanh nghiệp & Cổng thông tin chuẩn SEO (50+ khách hàng) |
+<CvExperienceTable lang="vi" />
 
 ## DỰ ÁN TIÊU BIỂU
 

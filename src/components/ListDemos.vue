@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { resolveDomainFavicon } from '~/data/registry'
 import { siteLang } from '~/logics'
 
 interface DemoItem {
@@ -34,7 +35,7 @@ const demos: DemoItem[] = [
     tagsVi: ['Vue 3 / Shadcn UI', '@operon/kernel', 'Supabase', 'Ứng dụng Web trực tuyến'],
     link: 'https://console.tuquet.com/',
     external: true,
-    logo: 'https://console.tuquet.com/favicon.ico',
+    logo: resolveDomainFavicon('https://console.tuquet.com/'),
   },
   {
     title: 'Yak Map Dependency Graph',

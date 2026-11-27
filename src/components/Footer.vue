@@ -8,30 +8,21 @@ const stackItems = getFooterStackItems()
   <footer class="mt-12 mb-6 prose m-auto flex flex-col gap-5 slide-enter animate-delay-1200! copyright print:hidden">
     <div class="tech-marquee-wrap" aria-label="Core tech stack">
       <div class="tech-marquee-track">
-        <a
-          v-for="item in stackItems"
-          :key="`a-${item.name}`"
-          :href="item.link"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="border tech-marquee-pill"
-        >
-          <img :src="item.logo" :alt="item.name" loading="lazy">
-          <span>{{ item.name }}</span>
-        </a>
-        <a
-          v-for="item in stackItems"
-          :key="`b-${item.name}`"
-          :href="item.link"
-          target="_blank"
-          rel="noopener noreferrer"
-          tabindex="-1"
-          aria-hidden="true"
-          class="border tech-marquee-pill"
-        >
-          <img :src="item.logo" alt="" loading="lazy">
-          <span>{{ item.name }}</span>
-        </a>
+        <template v-for="copy in ['a', 'b']" :key="copy">
+          <a
+            v-for="item in stackItems"
+            :key="`${copy}-${item.name}`"
+            :href="item.link"
+            target="_blank"
+            rel="noopener noreferrer"
+            :tabindex="copy === 'b' ? -1 : undefined"
+            :aria-hidden="copy === 'b' ? 'true' : undefined"
+            class="border tech-marquee-pill"
+          >
+            <img :src="item.logo" :alt="copy === 'a' ? item.name : ''" loading="lazy">
+            <span>{{ item.name }}</span>
+          </a>
+        </template>
       </div>
     </div>
 

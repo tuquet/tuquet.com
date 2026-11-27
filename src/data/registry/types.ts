@@ -29,11 +29,16 @@ export interface CompanyEntry {
   id: string
   name: string
   role: string
+  scope: string
+  scopeVi?: string
   url: string
   domain: string
   logo: string
   magicLinkLogo?: string
   timeline: string
+  from: string
+  to: string
+  toVi?: string
   timelineVi?: string
   desc: string
   descVi?: string

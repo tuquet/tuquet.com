@@ -28,13 +28,7 @@ Open to **Technical Leadership**, **Software Architecture**, **Product Engineeri
 
 Let's collaborate
 
-<p flex="~ gap-2 wrap" class="mt--2!">
-  <a href="https://github.com/tuquet" target="_blank" rel="noopener"><span op75 i-simple-icons-github /> GitHub</a>
-  <a href="https://x.com/quetjr" target="_blank" rel="noopener"><span op75 i-ri-twitter-x-fill /> Twitter</a>
-  <a href="https://www.linkedin.com/in/tuquet" target="_blank" rel="noopener"><span op75 i-simple-icons-linkedin /> LinkedIn</a>
-  <a href="https://fb.com/quet.jr" target="_blank" rel="noopener"><span op75 i-simple-icons-facebook /> Facebook</a>
-  <a href="https://www.npmjs.com/org/tuquet" target="_blank" rel="noopener"><span op75 i-simple-icons-npm /> npm</a>
-</p>
+<SocialLinks />
 
 Or reach me directly at <span font-mono>tunyk.93<span i-carbon-at/>gmail.com</span>
 
@@ -61,13 +55,7 @@ Mình chia sẻ kinh nghiệm thực chiến về thiết kế hệ thống và 
 
 Kết nối hợp tác qua
 
-<p flex="~ gap-2 wrap" class="mt--2!">
-  <a href="https://github.com/tuquet" target="_blank" rel="noopener"><span op75 i-simple-icons-github /> GitHub</a>
-  <a href="https://x.com/quetjr" target="_blank" rel="noopener"><span op75 i-ri-twitter-x-fill /> Twitter</a>
-  <a href="https://www.linkedin.com/in/tuquet" target="_blank" rel="noopener"><span op75 i-simple-icons-linkedin /> LinkedIn</a>
-  <a href="https://fb.com/quet.jr" target="_blank" rel="noopener"><span op75 i-simple-icons-facebook /> Facebook</a>
-  <a href="https://www.npmjs.com/org/tuquet" target="_blank" rel="noopener"><span op75 i-simple-icons-npm /> npm</a>
-</p>
+<SocialLinks />
 
 Hoặc trao đổi trực tiếp qua email <span font-mono>tunyk.93<span i-carbon-at/>gmail.com</span>
 
@@ -81,13 +69,5 @@ Hoặc trao đổi trực tiếp qua email <span font-mono>tunyk.93<span i-carbo
 main:has(.home-page) .prose,
 main:has(.home-page) .copyright {
   max-width: 56rem;
-}
-
-html[data-lang='vi'] .home-lang-en {
-  display: none;
-}
-
-html:not([data-lang='vi']) .home-lang-vi {
-  display: none;
 }
 </style>

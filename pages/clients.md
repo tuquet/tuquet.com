@@ -10,11 +10,6 @@ description: Employers, enterprise client products, and open-source ecosystem by
 
 <!-- @layout-full-width -->
 
-<div class="prose pb5 mx-auto" slide-enter slide-enter-2>
-  <SponsorButtons />
-  <hr>
-</div>
-
-<div slide-enter slide-enter-4>
+<div slide-enter slide-enter-2>
   <SponsorsView />
 </div>

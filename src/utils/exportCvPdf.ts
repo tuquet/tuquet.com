@@ -449,12 +449,18 @@ export function generateAndDownloadCvPdf(filename = 'Nguyen_Dinh_Tu_CV.pdf') {
     doc.drawWrappedParagraph(contactRuns, { fontSize: 8.1, lineHeight: 11.2, spaceAfter: 6 })
   }
 
-  for (const child of Array.from(prose.children)) {
-    const el = child as HTMLElement
-    if (el.classList.contains('cv-header'))
-      continue
+  const processElement = (el: HTMLElement) => {
+    if (el.classList.contains('cv-header') || el.classList.contains('print:hidden'))
+      return
+    if (window.getComputedStyle(el).display === 'none')
+      return
 
     const tag = el.tagName.toLowerCase()
+    if (tag === 'div' || tag === 'section') {
+      for (const child of Array.from(el.children))
+        processElement(child as HTMLElement)
+      return
+    }
     if (tag === 'p') {
       const runs = extractRuns(el)
       if (runs.length)
@@ -500,6 +506,9 @@ export function generateAndDownloadCvPdf(filename = 'Nguyen_Dinh_Tu_CV.pdf') {
       doc.moveDown(2)
     }
   }
+
+  for (const child of Array.from(prose.children))
+    processElement(child as HTMLElement)
 
   const blob = doc.buildBlob()
   const url = URL.createObjectURL(blob)
