@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { resolveDomainFavicon } from '~/data/registry'
+import { getRegistryEntry, resolveRegistryLogo } from '~/data/registry'
 import { siteLang } from '~/logics'
 
 interface DemoItem {
@@ -20,6 +20,13 @@ interface DemoItem {
   logo?: string
 }
 
+function demoFromRegistry(id: string, fallbackUrl: string) {
+  return {
+    link: getRegistryEntry(id)?.url || fallbackUrl,
+    logo: resolveRegistryLogo(id) || resolveRegistryLogo(fallbackUrl),
+  }
+}
+
 const demos: DemoItem[] = [
   {
     title: 'Operon Web Console',
@@ -33,9 +40,8 @@ const demos: DemoItem[] = [
     descVi: 'Web console trực tuyến của nền tảng Operon: Vue 3, Shadcn UI và @operon/kernel micro-app host shell thống nhất tự động hóa, workspace, tác vụ và điều khiển hệ thống.',
     tags: ['Vue 3 / Shadcn UI', '@operon/kernel', 'Supabase', 'Live Web App'],
     tagsVi: ['Vue 3 / Shadcn UI', '@operon/kernel', 'Supabase', 'Ứng dụng Web trực tuyến'],
-    link: 'https://console.tuquet.com/',
     external: true,
-    logo: resolveDomainFavicon('https://console.tuquet.com/'),
+    ...demoFromRegistry('operon', 'https://console.tuquet.com/'),
   },
   {
     title: 'Yak Map Dependency Graph',
@@ -50,8 +56,8 @@ const demos: DemoItem[] = [
     descVi: 'Đồ thị tương tác trực quan hóa các gói monorepo, dịch vụ mã nguồn mở và mối liên hệ kiến trúc giữa các dự án.',
     tags: ['TypeScript', 'Interactive Graph', 'Live Web App'],
     tagsVi: ['TypeScript', 'Đồ thị tương tác', 'Ứng dụng Web trực tuyến'],
-    link: 'https://yakmap.tuquet.com/',
     external: true,
+    ...demoFromRegistry('yak-map', 'https://yakmap.tuquet.com/'),
   },
   {
     title: 'Operon Releases Dashboard',
@@ -66,8 +72,8 @@ const demos: DemoItem[] = [
     descVi: 'Dashboard theo dõi và phân phối bản phát hành tự động, lập chỉ mục các bản dựng CLI, desktop và công cụ đa repo trong hệ sinh thái.',
     tags: ['TypeScript', 'Release Tracker', 'Live Web App'],
     tagsVi: ['TypeScript', 'Theo dõi phát hành', 'Ứng dụng Web trực tuyến'],
-    link: 'https://release.tuquet.com/',
     external: true,
+    ...demoFromRegistry('releases', 'https://release.tuquet.com/'),
   },
   {
     title: 'Storage Hub',
@@ -81,8 +87,8 @@ const demos: DemoItem[] = [
     descVi: 'Hệ thống lưu trữ đám mây đa tenant chạy trên Cloudflare Pages, D1, R2 và WebDAV để đồng bộ hồ sơ trình duyệt antidetect và tài nguyên media.',
     tags: ['Cloudflare Pages', 'D1 / R2', 'WebDAV', 'Live Web App'],
     tagsVi: ['Cloudflare Pages', 'D1 / R2', 'WebDAV', 'Ứng dụng Web trực tuyến'],
-    link: 'https://storage.tuquet.com/',
     external: true,
+    ...demoFromRegistry('storage-hub', 'https://storage.tuquet.com/'),
   },
 ]
 </script>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
-import { CLIENTS, COMPANIES, DOMAIN_REGISTRY } from '~/data/registry'
+import { AWARDS_AND_EDUCATION, CLIENTS, COMPANIES, DOMAIN_REGISTRY } from '~/data/registry'
 import { siteLang } from '~/logics'
 
 const companyLinesEn = COMPANIES.map(c => `- **${c.name} (${c.timeline}):** ${c.role} — ${c.scope}`).join('\n')
@@ -10,6 +10,11 @@ const ecosystemLinks = DOMAIN_REGISTRY
   .map(d => `- **${d.name}:** [${d.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}](${d.url})`)
   .join('\n')
 const clientHighlights = CLIENTS.slice(0, 6).map(c => `**${c.name}**`).join(', ')
+const awardLinesEn = AWARDS_AND_EDUCATION.filter(a => a.kind === 'award').map(a => `**${a.title}** (${a.organization}, ${a.time})`).join(', ')
+const awardLinesVi = AWARDS_AND_EDUCATION.filter(a => a.kind === 'award').map(a => `**${a.titleVi || a.title}** (${a.organization}, ${a.time})`).join(', ')
+const educationEn = AWARDS_AND_EDUCATION.find(a => a.kind === 'education')
+const educationLineEn = educationEn ? `**${educationEn.organization}** (${educationEn.time}) – **${educationEn.title}** (${educationEn.detail})` : ''
+const educationLineVi = educationEn ? `**${educationEn.organization}** (${educationEn.time}) – **${educationEn.titleVi || educationEn.title}** (${educationEn.detailVi || educationEn.detail})` : ''
 
 interface Message {
   role: 'user' | 'bot'
@@ -107,13 +112,13 @@ const knowledge = [
   },
   {
     keys: ['team', 'squad', 'mentoring', 'management', 'culture', 'leadership', 'lead', 'members', 'lãnh đạo', 'đội ngũ', 'giải thưởng'],
-    answer: '**Leadership Experience & Team Scaling:**\n- **CMC Global (09/2024 – Present):** Technical Leader guiding 6-member cross-functional squads on the active **VinFast Digital Twin Web Portal** and previously **Lotte World Adventure Mobile App** (iOS/Android, paused) with Korean & global stakeholders.\n- **Operon (2024 – Present · Open-Source R&D):** Creator & Principal Architect building a **Desktop App (Tauri)**, Web Console, and Rust CLI/Daemon automation runtime.\n- **iCOMM Tech (05/2020 – 08/2024):** PM, Chief Product Officer (CPO) & Principal Architect leading a 5+ engineer team on **SocialBeat** BI Web App & Data Warehouse (99.9% SLA).\n- **Early Foundation (2014 – 2020):** Senior Fullstack Engineer at **OpenCommerce Group** (`ShopBase` Web App), **TDT Asia** (`Project Waku` Web App), **Lush Era** (`Dr.HereOnline` Web & Mobile Apps), and **Bao Phat Web Solutions** (50+ corporate/SEO websites).\n- **Awards:** **Rising Star Award** (CMC Global, 2025), **Team of the Year** (iCOMM, 2023), and **Outstanding Employee** (iCOMM, 2022).',
-    answerVi: '**Kinh nghiệm Lãnh đạo & Phát triển Đội ngũ:**\n- **CMC Global (09/2024 – Hiện tại):** Technical Leader dẫn dắt squad 6 thành viên triển khai **VinFast Digital Twin Web Portal** (đang vận hành) và trước đó là **Lotte World Adventure Mobile App** (iOS/Android, đã tạm dừng) cùng đối tác Hàn Quốc & quốc tế.\n- **Operon (2024 – Hiện tại · R&D Mã nguồn mở):** Tác giả & Kiến trúc sư trưởng xây dựng **Desktop App (Tauri)**, Web Console và Rust CLI/Daemon.\n- **iCOMM Tech (05/2020 – 08/2024):** PM, CPO & Kiến trúc sư trưởng dẫn dắt đội ngũ 5+ kỹ sư phát triển **SocialBeat** BI Web App & Data Warehouse (99.9% SLA).\n- **Giai đoạn trước (2014 – 2020):** Senior Fullstack Engineer tại **OpenCommerce Group** (`ShopBase`), **TDT Asia** (`Project Waku`), **Lush Era** (`Dr.HereOnline`) và **Bao Phat Web Solutions** (50+ website doanh nghiệp/SEO).\n- **Giải thưởng:** **Rising Star Award** (CMC Global, 2025), **Team of the Year** (iCOMM, 2023) và **Nhân viên xuất sắc** (iCOMM, 2022).',
+    answer: `**Leadership Experience & Team Scaling:**\n- **CMC Global (09/2024 – Present):** Technical Leader guiding 6-member cross-functional squads on the active **VinFast Digital Twin Web Portal** and previously **Lotte World Adventure Mobile App** (iOS/Android, paused) with Korean & global stakeholders.\n- **Operon (2024 – Present · Open-Source R&D):** Creator & Principal Architect building a **Desktop App (Tauri)**, Web Console, and Rust CLI/Daemon automation runtime.\n- **iCOMM Tech (05/2020 – 08/2024):** PM, Chief Product Officer (CPO) & Principal Architect leading a 5+ engineer team on **SocialBeat** BI Web App & Data Warehouse (99.9% SLA).\n- **Early Foundation (2014 – 2020):** Senior Fullstack Engineer at **OpenCommerce Group** (\`ShopBase\` Web App), **TDT Asia** (\`Project Waku\` Web App), **Lush Era** (\`Dr.HereOnline\` Web & Mobile Apps), and **Bao Phat Web Solutions** (50+ corporate/SEO websites).\n- **Awards:** ${awardLinesEn}.`,
+    answerVi: `**Kinh nghiệm Lãnh đạo & Phát triển Đội ngũ:**\n- **CMC Global (09/2024 – Hiện tại):** Technical Leader dẫn dắt squad 6 thành viên triển khai **VinFast Digital Twin Web Portal** (đang vận hành) và trước đó là **Lotte World Adventure Mobile App** (iOS/Android, đã tạm dừng) cùng đối tác Hàn Quốc & quốc tế.\n- **Operon (2024 – Hiện tại · R&D Mã nguồn mở):** Tác giả & Kiến trúc sư trưởng xây dựng **Desktop App (Tauri)**, Web Console và Rust CLI/Daemon.\n- **iCOMM Tech (05/2020 – 08/2024):** PM, CPO & Kiến trúc sư trưởng dẫn dắt đội ngũ 5+ kỹ sư phát triển **SocialBeat** BI Web App & Data Warehouse (99.9% SLA).\n- **Giai đoạn trước (2014 – 2020):** Senior Fullstack Engineer tại **OpenCommerce Group** (\`ShopBase\`), **TDT Asia** (\`Project Waku\`), **Lush Era** (\`Dr.HereOnline\`) và **Bao Phat Web Solutions** (50+ website doanh nghiệp/SEO).\n- **Giải thưởng:** ${awardLinesVi}.`,
   },
   {
     keys: ['education', 'fpt', 'degree', 'university', 'baophat', 'wordpress', 'php', 'seo', 'taseco', 'datxanh', 'học vấn', 'đại học'],
-    answer: '**Education & Early Career Foundation (2012 – 2016):**\n- **Education:** **FPT University** (2012 – 2014) – **Website Design & Development** (GPA: 8.2/10 · English: Professional Working Proficiency).\n- **Bao Phat Web Solutions (09/2014 – 11/2016):** Fullstack Web Developer delivering SEO-first corporate websites, custom WordPress themes/plugins, and PHP/MySQL platforms for **50+ enterprise clients** (notably `taseco.vn`, `datxanhmienbac.com.vn`).',
-    answerVi: '**Học vấn & Nền tảng sự nghiệp (2012 – 2016):**\n- **Học vấn:** **Đại học FPT** (2012 – 2014) – **Thiết kế & Phát triển Website** (GPA: 8.2/10 · Tiếng Anh: Sử dụng thành thạo trong công việc).\n- **Bao Phat Web Solutions (09/2014 – 11/2016):** Fullstack Web Developer triển khai website chuẩn SEO, theme/plugin WordPress tùy biến và nền tảng PHP/MySQL cho **hơn 50 khách hàng doanh nghiệp** (tiêu biểu `taseco.vn`, `datxanhmienbac.com.vn`).',
+    answer: `**Education & Early Career Foundation (2012 – 2016):**\n- **Education:** ${educationLineEn}.\n- **Bao Phat Web Solutions (09/2014 – 11/2016):** Fullstack Web Developer delivering SEO-first corporate websites, custom WordPress themes/plugins, and PHP/MySQL platforms for **50+ enterprise clients** (notably \`taseco.vn\`, \`datxanhmienbac.com.vn\`).`,
+    answerVi: `**Học vấn & Nền tảng sự nghiệp (2012 – 2016):**\n- **Học vấn:** ${educationLineVi}.\n- **Bao Phat Web Solutions (09/2014 – 11/2016):** Fullstack Web Developer triển khai website chuẩn SEO, theme/plugin WordPress tùy biến và nền tảng PHP/MySQL cho **hơn 50 khách hàng doanh nghiệp** (tiêu biểu \`taseco.vn\`, \`datxanhmienbac.com.vn\`).`,
   },
   {
     keys: ['stack', 'tech stack', 'technologies', 'skill', 'skills', 'programming', 'languages', 'frameworks', 'công nghệ', 'kỹ năng'],

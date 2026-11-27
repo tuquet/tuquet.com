@@ -1,4 +1,4 @@
-import type { ClientEntry, CompanyEntry } from './types.ts'
+import type { AwardEducationEntry, ClientEntry, CompanyEntry } from './types.ts'
 
 export const COMPANIES: CompanyEntry[] = [
   {
@@ -11,6 +11,7 @@ export const COMPANIES: CompanyEntry[] = [
     domain: 'cmcglobal.com.vn',
     logo: '/logos/cmc.png',
     magicLinkLogo: '/logos/cmc.svg',
+    cvAnchor: '#vinfast',
     from: '09/2024',
     to: 'Present',
     toVi: 'Hiện tại',
@@ -35,6 +36,7 @@ export const COMPANIES: CompanyEntry[] = [
     url: 'https://icomm.vn',
     domain: 'icomm.vn',
     logo: '/logos/icomm-symbol.png',
+    cvAnchor: '#socialbeat',
     from: '05/2020',
     to: '08/2024',
     timeline: '05/2020 – 08/2024',
@@ -59,6 +61,7 @@ export const COMPANIES: CompanyEntry[] = [
     url: 'https://www.opencommercegroup.com',
     domain: 'opencommercegroup.com',
     logo: '/logos/ocg.png',
+    cvAnchor: '#shopbase',
     from: '12/2018',
     to: '04/2020',
     timeline: '12/2018 – 04/2020',
@@ -82,6 +85,7 @@ export const COMPANIES: CompanyEntry[] = [
     url: 'https://tdt-asia.com',
     domain: 'tdt-asia.com',
     logo: '/logos/tdt.png',
+    cvAnchor: '#waku',
     from: '05/2018',
     to: '12/2018',
     timeline: '05/2018 – 12/2018',
@@ -105,6 +109,7 @@ export const COMPANIES: CompanyEntry[] = [
     url: 'https://dochereonline.com',
     domain: 'dochereonline.com',
     logo: '/logos/dochereonline.ico',
+    cvAnchor: '#drhereonline',
     from: '12/2016',
     to: '04/2018',
     timeline: '12/2016 – 04/2018',
@@ -128,6 +133,7 @@ export const COMPANIES: CompanyEntry[] = [
     url: 'https://baophat.com',
     domain: 'baophat.com',
     logo: '/logos/baophat-icon.png',
+    cvAnchor: '#baophat',
     from: '09/2014',
     to: '11/2016',
     timeline: '09/2014 – 11/2016',
@@ -140,6 +146,55 @@ export const COMPANIES: CompanyEntry[] = [
       'Technical SEO',
     ],
     weight: 44,
+  },
+]
+
+export const AWARDS_AND_EDUCATION: AwardEducationEntry[] = [
+  {
+    id: 'cmc-rising-star-2025',
+    kind: 'award',
+    time: '2025',
+    organization: 'CMC Global',
+    organizationUrl: 'https://cmcglobal.com.vn',
+    organizationDomain: 'cmcglobal.com.vn',
+    title: 'Rising Star Award',
+    detail: 'Technical leadership on VinFast Digital Twin project',
+    detailVi: 'Lãnh đạo kỹ thuật dự án VinFast Digital Twin',
+  },
+  {
+    id: 'icomm-team-2023',
+    kind: 'award',
+    time: '2023',
+    organization: 'iCOMM',
+    organizationUrl: 'https://icomm.vn',
+    organizationDomain: 'icomm.vn',
+    title: 'Team of the Year',
+    detail: 'Leading technical engineering organization',
+    detailVi: 'Dẫn dắt đội ngũ kỹ thuật công nghệ',
+  },
+  {
+    id: 'icomm-outstanding-2022',
+    kind: 'award',
+    time: '2022',
+    organization: 'iCOMM',
+    organizationUrl: 'https://icomm.vn',
+    organizationDomain: 'icomm.vn',
+    title: 'Outstanding Employee',
+    titleVi: 'Nhân viên xuất sắc',
+    detail: 'Delivery of flagship Big Data platform',
+    detailVi: 'Triển khai nền tảng Big Data chủ lực',
+  },
+  {
+    id: 'fpt-university-2014',
+    kind: 'education',
+    time: '2012 – 2014',
+    organization: 'FPT University',
+    organizationUrl: 'https://fpt.edu.vn',
+    organizationDomain: 'fpt.edu.vn',
+    title: 'Website Design & Development',
+    titleVi: 'Thiết kế & Phát triển Website',
+    detail: 'GPA: 8.2/10 · English: Professional Working Proficiency',
+    detailVi: 'GPA: 8.2/10 · Tiếng Anh: Giao tiếp & làm việc chuyên môn',
   },
 ]
 
@@ -186,7 +241,6 @@ export const CLIENTS: ClientEntry[] = [
       'Redis',
     ],
     weight: 72,
-    aliases: ['Lotte World'],
   },
   {
     id: 'socialbeat',

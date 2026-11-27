@@ -1,4 +1,4 @@
-import { CLIENTS, COMPANIES, getCompanyNameMap } from './registry/index.ts'
+import { CLIENTS, COMPANIES, getCompanyNameMap, stripCompanySuffix } from './registry/index.ts'
 
 export interface SponsorItem {
   id: string
@@ -39,7 +39,7 @@ export const sponsors: SponsorItem[] = [
   })),
   ...CLIENTS.map<SponsorItem>((client) => {
     const parentName = client.viaCompanyId && companyNames[client.viaCompanyId]
-      ? companyNames[client.viaCompanyId].replace(/\s+(Tech\.\s*JSC|JSC|Group|Web Solutions)$/i, '')
+      ? stripCompanySuffix(companyNames[client.viaCompanyId])
       : undefined
 
     return {

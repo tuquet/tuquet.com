@@ -35,6 +35,7 @@ export interface CompanyEntry {
   domain: string
   logo: string
   magicLinkLogo?: string
+  cvAnchor?: string
   timeline: string
   from: string
   to: string
@@ -44,6 +45,19 @@ export interface CompanyEntry {
   descVi?: string
   tags: string[]
   weight: number
+}
+
+export interface AwardEducationEntry {
+  id: string
+  kind: 'award' | 'education'
+  time: string
+  organization: string
+  organizationUrl: string
+  organizationDomain: string
+  title: string
+  titleVi?: string
+  detail: string
+  detailVi?: string
 }
 
 export interface ClientEntry {

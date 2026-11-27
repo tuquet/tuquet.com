@@ -9,8 +9,7 @@ lang: en
 date: 2026-11-27
 updated: 'November 2026'
 art: plum
-class: 'cv-page font-roboto'
-wrapperClass: 'font-roboto'
+class: 'cv-page'
 ---
 
 <div class="cv-header mb-6">
@@ -83,6 +82,7 @@ wrapperClass: 'font-roboto'
 - **Key Impact:**
   - Led product roadmap and system architecture from Kafka/ClickHouse data pipelines to interactive BI dashboards (`100,000+` data points).
   - Mentored a 5+ engineer team and maintained **99.9%** uptime using automated Playwright tests and Kubernetes CI/CD.
+- **Enterprise Clients:** <CvClientList company-id="icomm" :exclude-ids="['socialbeat']" />
 - **Stack:** C#, .NET Core, Python, Kafka, ClickHouse, Apache Solr, TypeScript, React, ECharts, Redis, Kubernetes.
 
 ### 4. [12/2018 – 04/2020] ShopBase ([shopbase.com](https://www.shopbase.com)) – Cross-Border E-Commerce <span id="shopbase"></span>
@@ -110,7 +110,7 @@ wrapperClass: 'font-roboto'
 ### 7. [09/2014 – 11/2016] Enterprise & SEO Websites (50+ Clients) – Bao Phat ([baophat.com](https://baophat.com)) <span id="baophat"></span>
 
 - **Role:** Fullstack Web Developer · Agency Delivery Team
-- **Key Impact:** Delivered SEO-focused corporate websites and WordPress/PHP portals for 50+ companies including Taseco ([taseco.vn](https://taseco.vn)) and Dat Xanh Mien Bac ([datxanhmienbac.com.vn](https://datxanhmienbac.com.vn)).
+- **Key Impact:** Delivered SEO-focused corporate websites and WordPress/PHP portals for 50+ companies including <CvClientList company-id="baophat" />.
 - **Stack:** PHP, WordPress, MySQL, JavaScript, HTML, CSS, Bootstrap, Technical SEO.
 
 ## OPEN-SOURCE & AI-NATIVE R&D
@@ -121,16 +121,12 @@ wrapperClass: 'font-roboto'
 - **Key Impact:**
   - Created an open-source desktop app (Tauri, Vue) and Rust background runtime (`opn`) to run isolated Chromium browser workflows reliably.
   - Added built-in **MCP server** support and reusable AI **Agent Skills** so AI coding agents can execute browser tasks safely with automated verification.
+- **Ecosystem:** <CvEcosystemList />
 - **Stack:** Rust, Tokio, Axum, SQLite, TypeScript, Vue, Tauri, Shadcn UI, Supabase, MCP, Docker.
 
 ## EDUCATION & AWARDS
 
-| Time | Organization / School | Award / Major |
-| :--- | :--- | :--- |
-| 2025 | **CMC Global** ([cmcglobal.com.vn](https://cmcglobal.com.vn)) | **Rising Star Award** – Technical leadership on VinFast Digital Twin project |
-| 2023 | **iCOMM** ([icomm.vn](https://icomm.vn)) | **Team of the Year** – Leading technical engineering organization |
-| 2022 | **iCOMM** ([icomm.vn](https://icomm.vn)) | **Outstanding Employee** – Delivery of flagship Big Data platform |
-| 2012 – 2014 | **FPT University** ([fpt.edu.vn](https://fpt.edu.vn)) | **Website Design & Development** (GPA: 8.2/10 · English: Professional Working Proficiency) |
+<CvAwardsTable lang="en" />
 
 </div>
 
@@ -183,6 +179,7 @@ wrapperClass: 'font-roboto'
 - **Đóng góp chính:**
   - Dẫn dắt lộ trình sản phẩm và kiến trúc hệ thống từ pipeline dữ liệu Kafka/ClickHouse đến dashboard BI tương tác (`100,000+` điểm dữ liệu).
   - Đào tạo đội ngũ 5+ kỹ sư và duy trì **99.9%** uptime nhờ kiểm thử tự động Playwright và CI/CD Kubernetes.
+- **Khách hàng tiêu biểu:** <CvClientList company-id="icomm" :exclude-ids="['socialbeat']" />
 - **Công nghệ:** C#, .NET Core, Python, Kafka, ClickHouse, Apache Solr, TypeScript, React, ECharts, Redis, Kubernetes.
 
 ### 4. [12/2018 – 04/2020] ShopBase ([shopbase.com](https://www.shopbase.com)) – Thương mại điện tử xuyên biên giới
@@ -210,7 +207,7 @@ wrapperClass: 'font-roboto'
 ### 7. [09/2014 – 11/2016] Hệ thống Website Doanh nghiệp & SEO (50+ Khách hàng) – Bao Phat ([baophat.com](https://baophat.com))
 
 - **Vai trò:** Fullstack Web Developer · Đội ngũ triển khai Agency
-- **Đóng góp chính:** Triển khai website doanh nghiệp tối ưu SEO và cổng thông tin WordPress/PHP cho hơn 50 doanh nghiệp, tiêu biểu Taseco ([taseco.vn](https://taseco.vn)) và Đất Xanh Miền Bắc ([datxanhmienbac.com.vn](https://datxanhmienbac.com.vn)).
+- **Đóng góp chính:** Triển khai website doanh nghiệp tối ưu SEO và cổng thông tin WordPress/PHP cho hơn 50 doanh nghiệp, tiêu biểu <CvClientList company-id="baophat" />.
 - **Công nghệ:** PHP, WordPress, MySQL, JavaScript, HTML, CSS, Bootstrap, Technical SEO.
 
 ## MÃ NGUỒN MỞ & R&D AI-NATIVE
@@ -221,23 +218,19 @@ wrapperClass: 'font-roboto'
 - **Đóng góp chính:**
   - Sáng lập ứng dụng desktop mã nguồn mở (Tauri, Vue) và runtime nền bằng Rust (`opn`) để chạy các luồng trình duyệt Chromium cô lập một cách ổn định.
   - Tích hợp sẵn **MCP server** và các **Agent Skills** AI tái sử dụng giúp AI coding agent thực thi tác vụ trình duyệt an toàn kèm kiểm chứng tự động.
+- **Hệ sinh thái:** <CvEcosystemList />
 - **Công nghệ:** Rust, Tokio, Axum, SQLite, TypeScript, Vue, Tauri, Shadcn UI, Supabase, MCP, Docker.
 
 ## HỌC VẤN & GIẢI THƯỞNG
 
-| Thời gian | Tổ chức / Trường | Giải thưởng / Chuyên ngành |
-| :--- | :--- | :--- |
-| 2025 | **CMC Global** ([cmcglobal.com.vn](https://cmcglobal.com.vn)) | **Rising Star Award** – Lãnh đạo kỹ thuật dự án VinFast Digital Twin |
-| 2023 | **iCOMM** ([icomm.vn](https://icomm.vn)) | **Team of the Year** – Dẫn dắt đội ngũ kỹ thuật công nghệ |
-| 2022 | **iCOMM** ([icomm.vn](https://icomm.vn)) | **Nhân viên xuất sắc** – Triển khai nền tảng Big Data chủ lực |
-| 2012 – 2014 | **Đại học FPT** ([fpt.edu.vn](https://fpt.edu.vn)) | **Thiết kế & Phát triển Website** (GPA: 8.2/10 · Tiếng Anh: Giao tiếp & làm việc chuyên môn) |
+<CvAwardsTable lang="vi" />
 
 </div>
 
 <style>
 .cv-page,
 .cv-page .prose {
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --uno: font-sans;
 }
 
 .cv-page .prose em {
@@ -267,11 +260,11 @@ wrapperClass: 'font-roboto'
   body,
   html.dark,
   html.dark body {
+    --uno: font-sans;
     background: #fff !important;
     color: #18181b !important;
     overflow: visible !important;
     height: auto !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
@@ -288,7 +281,7 @@ wrapperClass: 'font-roboto'
   .cv-page,
   .cv-page *,
   .cv-page .prose {
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-family: inherit;
   }
 
   .cv-page .prose {
@@ -361,7 +354,7 @@ wrapperClass: 'font-roboto'
   }
 
   .cv-page .prose code {
-    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace !important;
+    --uno: font-mono;
     font-size: 0.88em !important;
     font-weight: 500 !important;
     color: #18181b !important;

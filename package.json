@@ -20,7 +20,7 @@
   },
   "scripts": {
     "dev": "tsx ./scripts/fetch-projects.ts && tsx ./scripts/sponsors-circles.ts && vite --port 3333 --open",
-    "build": "tsx ./scripts/fetch-projects.ts && tsx ./scripts/generate-seo-assets.ts && tsx ./scripts/sponsors-circles.ts && cross-env NODE_ENV=production vite-ssg build",
+    "build": "tsx ./scripts/sync-favicons.ts --verify && tsx ./scripts/fetch-projects.ts && tsx ./scripts/generate-seo-assets.ts && tsx ./scripts/sponsors-circles.ts && cross-env NODE_ENV=production vite-ssg build",
     "favicons": "tsx ./scripts/sync-favicons.ts",
     "favicons:verify": "tsx ./scripts/sync-favicons.ts --verify",
     "projects": "tsx ./scripts/fetch-projects.ts",

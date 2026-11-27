@@ -1,10 +1,10 @@
 import { execSync } from 'node:child_process'
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import { resolveDomainFavicon } from '../src/data/registry/index.ts'
+import { resolveRegistryLogo } from '../src/data/registry/index.ts'
 
-// Allow local TLS bypass for corporate/firewall interception in dev
-if (!process.env.NODE_TLS_REJECT_UNAUTHORIZED) {
+// Opt-in TLS bypass only when explicitly requested for corporate/dev proxies
+if (process.argv.includes('--insecure') || process.env.ALLOW_INSECURE_TLS === '1') {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 }
 
@@ -82,7 +82,7 @@ function detectIcon(name: string, lang: string | null, topics: string[]): string
   const n = name.toLowerCase()
   const l = (lang || '').toLowerCase()
 
-  if (n === 'operon') return resolveDomainFavicon('https://console.tuquet.com/')
+  if (n === 'operon') return resolveRegistryLogo('operon')
   if (n === 'store') return 'i-carbon-shopping-cart'
   if (n === 'id') return 'i-simple-icons-supabase'
   if (n === 'console') return 'i-simple-icons-tauri'

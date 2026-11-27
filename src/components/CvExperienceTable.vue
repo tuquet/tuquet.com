@@ -28,7 +28,10 @@ const headers = computed(() => props.lang === 'vi'
           (<a :href="company.url" target="_blank" rel="noopener">{{ company.domain }}</a>)
         </td>
         <td>{{ company.role }}</td>
-        <td>{{ props.lang === 'vi' && company.scopeVi ? company.scopeVi : company.scope }}</td>
+        <td>
+          <a v-if="company.cvAnchor" :href="company.cvAnchor" class="no-underline hover:underline">{{ props.lang === 'vi' && company.scopeVi ? company.scopeVi : company.scope }}</a>
+          <template v-else>{{ props.lang === 'vi' && company.scopeVi ? company.scopeVi : company.scope }}</template>
+        </td>
       </tr>
     </tbody>
   </table>
