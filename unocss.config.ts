@@ -37,18 +37,40 @@ export default defineConfig({
     presetWind3(),
     presetWebFonts({
       fonts: {
-        sans: 'Inter',
-        roboto: [
+        sans: [
           {
             name: 'Roboto',
             weights: ['400', '500', '700'],
             italic: true,
           },
         ],
-        mono: ['JetBrains Mono', 'DM Mono'],
-        serif: 'Lora',
-        condensed: 'Roboto Condensed',
-        wisper: 'Caveat',
+        mono: [
+          {
+            name: 'JetBrains Mono',
+            weights: ['400', '500'],
+          },
+        ],
+        serif: [
+          {
+            name: 'Lora',
+            weights: ['400', '500'],
+            italic: true,
+          },
+        ],
+        condensed: [
+          {
+            name: 'Roboto Condensed',
+            weights: ['400', '500'],
+          },
+          {
+            name: 'Roboto',
+            provider: 'none',
+          },
+          {
+            name: 'sans-serif',
+            provider: 'none',
+          },
+        ],
       },
       processors: createLocalFontProcessor(),
     }),
