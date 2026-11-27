@@ -4,6 +4,40 @@ export const isDark = useDark()
 export const englishOnly = useLocalStorage('english-only', false)
 export const galleryView = useLocalStorage<'cover' | 'contain'>('gallery-view', 'cover')
 
+export type SiteLang = 'en' | 'vi'
+
+export function detectBrowserLang(): SiteLang {
+  if (typeof navigator === 'undefined')
+    return 'en'
+  const langs = navigator.languages?.length ? navigator.languages : [navigator.language || 'en']
+  return langs.some(l => String(l).toLowerCase().startsWith('vi')) ? 'vi' : 'en'
+}
+
+export const siteLang = ref<SiteLang>('en')
+
+export function initSiteLang() {
+  if (typeof window === 'undefined')
+    return
+  const saved = localStorage.getItem('tuquet-lang')
+  const resolved: SiteLang = saved === 'vi' || saved === 'en' ? saved : detectBrowserLang()
+  siteLang.value = resolved
+  document.documentElement.dataset.lang = resolved
+  document.documentElement.lang = resolved
+}
+
+export function setSiteLang(lang: SiteLang) {
+  siteLang.value = lang
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('tuquet-lang', lang)
+    document.documentElement.dataset.lang = lang
+    document.documentElement.lang = lang
+  }
+}
+
+export function toggleSiteLang() {
+  setSiteLang(siteLang.value === 'vi' ? 'en' : 'vi')
+}
+
 /**
  * Credit to [@hooray](https://github.com/hooray)
  * @see https://github.com/vuejs/vitepress/pull/2347

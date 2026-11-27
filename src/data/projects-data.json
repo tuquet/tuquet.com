@@ -1,53 +1,74 @@
 {
   "total": 9,
-  "updatedAt": "2026-11-27T07:47:35.037Z",
+  "updatedAt": "2026-11-27T10:47:23.418Z",
   "categories": {
-    "Ecosystem": [
+    "Operon Ecosystem": [
       {
         "name": "Operon",
         "repo": "tuquet/operon",
         "url": "https://github.com/tuquet/operon",
         "link": "https://github.com/tuquet/operon",
-        "homepage": null,
-        "description": "Operon umbrella repository (console, core, docs)",
-        "desc": "Operon umbrella repository (console, core, docs)",
-        "icon": "i-simple-icons-rust",
+        "homepage": "https://console.tuquet.com/",
+        "description": "Local-first automation runtime and antidetect browser console uniting core (Rust), console (Vue 3 / Tauri v2), and Supabase control plane",
+        "desc": "Local-first automation runtime and antidetect browser console uniting core (Rust), console (Vue 3 / Tauri v2), and Supabase control plane",
+        "icon": "https://console.tuquet.com/favicon.ico",
         "stars": 0,
         "forks": 0,
-        "language": "JavaScript",
+        "language": "Rust / TypeScript",
         "topics": [],
-        "category": "Ecosystem",
+        "category": "Operon Ecosystem",
         "isArchived": false,
         "weight": 100
       },
       {
-        "name": "Store",
-        "repo": "tuquet/store",
-        "url": "https://github.com/tuquet/store",
-        "link": "https://github.com/tuquet/store",
-        "homepage": "https://tuquet.com/projects",
-        "description": "Medusa v2 e-commerce platform with Next.js Storefront and Docker",
-        "desc": "Medusa v2 e-commerce platform with Next.js Storefront and Docker",
-        "icon": "i-carbon-shopping-cart",
+        "name": "Operon Core",
+        "repo": "tuquet/core",
+        "url": "https://github.com/tuquet/core",
+        "link": "https://github.com/tuquet/core",
+        "homepage": null,
+        "description": "Device-local Rust engine (opn CLI, daemon :8765, SQLite runtime, antidetect Chromium driver manager, and MCP stdio server)",
+        "desc": "Device-local Rust engine (opn CLI, daemon :8765, SQLite runtime, antidetect Chromium driver manager, and MCP stdio server)",
+        "icon": "i-simple-icons-rust",
+        "stars": 2,
+        "forks": 0,
+        "language": "Rust",
+        "topics": [
+          "automation",
+          "browser-sandbox",
+          "rust",
+          "stealth-browser"
+        ],
+        "category": "Operon Ecosystem",
+        "isArchived": false,
+        "weight": 95
+      },
+      {
+        "name": "Operon Console",
+        "repo": "tuquet/console",
+        "url": "https://github.com/tuquet/console",
+        "link": "https://github.com/tuquet/console",
+        "homepage": "https://console.tuquet.com/",
+        "description": "Micro-app workstation shell and Tauri v2 desktop app built with Vue 3, Shadcn UI, TanStack Query, and @operon/kernel",
+        "desc": "Micro-app workstation shell and Tauri v2 desktop app built with Vue 3, Shadcn UI, TanStack Query, and @operon/kernel",
+        "icon": "i-simple-icons-tauri",
         "stars": 1,
         "forks": 0,
         "language": "TypeScript",
         "topics": [
-          "ecommerce",
-          "medusajs",
-          "nextjs",
-          "storefront"
+          "tauri",
+          "vue3",
+          "workstation"
         ],
-        "category": "Ecosystem",
+        "category": "Operon Ecosystem",
         "isArchived": false,
         "weight": 90
       },
       {
-        "name": "Id",
+        "name": "Operon ID",
         "repo": "tuquet/id",
         "url": "https://github.com/tuquet/id",
         "link": "https://github.com/tuquet/id",
-        "homepage": "https://tuquet.com/projects",
+        "homepage": null,
         "description": "Centralized Identity, Authentication, and Entitlements Platform",
         "desc": "Centralized Identity, Authentication, and Entitlements Platform",
         "icon": "i-simple-icons-supabase",
@@ -59,30 +80,9 @@
           "iam",
           "supabase"
         ],
-        "category": "Ecosystem",
+        "category": "Operon Ecosystem",
         "isArchived": false,
         "weight": 85
-      },
-      {
-        "name": "Console",
-        "repo": "tuquet/console",
-        "url": "https://github.com/tuquet/console",
-        "link": "https://github.com/tuquet/console",
-        "homepage": "https://tuquet.com/projects",
-        "description": "Central workstation desktop GUI and preferences engine with Vue 3, Shadcn UI, and Tauri v2",
-        "desc": "Central workstation desktop GUI and preferences engine with Vue 3, Shadcn UI, and Tauri v2",
-        "icon": "i-simple-icons-tauri",
-        "stars": 1,
-        "forks": 0,
-        "language": "TypeScript",
-        "topics": [
-          "tauri",
-          "vue3",
-          "workstation"
-        ],
-        "category": "Ecosystem",
-        "isArchived": false,
-        "weight": 80
       },
       {
         "name": "Storage Hub",
@@ -103,40 +103,18 @@
           "storage",
           "webdav"
         ],
-        "category": "Ecosystem",
+        "category": "Operon Ecosystem",
         "isArchived": false,
-        "weight": 75
-      },
-      {
-        "name": "core",
-        "repo": "tuquet/core",
-        "url": "https://github.com/tuquet/core",
-        "link": "https://github.com/tuquet/core",
-        "homepage": "https://tuquet.com/projects",
-        "description": "Ultra-High Performance Distributed Automation Mesh & Browser Sandbox Runtime in Rust",
-        "desc": "Ultra-High Performance Distributed Automation Mesh & Browser Sandbox Runtime in Rust",
-        "icon": "i-simple-icons-rust",
-        "stars": 2,
-        "forks": 0,
-        "language": "Rust",
-        "topics": [
-          "automation",
-          "browser-sandbox",
-          "rust",
-          "stealth-browser"
-        ],
-        "category": "Ecosystem",
-        "isArchived": false,
-        "weight": 30
+        "weight": 80
       }
     ],
-    "AI & Agent Systems": [
+    "Tools & Web Apps": [
       {
         "name": "Skills Pack",
         "repo": "tuquet/skills-pack",
         "url": "https://github.com/tuquet/skills-pack",
         "link": "https://github.com/tuquet/skills-pack",
-        "homepage": "https://tuquet.com/projects",
+        "homepage": null,
         "description": "Curated library of production AI agent skills and automated runbooks adhering to the Ponytail standard",
         "desc": "Curated library of production AI agent skills and automated runbooks adhering to the Ponytail standard",
         "icon": "i-carbon-tools",
@@ -152,12 +130,10 @@
           "mcp",
           "skills"
         ],
-        "category": "AI & Agent Systems",
+        "category": "Tools & Web Apps",
         "isArchived": false,
         "weight": 95
-      }
-    ],
-    "Developer Infrastructure": [
+      },
       {
         "name": "Yak Map",
         "repo": "tuquet/yak-map",
@@ -176,7 +152,7 @@
           "typescript",
           "visualization"
         ],
-        "category": "Developer Infrastructure",
+        "category": "Tools & Web Apps",
         "isArchived": false,
         "weight": 80
       },
@@ -197,7 +173,29 @@
           "releases",
           "software-distribution"
         ],
-        "category": "Developer Infrastructure",
+        "category": "Tools & Web Apps",
+        "isArchived": false,
+        "weight": 75
+      },
+      {
+        "name": "Medusa Store",
+        "repo": "tuquet/store",
+        "url": "https://github.com/tuquet/store",
+        "link": "https://github.com/tuquet/store",
+        "homepage": null,
+        "description": "Medusa v2 e-commerce platform with Next.js Storefront and Docker",
+        "desc": "Medusa v2 e-commerce platform with Next.js Storefront and Docker",
+        "icon": "i-carbon-shopping-cart",
+        "stars": 1,
+        "forks": 0,
+        "language": "TypeScript",
+        "topics": [
+          "ecommerce",
+          "medusajs",
+          "nextjs",
+          "storefront"
+        ],
+        "category": "Tools & Web Apps",
         "isArchived": false,
         "weight": 70
       }

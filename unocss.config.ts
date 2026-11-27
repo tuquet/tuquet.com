@@ -38,6 +38,13 @@ export default defineConfig({
     presetWebFonts({
       fonts: {
         sans: 'Inter',
+        roboto: [
+          {
+            name: 'Roboto',
+            weights: ['400', '500', '700'],
+            italic: true,
+          },
+        ],
         mono: ['JetBrains Mono', 'DM Mono'],
         serif: 'Lora',
         condensed: 'Roboto Condensed',

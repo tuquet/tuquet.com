@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import { formatDate, isDark } from '~/logics'
+import { formatDate, isDark, siteLang } from '~/logics'
 
 const { frontmatter } = defineProps({
   frontmatter: {
@@ -179,17 +179,17 @@ const ArtComponent = computed(() => {
   <div
     v-if="frontmatter.display ?? frontmatter.title"
     class="prose m-auto mb-8"
-    :lang="frontmatter.lang"
+    :lang="siteLang === 'vi' && (frontmatter.displayVi || frontmatter.titleVi) ? 'vi' : frontmatter.lang"
     :class="[frontmatter.wrapperClass]"
   >
     <h1 class="mb-0 slide-enter-50">
-      {{ frontmatter.display ?? frontmatter.title }}
+      {{ siteLang === 'vi' ? (frontmatter.displayVi ?? frontmatter.display ?? frontmatter.titleVi ?? frontmatter.title) : (frontmatter.display ?? frontmatter.title) }}
     </h1>
     <p
       v-if="frontmatter.date || frontmatter.updated"
       class="opacity-50 !-mt-6 slide-enter-50"
     >
-      <span v-if="frontmatter.updated">Last updated: {{ typeof frontmatter.updated === 'string' ? frontmatter.updated : formatDate(frontmatter.date, false) }}</span>
+      <span v-if="frontmatter.updated">{{ siteLang === 'vi' ? 'Cập nhật:' : 'Last updated:' }} {{ typeof frontmatter.updated === 'string' ? frontmatter.updated : formatDate(frontmatter.date, false) }}</span>
       <span v-else>{{ formatDate(frontmatter.date, false) }}</span>
       <span v-if="frontmatter.duration"> · {{ frontmatter.duration }}</span>
     </p>
@@ -206,7 +206,7 @@ const ArtComponent = computed(() => {
       v-if="frontmatter.subtitle"
       class="opacity-50 !-mt-6 italic slide-enter"
     >
-      {{ frontmatter.subtitle }}
+      {{ siteLang === 'vi' ? (frontmatter.subtitleVi ?? frontmatter.subtitle) : frontmatter.subtitle }}
     </p>
     <p
       v-if="frontmatter.draft"
@@ -222,10 +222,10 @@ const ArtComponent = computed(() => {
   >
     <slot />
   </article>
-  <div v-if="route.path !== '/'" class="prose m-auto mt-8 mb-8 slide-enter animate-delay-500 print:hidden">
+  <div v-if="route.path !== '/'" class="prose m-auto mt-8 mb-8 slide-enter animate-delay-500 print:hidden" :class="[frontmatter.wrapperClass]">
     <template v-if="frontmatter.duration">
       <span op50>> </span>
-      <span op50>discuss on </span>
+      <span op50>{{ siteLang === 'vi' ? 'thảo luận trên ' : 'discuss on ' }}</span>
       <a :href="facebookUrl" target="_blank" op50>facebook</a>
       <span op25> / </span>
       <a :href="tweetUrl" target="_blank" op50>twitter</a>

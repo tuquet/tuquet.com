@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { siteLang, toggleSiteLang } from '~/logics'
+
 function toTop() {
   window.scrollTo({
     top: 0,
@@ -10,7 +12,7 @@ const { y: scroll } = useWindowScroll()
 </script>
 
 <template>
-  <header class="header z-40">
+  <header class="header z-40 print:hidden">
     <RouterLink
       class="w-12 h-12 absolute xl:fixed m-5 select-none outline-none"
       to="/"
@@ -19,7 +21,7 @@ const { y: scroll } = useWindowScroll()
       <Logo />
     </RouterLink>
     <button
-      title="Scroll to top"
+      :title="siteLang === 'vi' ? 'Lên đầu trang' : 'Scroll to top'"
       fixed right-3 bottom-3 w-10 h-10 hover:op100 rounded-full
       hover-bg-hex-8883 transition duration-300 z-100 print:hidden
       :class="scroll > 300 ? 'op30' : 'op0! pointer-events-none'"
@@ -30,29 +32,21 @@ const { y: scroll } = useWindowScroll()
     <nav class="nav">
       <div class="spacer" />
       <div class="right" print:op0>
-        <RouterLink to="/posts" title="Blog">
-          <span class="lt-md:hidden">Blog</span>
+        <RouterLink to="/posts" :title="siteLang === 'vi' ? 'Bài viết' : 'Blog'">
+          <span class="lt-md:hidden">{{ siteLang === 'vi' ? 'Bài viết' : 'Blog' }}</span>
           <div i-ri-article-line md:hidden />
         </RouterLink>
-        <RouterLink to="/projects" title="Projects">
-          <span class="lt-md:hidden">Projects</span>
+        <RouterLink to="/projects" :title="siteLang === 'vi' ? 'Dự án' : 'Projects'">
+          <span class="lt-md:hidden">{{ siteLang === 'vi' ? 'Dự án' : 'Projects' }}</span>
           <div i-ri-lightbulb-line class="md:hidden" />
         </RouterLink>
-        <RouterLink to="/talks" class="lt-md:hidden" title="Talks">
-          Talks
+        <RouterLink to="/cv" :title="siteLang === 'vi' ? 'Hồ sơ (CV)' : 'CV'">
+          <span class="lt-md:hidden">CV</span>
+          <div i-ri-file-text-line class="md:hidden" />
         </RouterLink>
-        <RouterLink to="/sponsors-list" title="Sponsors">
-          <span class="lt-md:hidden">Sponsors</span>
-          <div i-ri-heart-line class="md:hidden" />
-        </RouterLink>
-        <RouterLink to="/podcasts" class="lt-md:hidden" title="Podcasts">
-          <div i-ri-mic-line />
-        </RouterLink>
-        <RouterLink to="/photos" title="Photos">
-          <div i-ri-camera-3-line />
-        </RouterLink>
-        <RouterLink to="/demos" title="Demos">
-          <div i-ri-screenshot-line />
+        <RouterLink to="/clients" :title="siteLang === 'vi' ? 'Khách hàng' : 'Clients'">
+          <span class="lt-md:hidden">{{ siteLang === 'vi' ? 'Khách hàng' : 'Clients' }}</span>
+          <div i-ri-building-2-line class="md:hidden" />
         </RouterLink>
         <a href="https://fb.com/quet.jr" target="_blank" title="Facebook" class="lt-md:hidden">
           <div i-ri-facebook-fill />
@@ -63,9 +57,15 @@ const { y: scroll } = useWindowScroll()
         <a href="/feed.xml" target="_blank" title="RSS" class="lt-md:hidden">
           <div i-la-rss-square style="font-size:1.25rem; margin: 0 -0.125rem;" />
         </a>
-        <RouterLink to="/login" title="Login / Account">
-          <div i-ri-user-3-line />
-        </RouterLink>
+        <button
+          type="button"
+          class="lang-switch font-mono text-xs uppercase px-1.5 py-0.5 rounded border border-base opacity-70 hover:opacity-100 transition-opacity cursor-pointer"
+          :title="siteLang === 'vi' ? 'Switch to English' : 'Chuyển sang Tiếng Việt'"
+          :aria-label="siteLang === 'vi' ? 'Switch language to English' : 'Chuyển ngôn ngữ sang Tiếng Việt'"
+          @click="toggleSiteLang"
+        >
+          {{ siteLang === 'vi' ? 'VI' : 'EN' }}
+        </button>
         <ToggleTheme />
       </div>
     </nav>

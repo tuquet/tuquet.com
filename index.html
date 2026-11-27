@@ -4,22 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="author" content="Nguyen Dinh Tu" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Nguyen Dinh Tu (Tu Quet) | Technical Lead & Systems Architect specializing in distributed systems, real-time data streaming, and developer tooling." />
+    <meta name="description" content="Nguyen Dinh Tu (Tu Quet) — Software Engineer &amp; Architect building enterprise software, web/mobile/desktop platforms, EV telemetry portals, and developer tooling." />
     <link rel="canonical" href="https://tuquet.com/" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate" type="application/rss+xml" title="Nguyen Dinh Tu's Blog" href="/feed.xml" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Nguyen Dinh Tu (Tu Quet) | Technical Lead & Systems Architect" />
-    <meta property="og:description" content="Nguyen Dinh Tu (Tu Quet) | Technical Lead & Systems Architect specializing in distributed systems, real-time data streaming, and developer tooling." />
+    <meta property="og:title" content="Nguyen Dinh Tu (Tu Quet) | Software Engineer &amp; Architect" />
+    <meta property="og:description" content="Nguyen Dinh Tu (Tu Quet) — Software Engineer &amp; Architect building enterprise software, web/mobile/desktop platforms, EV telemetry portals, and developer tooling." />
     <meta property="og:image" content="https://tuquet.com/og.png" />
     <meta property="og:url" content="https://tuquet.com/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@quetjr" />
-    <meta name="twitter:title" content="Nguyen Dinh Tu (Tu Quet) | Technical Lead & Systems Architect" />
-    <meta name="twitter:description" content="Technical Lead & Systems Architect specializing in distributed systems, real-time data streaming, and developer tooling." />
+    <meta name="twitter:title" content="Nguyen Dinh Tu (Tu Quet) | Software Engineer &amp; Architect" />
+    <meta name="twitter:description" content="Software Engineer &amp; Architect building enterprise software, web/mobile/desktop platforms, EV telemetry portals, and developer tooling." />
     <meta name="twitter:image" content="https://tuquet.com/og.png" />
-    <title>Nguyen Dinh Tu (Tu Quet) | Technical Lead & Systems Architect</title>
+    <title>Nguyen Dinh Tu (Tu Quet) | Software Engineer & Architect</title>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NN69GDGC6P"></script>
     <script>
@@ -35,6 +35,13 @@
         const setting = localStorage.getItem('vueuse-color-scheme') || 'auto'
         if (setting === 'dark' || (prefersDark && setting !== 'light'))
           document.documentElement.classList.toggle('dark', true)
+
+        const savedLang = localStorage.getItem('tuquet-lang')
+        const browserLangs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en']
+        const detectedLang = browserLangs.some(l => String(l).toLowerCase().startsWith('vi')) ? 'vi' : 'en'
+        const resolvedLang = (savedLang === 'vi' || savedLang === 'en') ? savedLang : detectedLang
+        document.documentElement.dataset.lang = resolvedLang
+        document.documentElement.lang = resolvedLang
       })()
     </script>
     <script type="application/ld+json">
@@ -46,7 +53,7 @@
             "@id": "https://tuquet.com/#website",
             "url": "https://tuquet.com/",
             "name": "Nguyen Dinh Tu (Tu Quet)",
-            "description": "Nguyen Dinh Tu (Tu Quet) | Technical Lead & Systems Architect specializing in distributed systems, real-time data streaming, and developer tooling.",
+            "description": "Nguyen Dinh Tu (Tu Quet) — Software Engineer & Architect building enterprise software, web/mobile/desktop platforms, EV telemetry portals, and developer tooling.",
             "author": {
               "@id": "https://tuquet.com/#author"
             }
@@ -57,7 +64,7 @@
             "name": "Nguyen Dinh Tu",
             "alternateName": ["Tu Quet", "quetjr"],
             "url": "https://tuquet.com",
-            "jobTitle": "Technical Project Lead & Systems Architect",
+            "jobTitle": "Software Engineer & Architect",
             "image": "https://avatars.githubusercontent.com/u/20990824?v=4",
             "sameAs": [
               "https://github.com/tuquet",

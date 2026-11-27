@@ -9,7 +9,7 @@ import matter from 'gray-matter'
 import anchor from 'markdown-it-anchor'
 import GitHubAlerts from 'markdown-it-github-alerts'
 import LinkAttributes from 'markdown-it-link-attributes'
-import MarkdownItMagicLink from 'markdown-it-magic-link'
+import MarkdownItMagicLink, { handlerGitHubAt, handlerLink } from 'markdown-it-magic-link'
 import TOC from 'markdown-it-table-of-contents'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -24,6 +24,7 @@ import SVG from 'vite-svg-loader'
 import { VueRouterAutoImports } from 'vue-router/unplugin'
 import VueRouter from 'vue-router/vite'
 import { slugify } from './scripts/slugify.ts'
+import { buildMagicLinksMap, resolveDomainFavicon } from './src/data/registry/index.ts'
 
 const promises: Promise<any>[] = []
 
@@ -122,39 +123,24 @@ export default defineConfig({
           containerHeaderHtml: '<div class="table-of-contents-anchor"><div class="i-ri-menu-2-fill" /></div>',
         })
 
-        md.use(MarkdownItMagicLink as unknown as MarkdownItPlugin, {
-          linksMap: {
-            'CMC Global': { link: 'https://cmcglobal.com.vn', imageUrl: 'https://www.google.com/s2/favicons?domain=cmcglobal.com.vn&sz=128' },
-            'Automa': { link: 'https://docs.tuquet.com/en/tuquet/automation/', imageUrl: '/icons/automation.svg' },
-            'Runner': { link: 'https://github.com/tuquet/runner', imageUrl: '/icons/runner.svg' },
-            'Browser': { link: 'https://github.com/tuquet/browser', imageUrl: '/icons/browser.svg' },
-            'Cloud': { link: 'https://github.com/tuquet/cloud', imageUrl: '/icons/cloud.svg' },
-            'Vue UI': { link: 'https://github.com/tuquet/lib/tree/main/packages/vue-ui', imageUrl: '/icons/vue-ui.svg' },
-            'Vue Table': { link: 'https://github.com/tuquet/lib/tree/main/packages/vue-table', imageUrl: '/icons/vue-table.svg' },
-            'MD Export': { link: 'https://github.com/tuquet/lib/tree/main/packages/md-export', imageUrl: '/icons/pdf.svg' },
-            'CLI': { link: 'https://github.com/tuquet/cli', imageUrl: '/icons/cli.svg' },
-            'CLI': { link: 'https://github.com/tuquet/cli', imageUrl: '/icons/cli.svg' },
-            'Tuquet': { link: 'https://github.com/tuquet/cli', imageUrl: '/icons/cli.svg' },
-            'Extension Runner': { link: 'https://github.com/tuquet/lib/tree/main/packages/extension-runner', imageUrl: '/icons/extension-runner.svg' },
-            'Lunar': { link: 'https://github.com/tuquet/lib/tree/main/packages/lunar', imageUrl: '/icons/lunar.svg' },
-            'Skills': { link: 'https://github.com/tuquet/skills', imageUrl: '/icons/skills.svg' },
-            'vue-ui': { link: 'https://github.com/tuquet/lib/tree/main/packages/vue-ui', imageUrl: '/icons/vue-ui.svg' },
-            'vue-table': { link: 'https://github.com/tuquet/lib/tree/main/packages/vue-table', imageUrl: '/icons/vue-table.svg' },
-            'md-export': { link: 'https://github.com/tuquet/lib/tree/main/packages/md-export', imageUrl: '/icons/pdf.svg' },
-            'extension-runner': { link: 'https://github.com/tuquet/lib/tree/main/packages/extension-runner', imageUrl: '/icons/extension-runner.svg' },
-            'lunar': { link: 'https://github.com/tuquet/lib/tree/main/packages/lunar', imageUrl: '/icons/lunar.svg' },
-            'Bot': { link: 'https://github.com/tuquet/bot', imageUrl: '/icons/telegram-bot.svg' },
-            'bot': { link: 'https://github.com/tuquet/bot', imageUrl: '/icons/telegram-bot.svg' },
-            'Telegram Bot': { link: 'https://github.com/tuquet/bot', imageUrl: '/icons/telegram-bot.svg' },
-            'telegram-bot': { link: 'https://github.com/tuquet/bot', imageUrl: '/icons/telegram-bot.svg' },
-            'Random User Generator': { link: 'https://github.com/tuquet/random-user-generator', imageUrl: '/icons/random-user-generator.svg' },
-            'random-user-generator': { link: 'https://github.com/tuquet/random-user-generator', imageUrl: '/icons/random-user-generator.svg' },
-            'Tuquet': { link: 'https://github.com/tuquet', imageUrl: '/icons/tuquet.svg' },
-            'Vite': 'https://github.com/vitejs/vite',
-            'Vue': 'https://github.com/vuejs/core',
-            'UnoCSS': 'https://github.com/unocss/unocss',
-            'Shiki': 'https://github.com/shikijs/shiki',
+        const magicLinksMap = buildMagicLinksMap()
+        const baseLinkHandler = handlerLink({ linksMap: magicLinksMap })
+        const domainAwareHandler = {
+          ...baseLinkHandler,
+          postprocess(parsed: { link: string, imageUrl: string }) {
+            if (parsed.imageUrl?.startsWith('https://favicon.yandex.net')) {
+              parsed.imageUrl = resolveDomainFavicon(parsed.link)
+            }
+            return parsed
           },
+        }
+
+        md.use(MarkdownItMagicLink as unknown as MarkdownItPlugin, {
+          linksMap: magicLinksMap,
+          handlers: [
+            domainAwareHandler,
+            handlerGitHubAt(),
+          ],
         })
 
         md.use(GitHubAlerts as unknown as MarkdownItPlugin)
@@ -263,7 +249,7 @@ export default defineConfig({
           pageTitle = `${fm.title} · Tu Quet`
       }
 
-      const defaultDesc = 'Nguyen Dinh Tu (Tu Quet) | Technical Lead & Systems Architect specializing in distributed systems, real-time data streaming, and developer tooling.'
+      const defaultDesc = 'Nguyen Dinh Tu (Tu Quet) — Lead Fullstack & AI-Native Systems Architect building enterprise web, mobile, and desktop platforms, EV telemetry portals, and local-first developer tooling.'
       const pageDescription = fm?.description || defaultDesc
       const canonicalUrl = `https://tuquet.com${isRoot ? '/' : route}`
       const ogType = isPost ? 'article' : 'website'

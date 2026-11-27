@@ -1,5 +1,6 @@
 ---
 title: Notes - Tu Quet
+titleVi: Ghi chú - Tú Quét
 art: plum
 display: ''
 ---

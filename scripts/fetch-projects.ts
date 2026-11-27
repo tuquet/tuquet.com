@@ -48,18 +48,15 @@ export interface SchemaProject {
 // Canonical display titles mapping
 const TITLE_MAP: Record<string, string> = {
   'operon': 'Operon',
-  'store': 'Store',
-  'id': 'Id',
-  'console': 'Console',
-  'skills-pack': 'Skills Pack',
+  'core': 'Operon Core',
+  'console': 'Operon Console',
+  'id': 'Operon ID',
   'storage': 'Storage Hub',
-  'yak-map': 'Yak Map',
+  'skills-pack': 'Skills Pack',
   'claude-agy': 'Claude-Agy',
+  'yak-map': 'Yak Map',
   'releases': 'Releases',
-  'cli': 'CLI',
-  'browser': 'Browser',
-  'cloud': 'Cloud',
-  'faker': 'Faker',
+  'store': 'Medusa Store',
   'docs': 'Docs',
 }
 
@@ -84,7 +81,7 @@ function detectIcon(name: string, lang: string | null, topics: string[]): string
   const n = name.toLowerCase()
   const l = (lang || '').toLowerCase()
 
-  if (n === 'operon') return 'i-simple-icons-rust'
+  if (n === 'operon') return 'https://console.tuquet.com/favicon.ico'
   if (n === 'store') return 'i-carbon-shopping-cart'
   if (n === 'id') return 'i-simple-icons-supabase'
   if (n === 'console') return 'i-simple-icons-tauri'
@@ -111,44 +108,51 @@ function detectIcon(name: string, lang: string | null, topics: string[]): string
   return 'i-carbon-code'
 }
 
-function resolveCategory(name: string, topics: string[]): string {
+function resolveCategory(name: string, _topics: string[]): string {
   const n = name.toLowerCase()
 
-  // AI & Agent Systems
-  if (n === 'skills-pack' || n === 'claude-agy' || topics.includes('agent-skills') || topics.includes('ai') || topics.includes('claude') || topics.includes('mcp')) {
-    return 'AI & Agent Systems'
+  // Operon Platform & Control Plane
+  if (['operon', 'core', 'console', 'id', 'storage'].includes(n)) {
+    return 'Operon Ecosystem'
   }
 
-  // Developer Infrastructure
-  if (n === 'yak-map' || n === 'releases' || n === 'docs' || topics.includes('chatops') || topics.includes('alerting') || topics.includes('visualization') || topics.includes('releases')) {
-    return 'Developer Infrastructure'
-  }
-
-  // Core Ecosystem
-  return 'Ecosystem'
+  // Developer Tools, AI & Web Apps
+  return 'Tools & Web Apps'
 }
 
-// Fallback descriptions for repos that currently have empty descriptions on GitHub
+// Curated descriptions and language overrides so umbrella/monorepo metadata stays accurate
+const DESCRIPTION_OVERRIDES: Record<string, string> = {
+  operon: 'Local-first automation runtime and antidetect browser console uniting core (Rust), console (Vue 3 / Tauri v2), and Supabase control plane',
+  core: 'Device-local Rust engine (opn CLI, daemon :8765, SQLite runtime, antidetect Chromium driver manager, and MCP stdio server)',
+  console: 'Micro-app workstation shell and Tauri v2 desktop app built with Vue 3, Shadcn UI, TanStack Query, and @operon/kernel',
+}
+
+const HOMEPAGE_OVERRIDES: Record<string, string> = {
+  operon: 'https://console.tuquet.com/',
+  console: 'https://console.tuquet.com/',
+}
+
+const LANGUAGE_OVERRIDES: Record<string, string> = {
+  operon: 'Rust / TypeScript',
+}
+
 const FALLBACK_DESCRIPTIONS: Record<string, string> = {
-  console: 'Central workstation desktop GUI and preferences engine built with Vue 3, Shadcn UI, and Tauri v2',
+  console: 'Micro-app workstation shell and Tauri v2 desktop app built with Vue 3, Shadcn UI, TanStack Query, and @operon/kernel',
   releases: 'Automated release tracking and distribution dashboard for open-source software and tools',
 }
 
 // Priority sort weight
 const WEIGHT_ORDER: Record<string, number> = {
   'operon': 100,
-  'store': 90,
+  'core': 95,
+  'console': 90,
   'id': 85,
-  'console': 80,
-  'storage': 75,
-  'cli': 70,
-  'browser': 65,
-  'cloud': 55,
-  'faker': 50,
+  'storage': 80,
   'skills-pack': 95,
   'claude-agy': 85,
   'yak-map': 80,
-  'releases': 70,
+  'releases': 75,
+  'store': 70,
   'docs': 60,
 }
 
@@ -230,10 +234,11 @@ async function main() {
     // Exclude customer repos per user instruction
     if (topics.includes('customers')) continue
 
-    const name = TITLE_MAP[repo.name.toLowerCase()] || repo.name
-    let description = (repo.description && repo.description.trim()) || FALLBACK_DESCRIPTIONS[repo.name.toLowerCase()] || ''
+    const key = repo.name.toLowerCase()
+    const name = TITLE_MAP[key] || repo.name
+    let description = DESCRIPTION_OVERRIDES[key] || (repo.description && repo.description.trim()) || FALLBACK_DESCRIPTIONS[key] || ''
     description = description.replace(/\bTuquet\s*/gi, '').replace(/^[:\s-]+/, '').trim()
-    const language = repo.primaryLanguage?.name || null
+    const language = LANGUAGE_OVERRIDES[key] || repo.primaryLanguage?.name || null
     const stars = repo.stargazerCount ?? 0
     const forks = repo.forkCount ?? 0
     const isArchived = Boolean(repo.isArchived)
@@ -241,13 +246,15 @@ async function main() {
     const icon = detectIcon(repo.name, language, topics)
     const weight = WEIGHT_ORDER[repo.name.toLowerCase()] ?? 30
     const link = repo.url
+    const rawHomepage = HOMEPAGE_OVERRIDES[key] || repo.homepageUrl || null
+    const homepage = rawHomepage && !rawHomepage.includes('tuquet.com/projects') ? rawHomepage : null
 
     projectList.push({
       name,
       repo: `tuquet/${repo.name}`,
       url: repo.url,
       link,
-      homepage: repo.homepageUrl || null,
+      homepage,
       description,
       desc: description,
       icon,
@@ -266,9 +273,8 @@ async function main() {
 
   // Group into categories
   const categories: Record<string, SchemaProject[]> = {
-    'Ecosystem': [],
-    'AI & Agent Systems': [],
-    'Developer Infrastructure': [],
+    'Operon Ecosystem': [],
+    'Tools & Web Apps': [],
   }
 
   const allTopicsSet = new Set<string>()

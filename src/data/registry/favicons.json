@@ -1,0 +1,299 @@
+{
+  "angular.dev": {
+    "domain": "angular.dev",
+    "path": "/favicons/angular.dev.png",
+    "source": "html-icon",
+    "sourceUrl": "https://angular.dev/assets/icons/favicon-48x48.png",
+    "contentType": "image/png",
+    "bytes": 3300,
+    "updatedAt": "2026-11-27T10:43:41.670Z"
+  },
+  "aws.amazon.com": {
+    "domain": "aws.amazon.com",
+    "path": "/favicons/aws.amazon.com.png",
+    "source": "html-icon",
+    "sourceUrl": "https://a0.awsstatic.com/libra-css/images/site/touch-icon-ipad-144-smile.png",
+    "contentType": "image/png",
+    "bytes": 3061,
+    "updatedAt": "2026-11-27T10:43:49.731Z"
+  },
+  "azure.microsoft.com": {
+    "domain": "azure.microsoft.com",
+    "path": "/favicons/azure.microsoft.com.ico",
+    "source": "html-icon",
+    "sourceUrl": "https://azure.microsoft.com/favicon.ico?v2",
+    "contentType": "image/vnd.microsoft.icon",
+    "bytes": 17174,
+    "updatedAt": "2026-11-27T10:43:48.584Z"
+  },
+  "chromium.org": {
+    "domain": "chromium.org",
+    "path": "/favicons/chromium.org.png",
+    "source": "favicon-ico",
+    "sourceUrl": "https://www.chromium.org/favicon.ico",
+    "contentType": "image/x-icon",
+    "bytes": 745,
+    "updatedAt": "2026-11-27T10:43:34.597Z"
+  },
+  "clickhouse.com": {
+    "domain": "clickhouse.com",
+    "path": "/favicons/clickhouse.com.svg",
+    "source": "html-icon",
+    "sourceUrl": "https://clickhouse.com/icon0.svg?icon0.14ll1zwu0qk95.svg",
+    "contentType": "image/svg+xml",
+    "bytes": 434,
+    "updatedAt": "2026-11-27T10:43:46.466Z"
+  },
+  "cloudflare.com": {
+    "domain": "cloudflare.com",
+    "path": "/favicons/cloudflare.com.png",
+    "source": "html-icon",
+    "sourceUrl": "https://www.cloudflare.com/favicon.ico",
+    "contentType": "image/vnd.microsoft.icon",
+    "bytes": 908,
+    "updatedAt": "2026-11-27T10:43:38.598Z"
+  },
+  "code.visualstudio.com": {
+    "domain": "code.visualstudio.com",
+    "path": "/favicons/code.visualstudio.com.ico",
+    "source": "html-icon",
+    "sourceUrl": "https://code.visualstudio.com/assets/favicon.ico",
+    "contentType": "image/x-icon",
+    "bytes": 113128,
+    "updatedAt": "2026-11-27T10:43:36.469Z"
+  },
+  "console.tuquet.com": {
+    "domain": "console.tuquet.com",
+    "path": "/favicons/console.tuquet.com.svg",
+    "source": "html-icon",
+    "sourceUrl": "https://console.tuquet.com/favicon.svg?v=2",
+    "contentType": "image/svg+xml",
+    "bytes": 1242,
+    "updatedAt": "2026-11-27T10:43:33.899Z"
+  },
+  "docker.com": {
+    "domain": "docker.com",
+    "path": "/favicons/docker.com.png",
+    "source": "html-icon",
+    "sourceUrl": "https://www.docker.com/app/uploads/2026/11/docker-favicon-250x250.png",
+    "contentType": "image/png",
+    "bytes": 3489,
+    "updatedAt": "2026-11-27T10:43:47.530Z"
+  },
+  "github.com": {
+    "domain": "github.com",
+    "path": "/favicons/github.com.svg",
+    "source": "html-icon",
+    "sourceUrl": "https://github.githubassets.com/favicons/favicon.svg",
+    "contentType": "image/svg+xml",
+    "bytes": 959,
+    "updatedAt": "2026-11-27T10:43:35.506Z"
+  },
+  "hermes-agent.nousresearch.com": {
+    "domain": "hermes-agent.nousresearch.com",
+    "path": "/favicons/hermes-agent.nousresearch.com.png",
+    "source": "html-icon",
+    "sourceUrl": "https://web-assets.nousresearch.com/marketing/23d2d472c7c88e8de4f3500e7b9ff1ec978ef73d/assets/hermes-agent/icon.png",
+    "contentType": "image/png",
+    "bytes": 4100,
+    "updatedAt": "2026-11-27T10:43:37.241Z"
+  },
+  "kubernetes.io": {
+    "domain": "kubernetes.io",
+    "path": "/favicons/kubernetes.io.png",
+    "source": "html-icon",
+    "sourceUrl": "https://kubernetes.io/icons/icon-128x128.png",
+    "contentType": "image/png",
+    "bytes": 10516,
+    "updatedAt": "2026-11-27T10:43:47.766Z"
+  },
+  "nextjs.org": {
+    "domain": "nextjs.org",
+    "path": "/favicons/nextjs.org.ico",
+    "source": "html-icon",
+    "sourceUrl": "https://nextjs.org/favicon.ico?favicon.38folom4sz_yx.ico",
+    "contentType": "image/vnd.microsoft.icon",
+    "bytes": 15086,
+    "updatedAt": "2026-11-27T10:43:40.559Z"
+  },
+  "nuxt.com": {
+    "domain": "nuxt.com",
+    "path": "/favicons/nuxt.com.png",
+    "source": "html-icon",
+    "sourceUrl": "https://nuxt.com/icon.png",
+    "contentType": "image/png",
+    "bytes": 1250,
+    "updatedAt": "2026-11-27T10:43:41.386Z"
+  },
+  "obsidian.md": {
+    "domain": "obsidian.md",
+    "path": "/favicons/obsidian.md.svg",
+    "source": "html-icon",
+    "sourceUrl": "https://obsidian.md/favicon.svg",
+    "contentType": "image/svg+xml",
+    "bytes": 1361,
+    "updatedAt": "2026-11-27T10:43:35.839Z"
+  },
+  "openjdk.org": {
+    "domain": "openjdk.org",
+    "path": "/favicons/openjdk.org.ico",
+    "source": "html-icon",
+    "sourceUrl": "https://openjdk.org/images/nanoduke.ico",
+    "contentType": "image/x-icon",
+    "bytes": 1406,
+    "updatedAt": "2026-11-27T10:43:42.837Z"
+  },
+  "openrouter.ai": {
+    "domain": "openrouter.ai",
+    "path": "/favicons/openrouter.ai.png",
+    "source": "html-icon",
+    "sourceUrl": "https://openrouter.ai/favicon/glyph.png",
+    "contentType": "image/png",
+    "bytes": 16833,
+    "updatedAt": "2026-11-27T10:43:36.779Z"
+  },
+  "postgresql.org": {
+    "domain": "postgresql.org",
+    "path": "/favicons/postgresql.org.ico",
+    "source": "html-icon",
+    "sourceUrl": "https://www.postgresql.org/favicon.ico",
+    "contentType": "image/x-icon",
+    "bytes": 4846,
+    "updatedAt": "2026-11-27T10:43:45.979Z"
+  },
+  "react.dev": {
+    "domain": "react.dev",
+    "path": "/favicons/react.dev.png",
+    "source": "html-icon",
+    "sourceUrl": "https://react.dev/favicon-32x32.png",
+    "contentType": "image/png",
+    "bytes": 1674,
+    "updatedAt": "2026-11-27T10:43:40.254Z"
+  },
+  "reactnative.dev": {
+    "domain": "reactnative.dev",
+    "path": "/favicons/reactnative.dev.png",
+    "source": "html-icon",
+    "sourceUrl": "https://reactnative.dev/img/pwa/manifest-icon-512.png",
+    "contentType": "image/png",
+    "bytes": 9688,
+    "updatedAt": "2026-11-27T10:43:42.078Z"
+  },
+  "redis.io": {
+    "domain": "redis.io",
+    "path": "/favicons/redis.io.png",
+    "source": "html-icon",
+    "sourceUrl": "https://redis.io/icon.png?icon.3r8p6nysrg-mh.png",
+    "contentType": "image/png",
+    "bytes": 24336,
+    "updatedAt": "2026-11-27T10:43:47.255Z"
+  },
+  "rust-lang.org": {
+    "domain": "rust-lang.org",
+    "path": "/favicons/rust-lang.org.svg",
+    "source": "html-icon",
+    "sourceUrl": "https://rust-lang.org/static/images/favicon.svg",
+    "contentType": "image/svg+xml",
+    "bytes": 4298,
+    "updatedAt": "2026-11-27T10:43:43.989Z"
+  },
+  "shiki.style": {
+    "domain": "shiki.style",
+    "path": "/favicons/shiki.style.svg",
+    "source": "html-icon",
+    "sourceUrl": "https://shiki.style/logo.svg",
+    "contentType": "image/svg+xml",
+    "bytes": 2097,
+    "updatedAt": "2026-11-27T10:43:39.238Z"
+  },
+  "solr.apache.org": {
+    "domain": "solr.apache.org",
+    "path": "/favicons/solr.apache.org.png",
+    "source": "html-icon",
+    "sourceUrl": "https://solr.apache.org/theme/images/favicon.ico",
+    "contentType": "image/vnd.microsoft.icon",
+    "bytes": 2350,
+    "updatedAt": "2026-11-27T10:43:46.670Z"
+  },
+  "spring.io": {
+    "domain": "spring.io",
+    "path": "/favicons/spring.io.svg",
+    "source": "html-icon",
+    "sourceUrl": "https://spring.io/favicon.svg?v=96334d577af708644f6f0495dd1c7bc8",
+    "contentType": "image/svg+xml",
+    "bytes": 1633,
+    "updatedAt": "2026-11-27T10:43:43.278Z"
+  },
+  "supabase.com": {
+    "domain": "supabase.com",
+    "path": "/favicons/supabase.com.png",
+    "source": "html-icon",
+    "sourceUrl": "https://supabase.com/favicon/apple-icon-180x180.png",
+    "contentType": "image/png",
+    "bytes": 4478,
+    "updatedAt": "2026-11-27T10:43:37.688Z"
+  },
+  "tailwindcss.com": {
+    "domain": "tailwindcss.com",
+    "path": "/favicons/tailwindcss.com.png",
+    "source": "html-icon",
+    "sourceUrl": "https://tailwindcss.com/favicons/favicon-32x32.png?v=4",
+    "contentType": "image/png",
+    "bytes": 1348,
+    "updatedAt": "2026-11-27T10:43:50.240Z"
+  },
+  "tauri.app": {
+    "domain": "tauri.app",
+    "path": "/favicons/tauri.app.svg",
+    "source": "html-icon",
+    "sourceUrl": "https://tauri.app/favicon.svg",
+    "contentType": "image/svg+xml",
+    "bytes": 600,
+    "updatedAt": "2026-11-27T10:43:44.323Z"
+  },
+  "typescriptlang.org": {
+    "domain": "typescriptlang.org",
+    "path": "/favicons/typescriptlang.org.png",
+    "source": "html-icon",
+    "sourceUrl": "https://www.typescriptlang.org/favicon-32x32.png?v=8944a05a8b601855de116c8a56d3b3ae",
+    "contentType": "image/png",
+    "bytes": 1052,
+    "updatedAt": "2026-11-27T10:43:39.967Z"
+  },
+  "ui.shadcn.com": {
+    "domain": "ui.shadcn.com",
+    "path": "/favicons/ui.shadcn.com.png",
+    "source": "html-icon",
+    "sourceUrl": "https://ui.shadcn.com/favicon-16x16.png",
+    "contentType": "image/png",
+    "bytes": 1049,
+    "updatedAt": "2026-11-27T10:43:42.349Z"
+  },
+  "unocss.dev": {
+    "domain": "unocss.dev",
+    "path": "/favicons/unocss.dev.svg",
+    "source": "html-icon",
+    "sourceUrl": "https://unocss.dev/favicon.svg",
+    "contentType": "image/svg+xml",
+    "bytes": 832,
+    "updatedAt": "2026-11-27T10:43:38.903Z"
+  },
+  "vite.dev": {
+    "domain": "vite.dev",
+    "path": "/favicons/vite.dev.svg",
+    "source": "html-icon",
+    "sourceUrl": "https://vite.dev/logo-without-border.svg",
+    "contentType": "image/svg+xml",
+    "bytes": 11429,
+    "updatedAt": "2026-11-27T10:43:50.558Z"
+  },
+  "vuejs.org": {
+    "domain": "vuejs.org",
+    "path": "/favicons/vuejs.org.svg",
+    "source": "html-icon",
+    "sourceUrl": "https://vuejs.org/logo.svg",
+    "contentType": "image/svg+xml",
+    "bytes": 316,
+    "updatedAt": "2026-11-27T10:43:40.916Z"
+  }
+}

@@ -2,7 +2,7 @@
 import type { Post } from '~/types'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { formatDate } from '~/logics'
+import { formatDate, siteLang } from '~/logics'
 
 const props = defineProps<{
   type?: string
@@ -41,7 +41,7 @@ function isSameGroup(a: Post, b?: Post) {
 
 function getGroupName(p: Post) {
   if (isFuture(p.date))
-    return 'Upcoming'
+    return siteLang.value === 'vi' ? 'Sắp ra mắt' : 'Upcoming'
   return getYear(p.date)
 }
 </script>
@@ -50,7 +50,7 @@ function getGroupName(p: Post) {
   <ul>
     <template v-if="!posts.length">
       <div py2 op50>
-        { nothing here yet }
+        {{ siteLang === 'vi' ? '{ chưa có bài viết }' : '{ nothing here yet }' }}
       </div>
     </template>
 

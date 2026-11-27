@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
+import { siteLang } from '~/logics'
 
 interface Message {
   role: 'user' | 'bot'
@@ -12,8 +13,13 @@ const inputQuery = ref('')
 const chatBodyRef = ref<HTMLDivElement>()
 const inputRef = ref<HTMLInputElement>()
 
-function getTimeGreeting() {
+function getTimeGreeting(lang = siteLang.value) {
   const hour = new Date().getHours()
+  if (lang === 'vi') {
+    if (hour >= 5 && hour < 12) return 'Chào buổi sáng!'
+    if (hour >= 12 && hour < 18) return 'Chào buổi chiều!'
+    return 'Chào buổi tối!'
+  }
   if (hour >= 5 && hour < 12) return 'Good morning!'
   if (hour >= 12 && hour < 18) return 'Good afternoon!'
   return 'Good evening!'
@@ -21,6 +27,8 @@ function getTimeGreeting() {
 
 const welcomeGreeting = computed(() => {
   const g = getTimeGreeting()
+  if (siteLang.value === 'vi')
+    return `**${g}** Tôi là trợ lý AI portfolio của Tú Quét. Bạn muốn tìm hiểu về kiến trúc hệ thống, năng lực dẫn dắt kỹ thuật hay kinh nghiệm làm việc của anh ấy?`
   return `**${g}** I am Tu Quet's portfolio AI assistant. How can I help you explore his systems architecture, engineering leadership, or background today?`
 })
 
@@ -31,94 +39,137 @@ const messages = ref<Message[]>([
   },
 ])
 
+watch(siteLang, () => {
+  if (messages.value.length === 1 && messages.value[0].role === 'bot')
+    messages.value[0].text = welcomeGreeting.value
+})
+
 const knowledge = [
   {
-    keys: ['cv', 'resume', 'curriculum vitae', 'profile', 'pdf', 'download cv', 'cv link', 'resume link', 'get cv', 'view cv', 'link to cv', 'download', 'pdf cv', 'experience', 'qualifications'],
-    answer: '**Tu Quet\'s Professional Profile & Qualifications:**\n- **Current Role:** Technical Project Lead at CMC Global, directing the real-time Smart EV Telemetry platform and high-scale visitor web portals for **Lotte Group**.\n- **Past Leadership:** CPO & Tech Lead at ICOMM Tech (enterprise Big Data analytics & multi-channel communications platform leading 5+ engineers).\n- **Core Engineering:** Systems programming in **Rust** (Tokio async, Systems Programming) & **Java / Spring Boot**; modern web with **React / Next.js / Vue.js**; real-time telemetry streaming (WebSockets, SSE, Redis).\n- **Engineering Culture:** Clean code advocate, Agile Scrum/Kanban, and AI-augmented SDLC (MCP & LLMs) improving team delivery velocity.\n- **Full Interactive CV:** Explore the complete interactive timeline and project breakdowns at [tuquet.com/cv](https://tuquet.com/cv).\n- Feel free to ask me specific questions about his **EV telemetry streaming**, **process engine**, or **role fit**!',
+    keys: ['cv', 'resume', 'curriculum vitae', 'profile', 'pdf', 'download cv', 'cv link', 'resume link', 'get cv', 'view cv', 'link to cv', 'download', 'pdf cv', 'experience', 'qualifications', 'hồ sơ', 'kinh nghiệm', 'tải cv', 'xem cv'],
+    answer: '**Tu Quet\'s Professional Profile & Qualifications:**\n- **Role:** Software Engineer & Architect with 10+ years of end-to-end ownership across web apps, mobile apps, desktop apps, Java microservices, Data Warehouse platforms, and AI agent workflows.\n- **Current Leadership:** Technical Leader at CMC Global, leading the active **VinFast Digital Twin Web Portal** (previously led **Lotte World Adventure Mobile App** in Korea, currently paused); Creator & Principal Architect of **Operon** (Tauri Desktop App, Web Console & Rust CLI/Daemon).\n- **Past Leadership:** PM, Chief Product Officer (CPO) & Principal Architect at iCOMM Tech (`SocialBeat` BI Web App & Data Warehouse platform, 5+ engineers); Senior Fullstack Engineer at OpenCommerce Group (`ShopBase` E-Commerce Web App).\n- **Core Stack:** **React / Next.js / Vue / React Native / TypeScript**, **Java (Spring Boot)**, **Rust (Tokio) / Tauri**, **ClickHouse / PostgreSQL / Redis**, and **AI Agents (Harness, Skills, MCP, Spring AI)**.\n- **Interactive CV & Live PDF Export:** View the full CV and export an instant vector PDF at [tuquet.com/cv](https://tuquet.com/cv).',
+    answerVi: '**Hồ sơ năng lực & Kinh nghiệm của Tú Quét:**\n- **Vai trò:** Software Engineer & Architect với hơn 10 năm sở hữu trọn vẹn từ Web App, Mobile App, Desktop App, Java Microservices, nền tảng Data Warehouse đến quy trình AI Agent.\n- **Hiện tại:** Technical Leader tại CMC Global, dẫn dắt **VinFast Digital Twin Web Portal** (trước đó phụ trách **Lotte World Adventure Mobile App** tại Hàn Quốc, hiện đang tạm dừng); Tác giả & Kiến trúc sư trưởng của **Operon** (Desktop App Tauri, Web Console & Rust CLI/Daemon).\n- **Trước đây:** PM, Giám đốc Sản phẩm (CPO) & Kiến trúc sư trưởng tại iCOMM Tech (`SocialBeat` BI Web App & Data Warehouse, đội ngũ 5+ kỹ sư); Senior Fullstack Engineer tại OpenCommerce Group (`ShopBase`).\n- **Công nghệ cốt lõi:** **React / Next.js / Vue / React Native / TypeScript**, **Java (Spring Boot)**, **Rust (Tokio) / Tauri**, **ClickHouse / PostgreSQL / Redis** và **AI Agent (Harness, Skills, MCP, Spring AI)**.\n- **CV tương tác & Xuất PDF trực tiếp:** Xem đầy đủ và xuất PDF vector tại [tuquet.com/cv](https://tuquet.com/cv).',
   },
   {
-    keys: ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening', 'greetings', 'morning', 'afternoon', 'evening'],
+    keys: ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening', 'greetings', 'morning', 'afternoon', 'evening', 'xin chào', 'chào'],
     answer: () => {
-      const g = getTimeGreeting()
-      return `**${g}** Glad to connect with you. How can I help you explore Tu Quet's engineering background, distributed architecture, or technical leadership today? Feel free to ask or pick a suggestion below!`
+      const g = getTimeGreeting('en')
+      return `**${g}** Glad to connect with you. How can I help you explore Tu Quet's fullstack architecture, AI-native workflows, or technical leadership today? Feel free to ask or pick a suggestion below!`
+    },
+    answerVi: () => {
+      const g = getTimeGreeting('vi')
+      return `**${g}** Rất vui được kết nối cùng bạn. Bạn muốn tìm hiểu về kiến trúc fullstack, quy trình AI-native hay kinh nghiệm Technical Leader của Tú Quét? Hãy đặt câu hỏi hoặc chọn gợi ý bên dưới nhé!`
     },
   },
   {
-    keys: ['nda', 'confidential', 'client name', 'who is the client', 'automotive client', 'car brand', 'source code', 'proprietary'],
-    answer: '**Confidentiality & Non-Disclosure (NDA) Notice:**\n- Specific enterprise client identities, proprietary source code, and internal corporate data are protected under **Non-Disclosure Agreements (NDAs)**.\n- Tu Quet welcomes technical deep-dives into **system architecture, WebSocket telemetry streaming, database optimizations, and high-concurrency solutions** he directly engineered, in full compliance with confidentiality standards.',
+    keys: ['nda', 'confidential', 'waku', 'source code', 'proprietary', 'internal', 'bảo mật'],
+    answer: '**Confidentiality & Non-Disclosure (NDA) Notice:**\n- Proprietary source code, internal schemas, and confidential client engagements (such as `Project Waku`, an international fintech trading platform) are protected under **Non-Disclosure Agreements (NDAs)**.\n- For public engagements (**VinFast Digital Twin Portal**, **Lotte World Adventure App**, **SocialBeat**, **ShopBase**), Tu Quet welcomes technical deep-dives into **system architecture, Data Warehouse optimization, WebView bridges, and high-concurrency solutions** he directly engineered.',
+    answerVi: '**Lưu ý về Bảo mật & Thỏa thuận NDA:**\n- Mã nguồn độc quyền, schema nội bộ và các dự án khách hàng bảo mật (như `Project Waku`, nền tảng giao dịch fintech quốc tế) được bảo vệ bởi **Thỏa thuận Bảo mật (NDA)**.\n- Với các dự án công khai (**VinFast Digital Twin Portal**, **Lotte World Adventure App**, **SocialBeat**, **ShopBase**), Tú Quét sẵn sàng trao đổi chuyên sâu về **kiến trúc hệ thống, tối ưu Data Warehouse, cầu nối WebView và xử lý tải cao** mà anh trực tiếp thiết kế.',
   },
   {
-    keys: ['summary', 'recruiter', 'who', 'about', 'tu quet', 'achievements', 'overview', 'highlights', 'hire', 'background'],
-    answer: '**Executive Summary for Recruiters & Hiring Managers:**\n- **Track Record:** 10+ years architecting high-scale distributed backend systems, real-time data streaming engines, and world-class web applications.\n- **Engineering Leadership:** Technical Project Lead leading 3 squads (5+ engineers) delivering enterprise real-time telemetry platforms; former CPO & Tech Lead at ICOMM Tech.\n- **Core Capabilities:** Systems programming in **Rust** (Process Sandboxing, Tokio async) & **Java / Spring Boot**; modern web with **React / Next.js / Vue.js** (Core Web Vitals LCP < 2s, INP < 150ms); real-time telemetry streaming (WebSockets, SSE, Redis).\n- **Product & AI Mindset:** Deep PLG (Product-Led Growth) product discovery coupled with modern AI-augmented SDLC (MCP, LLM toolchains), boosting sprint feature velocity by 25%.\n- **Full CV Link:** [tuquet.com/cv](https://tuquet.com/cv)',
+    keys: ['summary', 'recruiter', 'who', 'about', 'tu quet', 'achievements', 'overview', 'highlights', 'hire', 'background', 'tóm tắt', 'giới thiệu', 'tổng quan', 'tuyển dụng'],
+    answer: '**Executive Summary for Recruiters & Hiring Managers:**\n- **Track Record:** 10+ years of end-to-end fullstack engineering and leadership (**Technical Leader, PM, CPO**) across enterprise web apps, mobile apps, desktop apps, Java microservices, and Data Warehouse platforms.\n- **Engineering Leadership:** Technical Leader guiding 6-member cross-functional squads at CMC Global (**VinFast Web Portal** ongoing; **Lotte World Mobile App** previously delivered / paused); Creator of **Operon** (**Tauri Desktop App** & Rust runtime); former PM, CPO & Principal Architect at iCOMM Tech (5+ engineers, 99.9% SLA).\n- **Core Capabilities:** **React / Next.js / Vue / TypeScript**, **Java (Spring Boot)**, **Rust (Tokio) / Tauri**, sub-second OLAP/QueryDSL APIs (`< 150ms`), and Core Web Vitals (`LCP < 2.0s`, `INP < 150ms`).\n- **AI-Native Engineering:** Architecting production **Agent Harnesses**, **Agent Skills**, **MCP** servers, and **Spring AI** workflows (`+25%` team delivery velocity).\n- **Full CV & Dynamic PDF Export:** [tuquet.com/cv](https://tuquet.com/cv)',
+    answerVi: '**Tóm tắt năng lực dành cho Nhà tuyển dụng & Quản lý Kỹ thuật:**\n- **Kinh nghiệm:** Hơn 10 năm kỹ thuật fullstack đầu-cuối và lãnh đạo (**Technical Leader, PM, CPO**) qua các hệ thống Web App, Mobile App, Desktop App, Java Microservices và Data Warehouse.\n- **Quản lý & Dẫn dắt:** Technical Leader dẫn dắt squad đa chức năng 6 thành viên tại CMC Global (**VinFast Web Portal** đang triển khai; **Lotte World Mobile App** đã triển khai / tạm dừng); Tác giả **Operon** (**Tauri Desktop App** & Rust runtime); nguyên PM, CPO & Kiến trúc sư trưởng tại iCOMM Tech (5+ kỹ sư, 99.9% SLA).\n- **Năng lực kỹ thuật:** **React / Next.js / Vue / TypeScript**, **Java (Spring Boot)**, **Rust (Tokio) / Tauri**, API OLAP/QueryDSL dưới 150ms (`< 150ms`) và Core Web Vitals (`LCP < 2.0s`, `INP < 150ms`).\n- **Kỹ thuật AI-Native:** Thiết kế **Agent Harness**, **Agent Skills**, **MCP** server và **Spring AI** chuẩn production (`+25%` tốc độ bàn giao đội ngũ).\n- **CV đầy đủ & Xuất PDF trực tiếp:** [tuquet.com/cv](https://tuquet.com/cv)',
   },
   {
-    keys: ['fit', 'role', 'position', 'match', 'suitable', 'openings', 'lead', 'architect', 'scope', 'senior', 'staff', 'principal'],
-    answer: '**Role Fit & Ideal Engagement:**\n- **Technical Project Lead / Tech Lead:** Proven capability managing 5+ engineers across multiple squads, driving architecture roadmaps, technical debt governance, and sprint delivery.\n- **Staff / Principal / Senior Software Engineer:** Deep hands-on mastery of distributed backend systems, Rust async runtimes, Java/Spring Boot services, and complex real-time WebSockets.\n- **Solutions Architect:** Designing resilient cloud and hybrid telemetry architectures, Medallion data pipelines, and enterprise micro-frontends.\n- **Working Culture:** Agile Scrum / Kanban, clean code advocate, mentor, and product-first innovator.',
+    keys: ['fit', 'role', 'position', 'match', 'suitable', 'openings', 'lead', 'architect', 'scope', 'senior', 'staff', 'principal', 'phù hợp', 'vị trí'],
+    answer: '**Role Fit & Ideal Engagement:**\n- **Software Engineer & Architect / Technical Leader:** End-to-end ownership bridging modern React/Next.js/React Native frontends, Java / Spring Boot microservices, and AI-assisted delivery workflows.\n- **Staff / Principal Software Engineer:** Deep hands-on mastery of high-concurrency backend APIs, Rust async systems, Data Warehouse query optimization, and 60fps real-time UI.\n- **Solutions Architect:** Designing microservices, micro-frontends, hybrid mobile WebView bridges, and developer platforms.\n- **Working Culture:** Agile Scrum / Kanban, clean code advocate, mentor, and remote/onsite stakeholder collaboration.',
+    answerVi: '**Mức độ phù hợp & Vai trò mục tiêu:**\n- **Software Engineer & Architect / Technical Leader:** Làm chủ đầu-cuối từ frontend React/Next.js/React Native hiện đại, microservice Java / Spring Boot đến quy trình phát triển ứng dụng AI.\n- **Staff / Principal Software Engineer:** Chuyên sâu backend API đồng thời cao, hệ thống bất đồng bộ Rust, tối ưu truy vấn Data Warehouse và giao diện thời gian thực 60fps.\n- **Solutions Architect:** Thiết kế microservice, micro-frontend, cầu nối hybrid mobile WebView và nền tảng công cụ lập trình.\n- **Văn hóa làm việc:** Agile Scrum / Kanban, đề cao clean code, mentoring và phối hợp hiệu quả với đối tác quốc tế (remote/onsite).',
   },
   {
-    keys: ['telemetry', 'ev', 'websocket', 'sse', 'realtime', 'streaming', 'fleet', 'automotive'],
-    answer: '**Smart EV Telemetry & Fleet Monitoring Architecture:**\n- Tu Quet served as **Technical Project Lead** across 3 squads (5+ engineers) delivering the real-time telemetry streaming platform for smart electric vehicles via CMC Global.\n- Architected a resilient telemetry streaming pipeline (WebSocket/SSE fallback over Redis pub/sub) handling millions of daily EV operational events with sub-100ms latency.\n- Engineered **Virtual Scrolling, Canvas Data Charting, and Debounced State Updates** maintaining 60fps rendering without blocking the Main Thread.\n- Established route & component code splitting keeping INP < 150ms and LCP < 2.0s.',
+    keys: ['telemetry', 'ev', 'vinfast', 'digital twin', 'websocket', 'sse', 'realtime', 'streaming', 'fleet', 'automotive', 'xe điện'],
+    answer: '**VinFast Digital Twin Portal & EV Telemetry Architecture:**\n- Tu Quet serves as **Technical Leader** (6-member hybrid remote/onsite team at CMC Global) owning the fullstack architecture for **VinFast Digital Twin Portal**.\n- Paired a modular **React** & shared Design System frontend (Vite, TanStack Query, ECharts) with **Java (Virtual Threads) & Spring Boot** APIs and WebSocket telemetry streams.\n- Cut Enterprise Data Warehouse query latency to **`< 150ms`** via QueryDSL/JOOQ, materialized views, and Redis Pub/Sub caching while sustaining 60fps UI grids (`LCP < 2.0s`, `INP < 150ms`).\n- Enforced OAuth2/RBAC security, OpenTelemetry/Grafana observability, and AI-assisted workflows (`+25%` team velocity).',
+    answerVi: '**Kiến trúc Cổng VinFast Digital Twin & EV Telemetry:**\n- Tú Quét đảm nhiệm vai trò **Technical Leader** (đội ngũ 6 người hybrid tại CMC Global), sở hữu kiến trúc fullstack cho **VinFast Digital Twin Portal**.\n- Kết hợp frontend **React** dạng module & Design System dùng chung (Vite, TanStack Query, ECharts) với API **Java (Virtual Threads) & Spring Boot** và luồng WebSocket telemetry.\n- Giảm độ trễ truy vấn Data Warehouse xuống **`< 150ms`** nhờ QueryDSL/JOOQ, materialized view và Redis Pub/Sub cache, giữ khung hình 60fps (`LCP < 2.0s`, `INP < 150ms`).\n- Áp dụng bảo mật OAuth2/RBAC, quan sát hệ thống OpenTelemetry/Grafana và quy trình AI-assisted (`+25%` hiệu suất đội ngũ).',
   },
   {
-    keys: ['runner', 'engine', 'zombie', 'chromium', 'crawler', 'rust', 'medallion', 'job object', 'process'],
-    answer: '**Distributed Automation & Process Supervision Engine:**\n- Engineered a zero-leakage process supervision core using kernel process tree sandboxing with IO completion ports, completely eliminating zombie Chromium processes.\n- Designed a 3-tier **Medallion architecture** (Bronze raw BLOB gzip -> Silver Rust sanitizer & deduplicator -> Gold Supabase sync) with zero-cost local caching.\n- Authored the CLI in Rust with rustyline auto-completion, distributed via high-speed zero-dependency native web installers: [github.com/tuquet/cli](https://github.com/tuquet/cli).',
+    keys: ['operon', 'daemon', 'chromium', 'browser', 'rust', 'sqlite', 'skills', 'mcp', 'agent', 'console', 'tauri', 'runtime'],
+    answer: '**Operon — Local-First Automation Runtime & Console (`tuquet/operon`):**\n- **Device-Local Execution Plane (`tuquet/core`):** Rust (`Axum`, `Tokio`, `SQLite`) daemon (`opn`, `:8765`) with single-instance arbitration, asymmetric UI/worker lifecycle isolation, versioned antidetect Chromium driver management (`browser driver`), and an `opn mcp` stdio server for AI agents.\n- **Workstation Console (`tuquet/console`):** Micro-app `host shell` in **Vue, TypeScript, Shadcn UI, TanStack Query, and Tauri**, exposing shared reactive context via `@operon/kernel`.\n- **Cloud Control Plane & Specs:** Supabase PostgreSQL (`workspace` RLS, Vault KEK/DEK secrets, `SKIP LOCKED` job leases) governed by `CONSTRAINTS.md`, `GLOSSARY.json`, ADRs, and automated local CI gates.',
+    answerVi: '**Operon — Nền tảng Tự động hóa Local-First & Console (`tuquet/operon`):**\n- **Tầng thực thi cục bộ (`tuquet/core`):** Daemon Rust (`Axum`, `Tokio`, `SQLite`, binary `opn`, `:8765`) với cơ chế single-instance arbitration, cô lập vòng đời UI/worker, quản lý driver Chromium antidetect theo phiên bản và máy chủ `opn mcp` stdio cho AI agent.\n- **Workstation Console (`tuquet/console`):** `Host shell` kiến trúc micro-app bằng **Vue, TypeScript, Shadcn UI, TanStack Query và Tauri**, cung cấp ngữ cảnh phản ứng dùng chung qua `@operon/kernel`.\n- **Cloud Control Plane & Đặc tả:** Supabase PostgreSQL (`workspace` RLS, Vault KEK/DEK, `SKIP LOCKED` job leases) vận hành chuẩn theo `CONSTRAINTS.md`, `GLOSSARY.json`, ADRs và kiểm thử CI tự động.',
   },
   {
-    keys: ['diagram', 'architecture', 'diagrams', 'pipeline', 'storybook', 'archify', 'visual', 'demo', 'showcase', 'live', 'projects', 'yakmap', 'graph'],
-    answer: '**Interactive Artifacts & Live Architecture Showcases:**\n- **Yak Map Dependency Graph:** Interactive ecosystem lineage and open-source derivation graph at [yakmap.tuquet.com](https://yakmap.tuquet.com/)\n- **Enterprise UI Component Library:** Live interactive Storybook component lab & virtualized data tables at [storybook.tuquet.com](https://storybook.tuquet.com/)\n- **Architecture Docs:** Multi-pillar stealth browser & process supervisor docs at [docs.tuquet.com](https://docs.tuquet.com/)\n- **Storage Hub:** Multi-tenant Cloudflare Pages + D1 + R2 storage plane at [storage.tuquet.com](https://storage.tuquet.com/)\n- **Recent Releases:** Real-time multi-repo changelog & releases at [release.tuquet.com](https://release.tuquet.com/)',
+    keys: ['diagram', 'architecture', 'diagrams', 'pipeline', 'visual', 'demo', 'showcase', 'live', 'projects', 'yakmap', 'graph', 'console', 'dự án', 'kiến trúc'],
+    answer: '**Live Web Apps & Architectural Showcases:**\n- **Operon Web Console:** Live micro-app workstation at [console.tuquet.com](https://console.tuquet.com/)\n- **Operon Flagship Repository:** Umbrella monorepo uniting `core`, `console`, and `docs` at [github.com/tuquet/operon](https://github.com/tuquet/operon)\n- **Projects & Architecture Matrix:** Categorized repositories and live stats at [tuquet.com/projects](https://tuquet.com/projects)\n- **Live Demos:** Deployed web applications and tools at [tuquet.com/demos](https://tuquet.com/demos)\n- **Yak Map Dependency Graph:** Interactive ecosystem lineage graph at [yakmap.tuquet.com](https://yakmap.tuquet.com/)\n- **Recent Releases:** Multi-repo release tracker at [release.tuquet.com](https://release.tuquet.com/)\n- **Storage Hub:** Multi-tenant cloud storage & WebDAV hub at [storage.tuquet.com](https://storage.tuquet.com/)',
+    answerVi: '**Ứng dụng trực tuyến & Dự án Kiến trúc tiêu biểu:**\n- **Operon Web Console:** Không gian làm việc micro-app trực tuyến tại [console.tuquet.com](https://console.tuquet.com/)\n- **Kho mã nguồn chủ lực Operon:** Umbrella monorepo thống nhất `core`, `console` và `docs` tại [github.com/tuquet/operon](https://github.com/tuquet/operon)\n- **Danh mục Dự án:** Toàn bộ repo phân theo nhóm và thống kê trực tiếp tại [tuquet.com/projects](https://tuquet.com/projects)\n- **Live Demos:** Các ứng dụng web và công cụ đã triển khai tại [tuquet.com/demos](https://tuquet.com/demos)\n- **Đồ thị phụ thuộc Yak Map:** Bản đồ kiến trúc hệ sinh thái tương tác tại [yakmap.tuquet.com](https://yakmap.tuquet.com/)\n- **Bảng phát hành Releases:** Theo dõi bản phát hành đa repo tại [release.tuquet.com](https://release.tuquet.com/)\n- **Storage Hub:** Lưu trữ đám mây đa tenant & WebDAV tại [storage.tuquet.com](https://storage.tuquet.com/)',
   },
   {
     keys: ['portal', 'theme park', 'lotte', 'lotte world', 'lotte group', 'booking', 'webview', 'hospitality', 'high-scale web', 'high-traffic'],
-    answer: '**High-Scale Web & Booking Portals – Lotte Group:**\n- Tu Quet served as **Lead Frontend Engineer**, building, refactoring, and delivering feature enhancements for high-traffic Visitor Web Portals and Partner Booking WebViews for **Lotte Group (Lotte World Theme Parks & Hospitality)** via CMC Global.\n- Engineered responsive, pixel-perfect mobile-embedded WebViews in React, Vite, and Tailwind CSS adhering strictly to client design specs.\n- Established seamless local developer workflows and mock data synchronization between Spring Boot backend services and React/React Native clients.',
+    answer: '**Lotte World Adventure App – Seoul & Busan Parks (Korea, Paused):**\n- Tu Quet served as **Technical Leader** (6-member hybrid remote/onsite team at CMC Global) for the official **Lotte World App** (iOS / Android) and multi-service backend (project currently paused).\n- Led end-to-end delivery across **React Native <-> React WebView** bridges and **Java / Spring Boot** park & partner microservices.\n- Built a native device-ID extraction bridge paired with fail-closed MyBatis/MS SQL queries and Redis caching for sub-second ticketless Staff Entry Bypass, and synced 5-minute wait-time aggregation with 3D Unity map markers & AR navigation.',
+    answerVi: '**Ứng dụng Lotte World Adventure – Seoul & Busan (Hàn Quốc, đang tạm dừng):**\n- Tú Quét giữ vai trò **Technical Leader** (đội ngũ 6 thành viên tại CMC Global) cho ứng dụng chính thức **Lotte World App** (iOS / Android) và hệ thống dịch vụ backend (dự án hiện đang tạm dừng).\n- Dẫn dắt triển khai đầu-cuối qua cầu nối **React Native <-> React WebView** và các microservice **Java / Spring Boot**.\n- Xây dựng native device-ID bridge kết hợp truy vấn MyBatis/MS SQL fail-closed và Redis cache cho tính năng Staff Entry Bypass không cần vé dưới 1 giây, đồng thời đồng bộ thời gian chờ 5 phút/lần lên bản đồ 3D Unity & dẫn đường AR.',
   },
   {
-    keys: ['team', 'squad', 'mentoring', 'management', 'culture', '5+', 'leadership', 'lead'],
-    answer: '**Leadership Experience & Team Scaling:**\n- Scaled and led cross-functional teams: **Technical Project Lead** (5+ engineers across 3 squads), **Chief Product Officer & Tech Lead** (ICOMM Tech, scaling SaaS products to thousands of businesses), **Senior Software Engineer** (OpenCommerce Group).\n- Mentored 5+ engineers in Component-Driven Architecture, JavaScript Clean Code, and performance profiling.\n- Recognized with the **Rising Star Award** (2025).',
+    keys: ['team', 'squad', 'mentoring', 'management', 'culture', 'leadership', 'lead', 'members', 'lãnh đạo', 'đội ngũ', 'giải thưởng'],
+    answer: '**Leadership Experience & Team Scaling:**\n- **CMC Global (09/2024 – Present):** Technical Leader guiding 6-member cross-functional squads on the active **VinFast Digital Twin Web Portal** and previously **Lotte World Adventure Mobile App** (iOS/Android, paused) with Korean & global stakeholders.\n- **Operon (2024 – Present · Open-Source R&D):** Creator & Principal Architect building a **Desktop App (Tauri)**, Web Console, and Rust CLI/Daemon automation runtime.\n- **iCOMM Tech (05/2020 – 08/2024):** PM, Chief Product Officer (CPO) & Principal Architect leading a 5+ engineer team on **SocialBeat** BI Web App & Data Warehouse (99.9% SLA).\n- **Early Foundation (2014 – 2020):** Senior Fullstack Engineer at **OpenCommerce Group** (`ShopBase` Web App), **TDT Asia** (`Project Waku` Web App), **Lush Era** (`Dr.HereOnline` Web & Mobile Apps), and **Bao Phat Web Solutions** (50+ corporate/SEO websites).\n- **Awards:** **Rising Star Award** (CMC Global, 2025), **Team of the Year** (iCOMM, 2023), and **Outstanding Employee** (iCOMM, 2022).',
+    answerVi: '**Kinh nghiệm Lãnh đạo & Phát triển Đội ngũ:**\n- **CMC Global (09/2024 – Hiện tại):** Technical Leader dẫn dắt squad 6 thành viên triển khai **VinFast Digital Twin Web Portal** (đang vận hành) và trước đó là **Lotte World Adventure Mobile App** (iOS/Android, đã tạm dừng) cùng đối tác Hàn Quốc & quốc tế.\n- **Operon (2024 – Hiện tại · R&D Mã nguồn mở):** Tác giả & Kiến trúc sư trưởng xây dựng **Desktop App (Tauri)**, Web Console và Rust CLI/Daemon.\n- **iCOMM Tech (05/2020 – 08/2024):** PM, CPO & Kiến trúc sư trưởng dẫn dắt đội ngũ 5+ kỹ sư phát triển **SocialBeat** BI Web App & Data Warehouse (99.9% SLA).\n- **Giai đoạn trước (2014 – 2020):** Senior Fullstack Engineer tại **OpenCommerce Group** (`ShopBase`), **TDT Asia** (`Project Waku`), **Lush Era** (`Dr.HereOnline`) và **Bao Phat Web Solutions** (50+ website doanh nghiệp/SEO).\n- **Giải thưởng:** **Rising Star Award** (CMC Global, 2025), **Team of the Year** (iCOMM, 2023) và **Nhân viên xuất sắc** (iCOMM, 2022).',
   },
   {
-    keys: ['stack', 'tech stack', 'technologies', 'skill', 'skills', 'programming', 'languages', 'frameworks'],
-    answer: '**Core Tech Stack & Architecture:**\n- **Backend/Systems:** Rust (Tokio, Process Sandboxing), Java / Spring Boot (Security, JPA), Node.js / NestJS, Event-Driven Architecture.\n- **Frontend:** React (Concurrent Features, Next.js, Server Components), Vue.js (Nuxt), TypeScript, Micro-frontends (Module Federation), Tailwind CSS.\n- **Data & Real-time:** Redis, WebSockets, SSE, PostgreSQL, Supabase, ClickHouse OLAP, Apache Solr.\n- **DevOps & Cloud:** Docker, Kubernetes fundamentals, Azure Cloud, Cloud CLI, GitHub Actions CI/CD.\n- **AI & Productivity:** Model Context Protocol (MCP), LLM toolchains, Playwright, Vitest, Jest.',
+    keys: ['education', 'fpt', 'degree', 'university', 'baophat', 'wordpress', 'php', 'seo', 'taseco', 'datxanh', 'học vấn', 'đại học'],
+    answer: '**Education & Early Career Foundation (2012 – 2016):**\n- **Education:** **FPT University** (2012 – 2014) – **Website Design & Development** (GPA: 8.2/10 · English: Professional Working Proficiency).\n- **Bao Phat Web Solutions (09/2014 – 11/2016):** Fullstack Web Developer delivering SEO-first corporate websites, custom WordPress themes/plugins, and PHP/MySQL platforms for **50+ enterprise clients** (notably `taseco.vn`, `datxanhmienbac.com.vn`).',
+    answerVi: '**Học vấn & Nền tảng sự nghiệp (2012 – 2016):**\n- **Học vấn:** **Đại học FPT** (2012 – 2014) – **Thiết kế & Phát triển Website** (GPA: 8.2/10 · Tiếng Anh: Sử dụng thành thạo trong công việc).\n- **Bao Phat Web Solutions (09/2014 – 11/2016):** Fullstack Web Developer triển khai website chuẩn SEO, theme/plugin WordPress tùy biến và nền tảng PHP/MySQL cho **hơn 50 khách hàng doanh nghiệp** (tiêu biểu `taseco.vn`, `datxanhmienbac.com.vn`).',
   },
   {
-    keys: ['contact', 'email', 'phone', 'location', 'interview', 'salary', 'connect', 'reach', 'schedule'],
-    answer: '**Contact Information & Availability:**\n- Tu Quet is open to high-impact technical leadership and senior engineering opportunities.\n- **Phone:** +84 936 683 088\n- **Email:** tunyk.93@gmail.com\n- **Location:** Ha Dong, Ha Noi, Vietnam\n- **Online CV:** [tuquet.com/cv](https://tuquet.com/cv)\n- **GitHub:** [github.com/tuquet](https://github.com/tuquet)\n- **LinkedIn:** [linkedin.com/in/tuquet](https://www.linkedin.com/in/tuquet)\n- **NPM Organization:** [npmjs.com/org/tuquet](https://www.npmjs.com/org/tuquet)',
+    keys: ['stack', 'tech stack', 'technologies', 'skill', 'skills', 'programming', 'languages', 'frameworks', 'công nghệ', 'kỹ năng'],
+    answer: '**Core & R&D Tech Stack:**\n- **Frontend & Mobile:** TypeScript, React, Next.js, Vue, Angular, React Native (WebView Bridge), Tauri, Tailwind CSS, Zustand, TanStack Query.\n- **Backend & Systems:** Java (Virtual Threads, GraalVM), Spring Boot, Spring Cloud / Security, WebFlux, Rust (Tokio), C# (.NET Core), Python, PHP, REST, gRPC, GraphQL (DGS), Kafka, RabbitMQ.\n- **Data & Warehousing:** PostgreSQL, MS SQL Server, MySQL, ClickHouse OLAP, Apache Solr, Redis Cluster, QueryDSL / JOOQ / MyBatis / Hibernate.\n- **AI-Native & Cloud:** Agent Harness, Reusable Agent Skills, MCP, Spring AI / LangChain4j, Docker, Kubernetes (AKS/AWS), OpenTelemetry, Prometheus, Grafana, Playwright, Testcontainers.',
+    answerVi: '**Công nghệ Cốt lõi & R&D:**\n- **Frontend & Mobile:** TypeScript, React, Next.js, Vue, Angular, React Native (WebView Bridge), Tauri, Tailwind CSS, Zustand, TanStack Query.\n- **Backend & Hệ thống:** Java (Virtual Threads, GraalVM), Spring Boot, Spring Cloud / Security, WebFlux, Rust (Tokio), C# (.NET Core), Python, PHP, REST, gRPC, GraphQL (DGS), Kafka, RabbitMQ.\n- **Dữ liệu & Kho dữ liệu:** PostgreSQL, MS SQL Server, MySQL, ClickHouse OLAP, Apache Solr, Redis Cluster, QueryDSL / JOOQ / MyBatis / Hibernate.\n- **AI-Native & Cloud:** Agent Harness, Reusable Agent Skills, MCP, Spring AI / LangChain4j, Docker, Kubernetes (AKS/AWS), OpenTelemetry, Prometheus, Grafana, Playwright, Testcontainers.',
+  },
+  {
+    keys: ['contact', 'email', 'phone', 'location', 'interview', 'salary', 'connect', 'reach', 'schedule', 'liên hệ', 'phỏng vấn', 'hợp tác', 'địa chỉ'],
+    answer: '**Contact Information & Availability:**\n- Tu Quet is open to **Technical Leadership**, **Software Architecture**, and **Product Engineering** opportunities.\n- **Phone:** +84 936 683 088\n- **Email:** tunyk.93@gmail.com\n- **Location:** Ha Noi, Vietnam\n- **Online CV & PDF Export:** [tuquet.com/cv](https://tuquet.com/cv)\n- **GitHub:** [github.com/tuquet](https://github.com/tuquet)\n- **LinkedIn:** [linkedin.com/in/tuquet](https://www.linkedin.com/in/tuquet)',
+    answerVi: '**Thông tin Liên hệ & Sẵn sàng Hợp tác:**\n- Tú Quét sẵn sàng trao đổi về các cơ hội **Technical Leader**, **Software Architect** và **Phát triển Sản phẩm**.\n- **Điện thoại:** +84 936 683 088\n- **Email:** tunyk.93@gmail.com\n- **Vị trí:** Hà Nội, Việt Nam\n- **CV trực tuyến & Xuất PDF:** [tuquet.com/cv](https://tuquet.com/cv)\n- **GitHub:** [github.com/tuquet](https://github.com/tuquet)\n- **LinkedIn:** [linkedin.com/in/tuquet](https://www.linkedin.com/in/tuquet)',
   },
 ]
 
-const chips = [
-  { label: 'CV / Resume', q: 'Where can I find Tu Quet\'s CV or Resume link?' },
-  { label: 'Executive Summary', q: 'Can you provide an executive summary of Tu Quet\'s background?' },
-  { label: 'EV Telemetry', q: 'Tell me about the Smart EV Telemetry platform' },
-  { label: 'Process Engine', q: 'How does his Rust zero-zombie process supervisor work?' },
-  { label: 'Contact', q: 'How can I contact Tu Quet for an interview?' },
-]
+const chips = computed(() => {
+  if (siteLang.value === 'vi') {
+    return [
+      { label: 'CV / Hồ sơ', q: 'Xem link CV hoặc tải PDF của Tú Quét ở đâu?' },
+      { label: 'Tóm tắt năng lực', q: 'Cho tôi tóm tắt năng lực của Tú Quét' },
+      { label: 'Operon Runtime', q: 'Giới thiệu về Operon runtime và console' },
+      { label: 'EV Telemetry', q: 'Kiến trúc nền tảng VinFast EV Telemetry ra sao?' },
+      { label: 'Liên hệ', q: 'Làm thế nào để liên hệ phỏng vấn hoặc hợp tác với Tú Quét?' },
+    ]
+  }
+  return [
+    { label: 'CV / Resume', q: 'Where can I find Tu Quet\'s CV or Resume link?' },
+    { label: 'Executive Summary', q: 'Can you provide an executive summary of Tu Quet\'s background?' },
+    { label: 'Operon Runtime', q: 'Tell me about the Operon automation runtime & console' },
+    { label: 'EV Telemetry', q: 'Tell me about the Smart EV Telemetry platform' },
+    { label: 'Contact', q: 'How can I contact Tu Quet for an interview?' },
+  ]
+})
 
 function queryKnowledge(query: string): string {
   const lower = query.toLowerCase().trim()
 
-  let bestMatch: any = null
+  let bestMatch: string | null = null
   let maxScore = 0
 
   knowledge.forEach((item) => {
     let score = 0
     item.keys.forEach((key) => {
       const lowerKey = key.toLowerCase()
-      if (lower.includes(lowerKey)) {
+      const escaped = lowerKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      const usesBoundary = /^\w/.test(lowerKey) && /\w$/.test(lowerKey)
+      const matched = usesBoundary
+        ? new RegExp(`\\b${escaped}\\b`, 'i').test(lower)
+        : lower.includes(lowerKey)
+
+      if (matched) {
         score += lowerKey.length >= 3 ? lowerKey.length : 2
-        if (['cv', 'resume'].includes(lowerKey)) {
-          if (new RegExp(`\\b${lowerKey}\\b`, 'i').test(lower))
-            score += 10
-        }
+        if (['cv', 'resume', 'hồ sơ'].includes(lowerKey))
+          score += 10
       }
     })
     if (score > maxScore) {
       maxScore = score
-      bestMatch = typeof item.answer === 'function' ? item.answer() : item.answer
+      const raw = siteLang.value === 'vi' && item.answerVi ? item.answerVi : item.answer
+      bestMatch = typeof raw === 'function' ? raw() : raw
     }
   })
 
   if (!bestMatch) {
-    return 'I can answer questions regarding Tu Quet\'s **CV / Resume**, **technical architecture**, **distributed systems experience**, **leadership across 5+ engineers**, **role fit check**, or **contact info**. Feel free to pick a prompt below!'
+    if (siteLang.value === 'vi')
+      return 'Tôi có thể giải đáp về **CV / Hồ sơ**, **Operon Runtime & Console**, **VinFast Digital Twin**, **Lotte World App**, **mức độ phù hợp vai trò** hoặc **thông tin liên hệ** của Tú Quét. Bạn có thể chọn nhanh một gợi ý bên dưới!'
+    return 'I can answer questions regarding Tu Quet\'s **CV / Resume**, **Operon Runtime & Console**, **VinFast Digital Twin**, **Lotte World App**, **role fit**, or **contact info**. Feel free to pick a prompt below!'
   }
 
   return bestMatch
@@ -153,9 +204,15 @@ function handleSend(text?: string) {
 }
 
 function formatMarkdown(text: string) {
-  return text
+  const escaped = text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+
+  return escaped
+    .replace(/`([^`]+)`/g, '<code class="px-1 py-0.5 rounded text-[12px] font-mono bg-zinc-200/70 dark:bg-zinc-800">$1</code>')
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener" class="underline underline-offset-2 font-medium hover:text-black dark:hover:text-white">$1</a>')
+    .replace(/\[(.*?)\]\(((?:https?:\/\/|\/)[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" class="underline underline-offset-2 font-medium hover:text-black dark:hover:text-white">$1</a>')
     .replace(/\n- /g, '<br/>• ')
     .replace(/\n\n/g, '<br/><br/>')
     .replace(/\n/g, '<br/>')
@@ -202,7 +259,7 @@ onUnmounted(() => {
     <button
       type="button"
       class="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full text-xs font-medium bg-zinc-900 text-zinc-50 hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200 border border-zinc-800 dark:border-zinc-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-150 cursor-pointer"
-      aria-label="Ask Tu Quet"
+      :aria-label="siteLang === 'vi' ? 'Hỏi Tú Quét AI' : 'Ask Tu Quet'"
       @click="toggleOpen"
     >
       <img
@@ -210,7 +267,7 @@ onUnmounted(() => {
         alt="Tu Quet"
         class="w-4 h-4 sm:w-4.5 sm:h-4.5 rounded-full object-cover"
       >
-      <span>Ask Tu Quet</span>
+      <span>{{ siteLang === 'vi' ? 'Hỏi Tú Quét' : 'Ask Tu Quet' }}</span>
       <span class="inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-semibold bg-zinc-800 text-zinc-300 dark:bg-zinc-200 dark:text-zinc-800">AI</span>
     </button>
 
@@ -222,7 +279,7 @@ onUnmounted(() => {
         ? 'w-auto md:w-[580px] h-[calc(100dvh-75px)] md:h-[680px]'
         : 'w-auto md:w-[390px] h-[calc(100dvh-75px)] md:h-[530px] max-h-[580px]'"
       role="dialog"
-      aria-label="Tu Quet AI Assistant"
+      :aria-label="siteLang === 'vi' ? 'Trợ lý AI Tú Quét' : 'Tu Quet AI Assistant'"
     >
       <!-- Dialog Header -->
       <div class="shrink-0 flex items-center justify-between px-4 py-3 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/60">
@@ -234,11 +291,11 @@ onUnmounted(() => {
           >
           <div>
             <div class="text-[13px] font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight flex items-center gap-1.5">
-              <span>Tu Quet AI</span>
-              <span class="text-[10px] px-1 rounded font-normal bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">Online</span>
+              <span>{{ siteLang === 'vi' ? 'Tú Quét AI' : 'Tu Quet AI' }}</span>
+              <span class="text-[10px] px-1 rounded font-normal bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">{{ siteLang === 'vi' ? 'Trực tuyến' : 'Online' }}</span>
             </div>
             <div class="text-[11px] text-zinc-500 dark:text-zinc-400">
-              Distributed systems &amp; role fit
+              {{ siteLang === 'vi' ? 'Hệ thống phân tán & Mức độ phù hợp' : 'Distributed systems & role fit' }}
             </div>
           </div>
         </div>
@@ -248,7 +305,7 @@ onUnmounted(() => {
           <button
             type="button"
             class="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
-            :title="isExpanded ? 'Collapse' : 'Expand'"
+            :title="isExpanded ? (siteLang === 'vi' ? 'Thu gọn' : 'Collapse') : (siteLang === 'vi' ? 'Mở rộng' : 'Expand')"
             @click="isExpanded = !isExpanded"
           >
             <div :class="isExpanded ? 'i-carbon-minimize' : 'i-carbon-maximize'" class="text-sm" />
@@ -258,7 +315,7 @@ onUnmounted(() => {
           <button
             type="button"
             class="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
-            title="Close"
+            :title="siteLang === 'vi' ? 'Đóng' : 'Close'"
             @click="isOpen = false"
           >
             <div class="i-carbon-close text-sm" />
@@ -304,7 +361,7 @@ onUnmounted(() => {
           v-model="inputQuery"
           type="text"
           class="flex-1 h-[38px] px-3 py-2 text-[13px] bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-zinc-950 dark:focus:ring-zinc-300 transition-colors"
-          placeholder="Ask a question about Tu Quet..."
+          :placeholder="siteLang === 'vi' ? 'Đặt câu hỏi về Tú Quét...' : 'Ask a question about Tu Quet...'"
           @keydown.enter="handleSend()"
         >
         <button
@@ -312,7 +369,7 @@ onUnmounted(() => {
           class="shrink-0 h-[38px] px-3.5 text-[13px] font-medium text-white bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200 rounded-lg transition-all active:scale-95 cursor-pointer shadow-xs inline-flex items-center gap-1.5"
           @click="handleSend()"
         >
-          <span>Send</span>
+          <span>{{ siteLang === 'vi' ? 'Gửi' : 'Send' }}</span>
           <div class="i-carbon-send-alt text-xs" />
         </button>
       </div>

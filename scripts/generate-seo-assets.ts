@@ -59,18 +59,15 @@ function collectPages(): { pages: PageInfo[]; posts: PageInfo[] } {
   const pages: PageInfo[] = [];
   const posts: PageInfo[] = [];
 
-  // Core pages mapping
+  // Core pages mapping (exclude hidden placeholder routes)
   const corePages: Record<string, { route: string; priority: string; changefreq: string }> = {
     'index.md': { route: '/', priority: '1.0', changefreq: 'daily' },
     'projects.md': { route: '/projects', priority: '0.9', changefreq: 'weekly' },
     'cv.md': { route: '/cv', priority: '0.9', changefreq: 'weekly' },
-    'talks.md': { route: '/talks', priority: '0.7', changefreq: 'monthly' },
-    'podcasts.md': { route: '/podcasts', priority: '0.7', changefreq: 'monthly' },
-    'streams.md': { route: '/streams', priority: '0.7', changefreq: 'monthly' },
     'notes.md': { route: '/notes', priority: '0.8', changefreq: 'weekly' },
-    'demos.md': { route: '/demos', priority: '0.7', changefreq: 'monthly' },
+    'demos.md': { route: '/demos', priority: '0.8', changefreq: 'monthly' },
     'photos.md': { route: '/photos', priority: '0.6', changefreq: 'monthly' },
-    'sponsors-list.md': { route: '/sponsors-list', priority: '0.6', changefreq: 'monthly' },
+    'clients.md': { route: '/clients', priority: '0.8', changefreq: 'monthly' },
   };
 
   // Add root core pages

@@ -44,7 +44,7 @@ onMounted(() => {
         :is="c.link ? (c.link.startsWith('http') ? 'a' : 'RouterLink') : 'div'"
         v-for="c in sponsors"
         :key="c.id"
-        v-tooltip="[c.name, c.domain || c.timeline].filter(Boolean).join(' · ')"
+        v-tooltip="[c.name, c.via, c.domain || c.timeline].filter(Boolean).join(' · ')"
         :style="{
           width: `${c.radius * 2}px`,
           height: `${c.radius * 2}px`,

@@ -302,7 +302,7 @@ h6:focus .header-anchor {
   transform: translateY(3px);
   line-height: 100%;
   color: var(--fg-light) !important;
-  --uno: gap-1 transition rounded px1.5 py1 important-border-0 font-condensed;
+  --uno: gap-1.5 transition rounded px2 py1.2 important-border-0 font-condensed;
 }
 
 .markdown-magic-link:hover {
@@ -312,12 +312,13 @@ h6:focus .header-anchor {
 
 .markdown-magic-link-image {
   display: inline-block;
-  height: 1.1em;
-  width: 1.1em;
-  background-size: cover;
+  flex-shrink: 0;
+  height: 1.35em;
+  width: 1.35em;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 .markdown-magic-link.markdown-magic-link-github-at {
@@ -328,6 +329,7 @@ h6:focus .header-anchor {
 .markdown-magic-link.markdown-magic-link-github-at .markdown-magic-link-image {
   height: 1.6em;
   width: 1.6em;
+  background-size: cover;
   border-radius: 50%;
 }
 

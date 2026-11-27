@@ -1,17 +1,22 @@
 ---
-title: Sponsors - Tu Quet
-display: Sponsors
-subtitle: Great thanks for all the Sponsors!
-description: Sponsors of Tu Quet
+title: Redirecting to Clients - Tu Quet
+titleVi: Đang chuyển hướng tới trang Khách hàng - Tú Quét
+display: ''
 ---
 
-<!-- @layout-full-width -->
+<script setup lang="ts">
+const router = useRouter()
 
-<div class="prose pb5 mx-auto" slide-enter slide-enter-2>
-  <SponsorButtons />
-  <hr>
-</div>
+onMounted(() => {
+  router.replace('/clients')
+})
+</script>
 
-<div slide-enter slide-enter-4>
-  <SponsorsView />
+<div class="prose m-auto py-12 text-center">
+  <p class="op70 lang-en">
+    Redirecting to <RouterLink to="/clients">/clients</RouterLink>...
+  </p>
+  <p class="op70 lang-vi">
+    Đang chuyển hướng tới <RouterLink to="/clients">/clients</RouterLink>...
+  </p>
 </div>

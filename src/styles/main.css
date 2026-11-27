@@ -225,3 +225,14 @@ html:not(.dark) [img-dark] {
 .fade-leave-to {
   opacity: 0;
 }
+
+/* Bilingual page blocks */
+html[data-lang='vi'] .home-lang-en,
+html[data-lang='vi'] .lang-en {
+  display: none !important;
+}
+
+html:not([data-lang='vi']) .home-lang-vi,
+html:not([data-lang='vi']) .lang-vi {
+  display: none !important;
+}

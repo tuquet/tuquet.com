@@ -15,6 +15,7 @@ const sponsors = _sponsors.map((sponsor: any, idx: number) => ({
   id: sponsor.id || `sponsor-${idx}`,
   name: sponsor.name,
   tier: sponsor.tier,
+  via: sponsor.via,
   avatar: sponsor.logo,
   link: sponsor.link,
   domain: sponsor.domain,
@@ -22,7 +23,7 @@ const sponsors = _sponsors.map((sponsor: any, idx: number) => ({
   desc: sponsor.desc,
   tags: sponsor.tags,
   weight: sponsor.weight || 20,
-  org: sponsor.tier === 'special',
+  org: sponsor.tier === 'company',
   radius: 0,
   position: { x: 0, y: 0 },
 }))
